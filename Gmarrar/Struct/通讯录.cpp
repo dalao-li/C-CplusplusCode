@@ -110,7 +110,7 @@ void ouput_Information_Value(struct Message mes[]) {
 			case 1:
 				cout<<"请输入想显示的人员的序号：";
 				cin>>number;
-				if(number>N) {
+				if(number > N || number < 1 ) {
 					cout<<"查无此人，错误！！！："<<endl;
 				}
 				break;

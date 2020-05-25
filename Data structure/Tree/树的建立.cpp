@@ -67,7 +67,7 @@ int sumOfNode(TreeList &root) {
 
 //计算树的深度
 int deepOfTree(TreeList &root) {
-	return deepOfTree(root->leftSon)>deepOfTree(root->rightSon)?deepOfTree(root->leftSon)+1:deepOfTree(root->rightSon)+1;
+	return max(deepOfTree(root->leftSon),deepOfTree(root->rightSon))+1;
 }
 
 

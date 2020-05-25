@@ -6,14 +6,14 @@ void addNumbers(char num1[],char num2[],int sum[]) {
 	int i,j,length;
 	int n2[100]= {0};
 	length=max(strlen(num1),strlen(num2));
-	//µÍÎ»ÔÚÇ°£¬¸ßÎ»ÔÚºó
+	//ä½ä½åœ¨å‰ï¼Œé«˜ä½åœ¨å
 	for(i=strlen(num1)-1,j=0; i>=0; i--,j++) {
 		sum[j]=num1[i]-'0';
 	}
 	for(i=strlen(num2)-1,j=0; i>=0; i--,j++) {
 		n2[j]=num2[i]-'0';
 	}
-	//Ïà¼Ó
+	//ç›¸åŠ 
 	for(i=0; i<=length; i++) {
 		sum[i]+=n2[i];
 		if(sum[i]>9) {
@@ -29,8 +29,8 @@ void addNumbers(char num1[],char num2[],int sum[]) {
 	}
 }
 int main() {
-	char num1[] = "1234567891234567891234"; // µÚÒ»¸ö´óÊı
-	char num2[] = "2345678912345678913345"; // µÚ¶ş¸ö´óÊı
+	char num1[] = "1234567891234567891234"; // ç¬¬ä¸€ä¸ªå¤§æ•°
+	char num2[] = "2345678912345678913345"; // ç¬¬äºŒä¸ªå¤§æ•°
 	int sum[1000];
 	addNumbers(num1,num2,sum);
 	return 0;
