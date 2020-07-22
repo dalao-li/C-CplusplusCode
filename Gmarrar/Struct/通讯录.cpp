@@ -1,376 +1,477 @@
 /*
-	Name:Í¨Ñ¶Â¼
-	Copyright:
-	Author:
-	Date: 15/04/18 09:09
-	Description:
+        Name:é€šè®¯å½•
+        Copyright:
+        Author:
+        Date: 15/04/18 09:09
+        Description:
 */
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 #define N 1
 using namespace std;
-struct Message {
-	string student_num_school;
-	string student_name;
-	string student_sex;
-	string student_adress_home;
-	string student_num_phone;
-	string student_e_mail;
-	float score[4];                                          /*score[0]µ½score[3]·Ö±ğÖ¸´úÊıÑ§¡¢Ó¢Óï¡¢ÕşÖÎ¡¢×¨Òµ¿ÎµÄ³É¼¨,sum_score±íÊ¾×Ü³É¼¨*/
-	float sum_score=0;
-	struct Message *next;
-} mes[N];                                                    /*½¨Á¢½á¹¹ÌåÊı×émes[N]*/
+struct Info {
+    string num;
+    string name;
+    string sex;
+    string address;
+    string phone;
+    string email;
+    float score
+        [4]; /*score[0]åˆ°score[3]åˆ†åˆ«æŒ‡ä»£æ•°å­¦ã€è‹±è¯­ã€æ”¿æ²»ã€ä¸“ä¸šè¯¾çš„æˆç»©,sum_scoreè¡¨ç¤ºæ€»æˆç»©*/
+    float sum_score = 0;
+    struct Info* next;
+} mes[N]; /*å»ºç«‹ç»“æ„ä½“æ•°ç»„mes[N]*/
 
 int main() {
-	void input_Information_Value(struct Message mes[]);
-	void ouput_Information_Value(struct Message mes[]);
-	void query_Information_Value(struct Message mes[]);
-	void modify_Information_Value();
-	struct Message mes[N],*head,*p=mes;
-	while(1) {
-		int first_colon;
-		cout<<"                                            Ö÷²Ëµ¥                                          "<<endl;
-		cout<<"============================================================================================"<<endl;
-		cout<<"                *Ò»¼¶Ä¿Â¼:1.ÊäÈëĞÅÏ¢  2.ÏÔÊ¾ĞÅÏ¢  3.²éÑ¯ĞÅÏ¢  4.ĞŞ¸ÄĞÅÏ¢  5.ÍË³ö  *"<<endl;
-		cout<<"============================================================================================"<<endl;
-		cout<<"-------------------------------------Ò»¹²ÓĞ"<<N<<"Î»Í¬Ñ§µÄĞÅÏ¢------------------------------------"<<endl;
-		cin>>first_colon;
-		switch(first_colon) {
-			case 1:
-				input_Information_Value(p);
-				break;
-			case 2:
-				ouput_Information_Value(p);
-				break;
-			case 3:
-				query_Information_Value(p);
-				break;
-			case 4:
-				modify_Information_Value();
-				break;
-			case 5:
-				exit(0);                            /*ÖÕÖ¹³ÌĞò*/
-			default:
-				cout<<"ÃüÁîÊäÈë´íÎó£¡£¡£¡"<<endl;
-		}
-	}
-	return 0;
+    void input(struct Info mes[]);
+    void ouput(struct Info mes[]);
+    void query(struct Info mes[]);
+    void modify();
+    struct Info mes[N], *head, *p = mes;
+    while (1) {
+        int first_colon;
+        cout << "                                            ä¸»èœå•            "
+                "                              "
+             << endl;
+        cout << "=============================================================="
+                "=============================="
+             << endl;
+        cout << "                *ä¸€çº§ç›®å½•:1.è¾“å…¥ä¿¡æ¯  2.æ˜¾ç¤ºä¿¡æ¯  3.æŸ¥è¯¢ä¿¡æ¯  "
+                "4.ä¿®æ”¹ä¿¡æ¯  5.é€€å‡º  *"
+             << endl;
+        cout << "=============================================================="
+                "=============================="
+             << endl;
+        cout << "-------------------------------------ä¸€å…±æœ‰" << N
+             << "ä½åŒå­¦çš„ä¿¡æ¯------------------------------------" << endl;
+        cin >> first_colon;
+        switch (first_colon) {
+            case 1:
+                input(p);
+                break;
+            case 2:
+                ouput(p);
+                break;
+            case 3:
+                query(p);
+                break;
+            case 4:
+                modify();
+                break;
+            case 5:
+                exit(0); /*ç»ˆæ­¢ç¨‹åº*/
+            default:
+                cout << "å‘½ä»¤è¾“å…¥é”™è¯¯ï¼ï¼ï¼" << endl;
+        }
+    }
+    return 0;
 }
 
-/*ÊäÈëº¯Êı*/
-void input_Information_Value(struct Message mes[]) {
-	int i,j;
-	struct Message *p;
-	for(i=0,p=mes; p<mes+N; p++,i++) {
-		cout<<"µÚ"<<i+1<<"Î»³ÉÔ±£º"<<endl;
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"Î»³ÉÔ±µÄÑ§ºÅ£º";
-		cin>>p->student_num_school;
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"Î»³ÉÔ±µÄĞÕÃû£º";
-		cin>>p->student_name;
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"Î»³ÉÔ±µÄĞÔ±ğ£º";
-		cin>>p->student_sex;
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"Î»³ÉÔ±µÄ¼ÒÍ¥×¡Ö·£º";
-		cin>>p->student_adress_home;
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"Î»³ÉÔ±µÄµç»°ºÅÂë£º";
-		cin>>p->student_num_phone;
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"Î»³ÉÔ±µÄµç×ÓÓÊÏä£º";
-		cin>>p->student_e_mail;
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"ÃûÑ§ÉúµÄÊıÑ§³É¼¨£º";
-		cin>>p->score[0];
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"ÃûÑ§ÉúµÄÓ¢Óï³É¼¨£º";
-		cin>>p->score[1];
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"ÃûÑ§ÉúµÄÕşÖÎ³É¼¨£º";
-		cin>>p->score[2];
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"ÃûÑ§ÉúµÄ×¨Òµ¿Î³É¼¨£º";
-		cin>>p->score[3];
-		for(j=0; j<4; j++) {
-			p->sum_score=p->sum_score+p->score[j];
-		}
-	}
+/*è¾“å…¥å‡½æ•°*/
+void input(struct Info mes[]) {
+    struct Info* p;
+    for (int i = 0, p = mes; p < mes + N; p++, i++) {
+        cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜ï¼š" << endl;
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "ä½æˆå‘˜çš„å­¦å·ï¼š";
+        cin >> p->num;
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "ä½æˆå‘˜çš„å§“åï¼š";
+        cin >> p->name;
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "ä½æˆå‘˜çš„æ€§åˆ«ï¼š";
+        cin >> p->sex;
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "ä½æˆå‘˜çš„å®¶åº­ä½å€ï¼š";
+        cin >> p->address;
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "ä½æˆå‘˜çš„ç”µè¯å·ç ï¼š";
+        cin >> p->phone;
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "ä½æˆå‘˜çš„ç”µå­é‚®ç®±ï¼š";
+        cin >> p->email;
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "åå­¦ç”Ÿçš„æ•°å­¦æˆç»©ï¼š";
+        cin >> p->score[0];
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "åå­¦ç”Ÿçš„è‹±è¯­æˆç»©ï¼š";
+        cin >> p->score[1];
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "åå­¦ç”Ÿçš„æ”¿æ²»æˆç»©ï¼š";
+        cin >> p->score[2];
+        cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "åå­¦ç”Ÿçš„ä¸“ä¸šè¯¾æˆç»©ï¼š";
+        cin >> p->score[3];
+        for (int j = 0; j < 4; j++) {
+            p->sum_score = p->sum_score + p->score[j];
+        }
+    }
 }
 
-/*ÏÔÊ¾º¯Êı*/
-void ouput_Information_Value(struct Message mes[]) {
-	int i,number,third_colon,forth_colon,sign=1,wign=1;
-	struct Message *head,*p;
-	p=mes;
-	/*½¨Á¢Á´±í*/
-	head=p;                                                      /*½«µÚÒ»¸öÔªËØµÄµØÖ··ÅÈëÍ·Ö¸ÕëÖĞ*/
-	for(i=0; i<N-1; i++) {                                       /*ÒÀ´Î½«ºóÒ»¸öÔªËØµÄµØÖ··ÅÈëÇ°Ò»¸öÔªËØµÄnext³ÉÔ±ÖĞ*/
-		(p+i)->next=(p+i+1);
-	}
-	(p+N-1)->next=NULL;                                         /*×îºóÒ»¸öÔªËØµÄnextÖĞ·ÅÈëNULL*/
-	cout<<"                                                          "<<endl;
-	while(sign) {
-		cout<<"---------------------------------------------------------------------------------------------------"<<endl;
-		cout<<"       **¶ş¼¶Ä¿Â¼£ºÏÔÊ¾ÊäÈë½á¹û  1.¸öÈËĞÅÏ¢ÏÔÊ¾  2.È«²¿ĞÅÏ¢ÏÔÊ¾  3.ÏÔÊ¾³É¼¨  4.ÍË³öÏÔÊ¾"<<endl;
-		cout<<"---------------------------------------------------------------------------------------------------"<<endl;
-		cin>>third_colon;
-		switch(third_colon) {
-			case 1:
-				cout<<"ÇëÊäÈëÏëÏÔÊ¾µÄÈËÔ±µÄĞòºÅ£º";
-				cin>>number;
-				if(number > N || number < 1 ) {
-					cout<<"²éÎŞ´ËÈË£¬´íÎó£¡£¡£¡£º"<<endl;
-				}
-				break;
-				if(number<=N) {
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄÑ§ºÅÎª£º    "<<(p+number-1)->student_num_school<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄĞÕÃûÎª£º    "<<(p+number-1)->student_name<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄĞÔ±ğÎª£º    "<<(p+number-1)->student_sex<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄ¼ÒÍ¥×¡Ö·Îª£º"<<(p+number-1)->student_adress_home<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄµç»°ºÅÂëÎª£º"<<(p+number-1)->student_num_phone<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄµç×ÓÓÊÏäÎª£º"<<(p+number-1)->student_e_mail<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄÊıÑ§³É¼¨Îª£º"<<(p+number-1)->score[0]<<"·Ö"<<endl;
-					cout<<"µÚ"<<number<<"Î»Ô±µÄÓ¢Óï³É¼¨Îª£º"<<(p+number-1)->score[1]<<"·Ö"<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄÕşÖÎ³É¼¨Îª£º"<<(p+number-1)->score[2]<<"·Ö"<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄ×¨Òµ³É¼¨Îª£º"<<(p+number-1)->score[3]<<"·Ö"<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄ×Ü³É¼¨Îª£º  "<<(p+number-1)->sum_score<<"·Ö"<<endl;
-					cout<<"µÚ"<<number<<"Î»³ÉÔ±µÄÆ½¾ù³É¼¨Îª£º"<<(p+number-1)->sum_score/4<<"·Ö"<<endl;
-					cout<<"                                                          "<<endl;
-				}
-				break;
-			case 2:
-				for(i=0; head!=NULL; i++) {
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄÑ§ºÅÎª£º    "<<head->student_num_school<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄĞÕÃûÎª£º    "<<head->student_name<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄĞÔ±ğÎª£º    "<<head->student_sex<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄ¼ÒÍ¥×¡Ö·Îª£º"<<head->student_adress_home<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄµç»°ºÅÂëÎª£º"<<head->student_num_phone<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄµç×ÓÓÊÏäÎª£º"<<head->student_e_mail<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄÊıÑ§³É¼¨Îª£º"<<head->score[0]<<"·Ö"<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄÓ¢Óï³É¼¨Îª£º"<<head->score[1]<<"·Ö"<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄÕşÖÎ³É¼¨Îª£º"<<head->score[2]<<"·Ö"<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄ×¨Òµ³É¼¨Îª£º"<<head->score[3]<<"·Ö"<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄ×Ü³É¼¨Îª£º  "<<head->sum_score<<"·Ö"<<endl;
-					cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄÆ½¾ù³É¼¨Îª£º"<<head->sum_score/4<<"·Ö"<<endl;
-					cout<<"                               "<<endl;
-					head=head->next;                                      	/*headÖ¸ÏòÏÂÒ»½Úµã*/
-				}
-				break;
-			case 3:
-				while(wign) {
-					cout<<"      ***Èı¼¶Ä¿Â¼£º²é¿´È«²¿ÈËµÄµ¥¿Æ³É¼¨  1.ÊıÑ§ 2.Ó¢Óï 3.ÕşÖÎ 4.×¨Òµ³É¼¨ 5.×Ü³É¼¨ 6.ÍË³ö"<<endl;
-					cout<<"      ----------------------------------------------------------------------------------"<<endl;
-					cin>>forth_colon;
-					switch(forth_colon) {
-						case 1:
-							for(i=0,p=mes; p<mes+N; p++,i++) {
-								cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄÊıÑ§³É¼¨Îª£º"<<p->score[0]<<"·Ö"<<endl;
-								cout<<"                                                  "<<endl;
-							}
-							break;
-						case 2:
-							for(i=0,p=mes; p<mes+N; p++,i++) {
-								cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄÓ¢Óï³É¼¨Îª£º"<<p->score[1]<<"·Ö"<<endl;
-								cout<<"                                                  "<<endl;
-							}
-							break;
-						case 3:
-							for(i=0,p=mes; p<mes+N; p++,i++) {
-								cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄÕşÖÎ³É¼¨Îª£º"<<p->score[2]<<"·Ö"<<endl;
-								cout<<"                                                  "<<endl;
-							}
-							break;
-						case 4:
-							for(i=0,p=mes; p<mes+N; p++,i++) {
-								cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄ×¨Òµ³É¼¨Îª£º"<<p->score[3]<<"·Ö"<<endl;
-								cout<<"                                                  "<<endl;
-							}
-							break;
-						case 5:
-							for(i=0,p=mes; p<mes+N; p++,i++) {
-								cout<<"µÚ"<<i+1<<"Î»³ÉÔ±µÄ×Ü³É¼¨Îª£º"<<p->score[4]<<"·Ö"<<endl;
-								cout<<"                                                "<<endl;
-							}
-							break;
-						case 6:
-							wign=0;
-							break;
-						default:
-							cout<<"ÃüÁîÊäÈë´íÎó£¡£¡£¡"<<endl;
-					}
-				}
-				break;
-			case 4:
-				sign=0;
-				break;
-			default:
-				cout<<"ÃüÁîÊäÈë´íÎó£¡£¡£¡"<<endl;
-		}
-	}
+/*æ˜¾ç¤ºå‡½æ•°*/
+void ouput(struct Info mes[]) {
+    int i, number, third_colon, forth_colon, sign = 1, wign = 1;
+    struct Info *head, *p;
+    p = mes;
+    /*å»ºç«‹é“¾è¡¨*/
+    head = p; /*å°†ç¬¬ä¸€ä¸ªå…ƒç´ çš„åœ°å€æ”¾å…¥å¤´æŒ‡é’ˆä¸­*/
+    for (i = 0; i < N - 1;
+         i++) { /*ä¾æ¬¡å°†åä¸€ä¸ªå…ƒç´ çš„åœ°å€æ”¾å…¥å‰ä¸€ä¸ªå…ƒç´ çš„nextæˆå‘˜ä¸­*/
+        (p + i)->next = (p + i + 1);
+    }
+    (p + N - 1)->next = NULL; /*æœ€åä¸€ä¸ªå…ƒç´ çš„nextä¸­æ”¾å…¥NULL*/
+    cout << "                                                          "
+         << endl;
+    while (sign) {
+        cout << "--------------------------------------------------------------"
+                "-------------------------------------"
+             << endl;
+        cout << "       **äºŒçº§ç›®å½•ï¼šæ˜¾ç¤ºè¾“å…¥ç»“æœ  1.ä¸ªäººä¿¡æ¯æ˜¾ç¤º  "
+                "2.å…¨éƒ¨ä¿¡æ¯æ˜¾ç¤º  3.æ˜¾ç¤ºæˆç»©  4.é€€å‡ºæ˜¾ç¤º"
+             << endl;
+        cout << "--------------------------------------------------------------"
+                "-------------------------------------"
+             << endl;
+        cin >> third_colon;
+        switch (third_colon) {
+            case 1:
+                cout << "è¯·è¾“å…¥æƒ³æ˜¾ç¤ºçš„äººå‘˜çš„åºå·ï¼š";
+                cin >> number;
+                if (number > N || number < 1) {
+                    cout << "æŸ¥æ— æ­¤äººï¼Œé”™è¯¯ï¼ï¼ï¼ï¼š" << endl;
+					break;
+                }
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„å­¦å·ä¸ºï¼š    "
+                     << (p + number - 1)->num << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„å§“åä¸ºï¼š    "
+                     << (p + number - 1)->name << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„æ€§åˆ«ä¸ºï¼š    "
+                     << (p + number - 1)->sex << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„å®¶åº­ä½å€ä¸ºï¼š"
+                     << (p + number - 1)->address << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„ç”µè¯å·ç ä¸ºï¼š"
+                     << (p + number - 1)->phone << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„ç”µå­é‚®ç®±ä¸ºï¼š"
+                     << (p + number - 1)->email << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„æ•°å­¦æˆç»©ä¸ºï¼š"
+                     << (p + number - 1)->score[0] << "åˆ†" << endl;
+                cout << "ç¬¬" << number << "ä½å‘˜çš„è‹±è¯­æˆç»©ä¸ºï¼š"
+                     << (p + number - 1)->score[1] << "åˆ†" << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„æ”¿æ²»æˆç»©ä¸ºï¼š"
+                     << (p + number - 1)->score[2] << "åˆ†" << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„ä¸“ä¸šæˆç»©ä¸ºï¼š"
+                     << (p + number - 1)->score[3] << "åˆ†" << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„æ€»æˆç»©ä¸ºï¼š  "
+                     << (p + number - 1)->sum_score << "åˆ†" << endl;
+                cout << "ç¬¬" << number << "ä½æˆå‘˜çš„å¹³å‡æˆç»©ä¸ºï¼š"
+                     << (p + number - 1)->sum_score / 4 << "åˆ†" << endl;
+                cout << "                                                      "
+                        "    "
+                     << endl;
+
+                break;
+            case 2:
+                for (i = 0; head != NULL; i++) {
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„å­¦å·ä¸ºï¼š    " << head->num
+                         << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„å§“åä¸ºï¼š    "
+                         << head->name << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„æ€§åˆ«ä¸ºï¼š    " << head->sex
+                         << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„å®¶åº­ä½å€ä¸ºï¼š"
+                         << head->address << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„ç”µè¯å·ç ä¸ºï¼š"
+                         << head->phone << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„ç”µå­é‚®ç®±ä¸ºï¼š"
+                         << head->email << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„æ•°å­¦æˆç»©ä¸ºï¼š"
+                         << head->score[0] << "åˆ†" << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„è‹±è¯­æˆç»©ä¸ºï¼š"
+                         << head->score[1] << "åˆ†" << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„æ”¿æ²»æˆç»©ä¸ºï¼š"
+                         << head->score[2] << "åˆ†" << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„ä¸“ä¸šæˆç»©ä¸ºï¼š"
+                         << head->score[3] << "åˆ†" << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„æ€»æˆç»©ä¸ºï¼š  "
+                         << head->sum_score << "åˆ†" << endl;
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„å¹³å‡æˆç»©ä¸ºï¼š"
+                         << head->sum_score / 4 << "åˆ†" << endl;
+                    cout << "                               " << endl;
+                    head = head->next; /*headæŒ‡å‘ä¸‹ä¸€èŠ‚ç‚¹*/
+                }
+                break;
+            case 3:
+                while (wign) {
+                    cout << "      ***ä¸‰çº§ç›®å½•ï¼šæŸ¥çœ‹å…¨éƒ¨äººçš„å•ç§‘æˆç»©  1.æ•°å­¦ "
+                            "2.è‹±è¯­ 3.æ”¿æ²» 4.ä¸“ä¸šæˆç»© 5.æ€»æˆç»© 6.é€€å‡º"
+                         << endl;
+                    cout << "      "
+                            "--------------------------------------------------"
+                            "--------------------------------"
+                         << endl;
+                    cin >> forth_colon;
+                    switch (forth_colon) {
+                        case 1:
+                            for (i = 0, p = mes; p < mes + N; p++, i++) {
+                                cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„æ•°å­¦æˆç»©ä¸ºï¼š"
+                                     << p->score[0] << "åˆ†" << endl;
+                                cout << "                                      "
+                                        "            "
+                                     << endl;
+                            }
+                            break;
+                        case 2:
+                            for (i = 0, p = mes; p < mes + N; p++, i++) {
+                                cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„è‹±è¯­æˆç»©ä¸ºï¼š"
+                                     << p->score[1] << "åˆ†" << endl;
+                                cout << "                                      "
+                                        "            "
+                                     << endl;
+                            }
+                            break;
+                        case 3:
+                            for (i = 0, p = mes; p < mes + N; p++, i++) {
+                                cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„æ”¿æ²»æˆç»©ä¸ºï¼š"
+                                     << p->score[2] << "åˆ†" << endl;
+                                cout << "                                      "
+                                        "            "
+                                     << endl;
+                            }
+                            break;
+                        case 4:
+                            for (i = 0, p = mes; p < mes + N; p++, i++) {
+                                cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„ä¸“ä¸šæˆç»©ä¸ºï¼š"
+                                     << p->score[3] << "åˆ†" << endl;
+                                cout << "                                      "
+                                        "            "
+                                     << endl;
+                            }
+                            break;
+                        case 5:
+                            for (i = 0, p = mes; p < mes + N; p++, i++) {
+                                cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜çš„æ€»æˆç»©ä¸ºï¼š"
+                                     << p->score[4] << "åˆ†" << endl;
+                                cout << "                                      "
+                                        "          "
+                                     << endl;
+                            }
+                            break;
+                        case 6:
+                            wign = 0;
+                            break;
+                        default:
+                            cout << "å‘½ä»¤è¾“å…¥é”™è¯¯ï¼ï¼ï¼" << endl;
+                    }
+                }
+                break;
+            case 4:
+                sign = 0;
+                break;
+            default:
+                cout << "å‘½ä»¤è¾“å…¥é”™è¯¯ï¼ï¼ï¼" << endl;
+        }
+    }
 }
 
-
-/*ĞÅÏ¢²éÑ¯º¯Êı*/
-void query_Information_Value(struct Message mes[]) {
-	struct Message *p=mes;
-	string num_or_name;
-	int colon,second_colon,third_colon,forth_colon,sign=1,i,k,max_score[4],max_sum;
-	while(sign) {
-		cout<<"¶ş¼¶Ä¿Â¼  1.°´Ñ§ºÅ»òĞÕÃû²éÕÒ 2.²éÑ¯×î´ó³É¼¨  3.»¨Ãû²á  4.ÍË³ö"<<endl;
-		cin>>third_colon;
-		switch(third_colon) {
-			case 1:
-				cout<<"ÇëÊäÈëĞÕÃû»òÑ§ºÅ¿ªÊ¼²éÕÒ"<<" ";
-				cin>>num_or_name;
-				for(i=0; p<mes+N; p++,i++) {
-					if((p->student_name==num_or_name)||(p->student_name==num_or_name)) {
-						cout<<"¸ÃÎª³ÉÔ±µÄĞòºÅÎª£º"<<i+1<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄÑ§ºÅÎª£º    "<<p->student_num_school<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄĞÕÃûÎª£º    "<<p->student_name<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄĞÔ±ğÎª£º    "<<p->student_sex<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄ¼ÒÍ¥×¡Ö·Îª£º"<<p->student_adress_home<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄµç»°ºÅÂëÎª£º"<<p->student_num_phone<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄµç×ÓÓÊÏäÎª£º"<<p->student_e_mail<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄÊıÑ§³É¼¨Îª£º"<<p->score[0]<<"·Ö"<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄÓ¢Óï³É¼¨Îª£º"<<p->score[1]<<"·Ö"<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄÕşÖÎ³É¼¨Îª£º"<<p->score[2]<<"·Ö"<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄ×¨Òµ³É¼¨Îª£º"<<p->score[3]<<"·Ö"<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄ×Ü³É¼¨Îª£º  "<<p->sum_score<<"·Ö"<<endl;
-						cout<<"¸ÃÎ»³ÉÔ±µÄÆ½¾ù³É¼¨Îª£º"<<p->sum_score/4<<"·Ö"<<endl;
-						cout<<"                                            "<<endl;
-					} else if(i==N) {
-						cout<<"Î´²éÑ¯µ½Æ¥ÅäµÄ¼ÇÂ¼£¡"<<endl;
-						break;
-					}
-				};
-				break;
-			case 2:
-				max_sum=p->sum_score;
-				for(i=0; i<5; i++) {
-					max_score[i]=p->score[i];
-				}
-				while(sign) {
-					cout<<"-------------------------------------------------------------------------------------------"<<endl;
-					cout<<"        **Èı¼¶Ä¿Â¼:ÊäÈë´ú±íÊı×Ö²éÕÒ×î´ó³É¼¨£º 1.ÊıÑ§ 2.Ó¢Óï 3.ÕşÖÎ 4.×¨Òµ¿Î 5.×Ü³É¼¨ 6.ÍË³ö"<<endl;
-					cout<<"-------------------------------------------------------------------------------------------"<<endl;
-					cin>>second_colon;
-					switch(second_colon) {
-						case 1:
-							for(k=0,i=1; i<N; i++) {                  /*ÕÒ³öÊıÑ§µÄ×î´ó³É¼¨*/
-								if((p+i)->score[0]>=p->score[0]) {
-									max_score[0]=(p+i)->score[0];
-									k=i;
-								}
-							}
-							cout<<"ÊıÑ§×î¸ß³É¼¨Îª£º"<<(p+k)->score[0]<<"·Ö"<<endl;
-							cout<<"¸ÃÃûÑ§ÉúÊÇ£º"<<(p+k)->student_name<<endl;
-							cout<<"                                 "<<endl;
-							break;
-						case 2:
-							for(k=0,i=1; i<N; i++) {                 /*ÕÒ³öÓ¢ÓïµÄ×î´ó³É¼¨*/
-								if((p+i)->score[1]>=max_score[1]) {
-									max_score[1]=(p+i)->score[1];
-									k=i;
-								}
-							}
-							cout<<"Ó¢Óï×î¸ß³É¼¨Îª£º"<<(p+k)->score[1]<<"·Ö"<<endl;
-							cout<<"¸ÃÃûÑ§ÉúÊÇ£º"<<(p+k)->student_name<<endl;
-							cout<<"                                 "<<endl;
-							break;
-						case 3:
-							for(k=0,i=1; i<N; i++) {                   /*ÕÒ³öÕşÖÎµÄ×î´ó³É¼¨*/
-								if((p+i)->score[2]>=max_score[2]) {
-									max_score[2]=(p+i)->score[2];
-									k=i;
-								}
-							}
-							cout<<"ÕşÖÎ×î¸ß³É¼¨Îª£º"<<(p+k)->score[2]<<"·Ö"<<endl;
-							cout<<"¸ÃÃûÑ§ÉúÊÇ£º"<<(p+k)->student_name<<endl;
-							cout<<"                                 "<<endl;
-							break;
-						case 4:
-							for(k=0,i=1; i<N; i++) {                              /*ÕÒ³ö×¨Òµ¿ÎµÄ×î´ó³É¼¨*/
-								if((p+i)->score[3]>=max_score[3]) {
-									max_score[3]=(p+i)->score[3];
-									k=i;
-								}
-							}
-							cout<<"×¨Òµ¿Î×î¸ß³É¼¨Îª£º"<<(p+k)->score[3]<<"·Ö"<<endl;
-							cout<<"¸ÃÃûÑ§ÉúÊÇ£º"<<(p+k)->student_name<<endl;
-							cout<<"                                 "<<endl;
-							break;
-						case 5:
-							for(k=0,i=1; i<N; i++) {                             /*ÕÒ³ö×Ü³É¼¨×î´óµÄÈË*/
-								if((p+i)->sum_score>=max_sum) {
-									max_sum=(p+i)->sum_score;
-									k=i;
-								}
-							}
-							cout<<"×Ü³É¼¨×î¸ßÎª£º"<<(p+k)->score[4]<<"·Ö"<<endl;
-							cout<<"¸ÃÃûÑ§ÉúÊÇ£º"<<(p+k)->student_name<<endl;
-							cout<<"                                 "<<endl;
-							break;
-						case 6:
-							sign=0;
-							break;
-						default:
-							cout<<"ÃüÁîÊäÈë´íÎó£¡£¡£¡"<<endl;
-					}
-				}
-				break;
-			case 3:
-				for(i=0,p=mes; p<mes+N; i++,p++) {
-					cout<< "µÚ"<<i+1<<"Î»³ÉÔ±£º"<<p->student_name<<endl;
-				}
-				break;
-			case 4:
-				sign=0;
-				break;
-			default:
-				cout<<"ÃüÁîÊäÈë´íÎó£¡£¡£¡"<<endl;
-		}
-	}
+/*ä¿¡æ¯æŸ¥è¯¢å‡½æ•°*/
+void query(struct Info mes[]) {
+    struct Info* p = mes;
+    string num_or_name;
+    int colon, second_colon, third_colon, forth_colon, sign = 1, i, k,
+                                                       max_score[4], max_sum;
+    while (sign) {
+        cout << "äºŒçº§ç›®å½•  1.æŒ‰å­¦å·æˆ–å§“åæŸ¥æ‰¾ 2.æŸ¥è¯¢æœ€å¤§æˆç»©  3.èŠ±åå†Œ  4.é€€å‡º"
+             << endl;
+        cin >> third_colon;
+        switch (third_colon) {
+            case 1:
+                cout << "è¯·è¾“å…¥å§“åæˆ–å­¦å·å¼€å§‹æŸ¥æ‰¾"
+                     << " ";
+                cin >> num_or_name;
+                for (i = 0; p < mes + N; p++, i++) {
+                    if ((p->name == num_or_name) || (p->name == num_or_name)) {
+                        cout << "è¯¥ä¸ºæˆå‘˜çš„åºå·ä¸ºï¼š" << i + 1 << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„å­¦å·ä¸ºï¼š    " << p->num << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„å§“åä¸ºï¼š    " << p->name << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„æ€§åˆ«ä¸ºï¼š    " << p->sex << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„å®¶åº­ä½å€ä¸ºï¼š" << p->address << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„ç”µè¯å·ç ä¸ºï¼š" << p->phone << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„ç”µå­é‚®ç®±ä¸ºï¼š" << p->email << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„æ•°å­¦æˆç»©ä¸ºï¼š" << p->score[0] << "åˆ†"
+                             << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„è‹±è¯­æˆç»©ä¸ºï¼š" << p->score[1] << "åˆ†"
+                             << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„æ”¿æ²»æˆç»©ä¸ºï¼š" << p->score[2] << "åˆ†"
+                             << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„ä¸“ä¸šæˆç»©ä¸ºï¼š" << p->score[3] << "åˆ†"
+                             << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„æ€»æˆç»©ä¸ºï¼š  " << p->sum_score << "åˆ†"
+                             << endl;
+                        cout << "è¯¥ä½æˆå‘˜çš„å¹³å‡æˆç»©ä¸ºï¼š" << p->sum_score / 4
+                             << "åˆ†" << endl;
+                        cout << "                                            "
+                             << endl;
+                    } else if (i == N) {
+                        cout << "æœªæŸ¥è¯¢åˆ°åŒ¹é…çš„è®°å½•ï¼" << endl;
+                        break;
+                    }
+                };
+                break;
+            case 2:
+                max_sum = p->sum_score;
+                for (i = 0; i < 5; i++) {
+                    max_score[i] = p->score[i];
+                }
+                while (sign) {
+                    cout << "--------------------------------------------------"
+                            "-----------------------------------------"
+                         << endl;
+                    cout << "        **ä¸‰çº§ç›®å½•:è¾“å…¥ä»£è¡¨æ•°å­—æŸ¥æ‰¾æœ€å¤§æˆç»©ï¼š "
+                            "1.æ•°å­¦ 2.è‹±è¯­ 3.æ”¿æ²» 4.ä¸“ä¸šè¯¾ 5.æ€»æˆç»© 6.é€€å‡º"
+                         << endl;
+                    cout << "--------------------------------------------------"
+                            "-----------------------------------------"
+                         << endl;
+                    cin >> second_colon;
+                    switch (second_colon) {
+                        case 1:
+                            for (k = 0, i = 1; i < N;
+                                 i++) { /*æ‰¾å‡ºæ•°å­¦çš„æœ€å¤§æˆç»©*/
+                                if ((p + i)->score[0] >= p->score[0]) {
+                                    max_score[0] = (p + i)->score[0];
+                                    k = i;
+                                }
+                            }
+                            cout << "æ•°å­¦æœ€é«˜æˆç»©ä¸ºï¼š" << (p + k)->score[0]
+                                 << "åˆ†" << endl;
+                            cout << "è¯¥åå­¦ç”Ÿæ˜¯ï¼š" << (p + k)->name << endl;
+                            cout << "                                 " << endl;
+                            break;
+                        case 2:
+                            for (k = 0, i = 1; i < N;
+                                 i++) { /*æ‰¾å‡ºè‹±è¯­çš„æœ€å¤§æˆç»©*/
+                                if ((p + i)->score[1] >= max_score[1]) {
+                                    max_score[1] = (p + i)->score[1];
+                                    k = i;
+                                }
+                            }
+                            cout << "è‹±è¯­æœ€é«˜æˆç»©ä¸ºï¼š" << (p + k)->score[1]
+                                 << "åˆ†" << endl;
+                            cout << "è¯¥åå­¦ç”Ÿæ˜¯ï¼š" << (p + k)->name << endl;
+                            cout << "                                 " << endl;
+                            break;
+                        case 3:
+                            for (k = 0, i = 1; i < N;
+                                 i++) { /*æ‰¾å‡ºæ”¿æ²»çš„æœ€å¤§æˆç»©*/
+                                if ((p + i)->score[2] >= max_score[2]) {
+                                    max_score[2] = (p + i)->score[2];
+                                    k = i;
+                                }
+                            }
+                            cout << "æ”¿æ²»æœ€é«˜æˆç»©ä¸ºï¼š" << (p + k)->score[2]
+                                 << "åˆ†" << endl;
+                            cout << "è¯¥åå­¦ç”Ÿæ˜¯ï¼š" << (p + k)->name << endl;
+                            cout << "                                 " << endl;
+                            break;
+                        case 4:
+                            for (k = 0, i = 1; i < N;
+                                 i++) { /*æ‰¾å‡ºä¸“ä¸šè¯¾çš„æœ€å¤§æˆç»©*/
+                                if ((p + i)->score[3] >= max_score[3]) {
+                                    max_score[3] = (p + i)->score[3];
+                                    k = i;
+                                }
+                            }
+                            cout << "ä¸“ä¸šè¯¾æœ€é«˜æˆç»©ä¸ºï¼š" << (p + k)->score[3]
+                                 << "åˆ†" << endl;
+                            cout << "è¯¥åå­¦ç”Ÿæ˜¯ï¼š" << (p + k)->name << endl;
+                            cout << "                                 " << endl;
+                            break;
+                        case 5:
+                            for (k = 0, i = 1; i < N;
+                                 i++) { /*æ‰¾å‡ºæ€»æˆç»©æœ€å¤§çš„äºº*/
+                                if ((p + i)->sum_score >= max_sum) {
+                                    max_sum = (p + i)->sum_score;
+                                    k = i;
+                                }
+                            }
+                            cout << "æ€»æˆç»©æœ€é«˜ä¸ºï¼š" << (p + k)->score[4]
+                                 << "åˆ†" << endl;
+                            cout << "è¯¥åå­¦ç”Ÿæ˜¯ï¼š" << (p + k)->name << endl;
+                            cout << "                                 " << endl;
+                            break;
+                        case 6:
+                            sign = 0;
+                            break;
+                        default:
+                            cout << "å‘½ä»¤è¾“å…¥é”™è¯¯ï¼ï¼ï¼" << endl;
+                    }
+                }
+                break;
+            case 3:
+                for (i = 0, p = mes; p < mes + N; i++, p++) {
+                    cout << "ç¬¬" << i + 1 << "ä½æˆå‘˜ï¼š" << p->name << endl;
+                }
+                break;
+            case 4:
+                sign = 0;
+                break;
+            default:
+                cout << "å‘½ä»¤è¾“å…¥é”™è¯¯ï¼ï¼ï¼" << endl;
+        }
+    }
 }
 
-/*ĞŞ¸ÄĞÅÏ¢º¯Êı*/
-void modify_Information_Value() {
-	string key1,key="123456";                            //ÉèÖÃĞŞ¸ÄÃÜÂë
-	struct Message *p;
-	p=mes;
-	int number,j,sign=1,k=3;
-	cout<<"                                              "<<endl;
-	while(sign) {                                        //ÉèÖÃĞŞ¸ÄÃÜÂë,Èı´Î´íÎóÖ±½Ó½áÊø³ÌĞò
-		cout<<"ÇëÊäÈëĞŞ¸ÄÃÜÂë"<<" ";
-		cin>>key1;
-		if(key1==key) break;
-		else {
-			cout<<"ÃÜÂë´íÎó£¬Äã»¹¿ÉÒÔÊäÈë"<<k-1<<"´Î";
-			k--;
-			if(k==0) exit(0);
-		}
-	}
-	cout<<"ÇëÊäÈëĞèÒªĞŞ¸ÄĞÅÏ¢µÄ³ÉÔ±±àºÅ£º";              /*È·±£²»³¬³ö·¶Î§*/
-	while(sign) {
-		cin>>number;
-		if(number>N) {
-			cout<<"¸ÃÑ§ÉúĞÅÏ¢²»´æÔÚ£¡£¡£¡ÇëÖØĞÂÊäÈë"<<endl;
-		} else break;
-	}
-	cout<<"ĞŞ¸ÄĞÅÏ¢µÄ³ÉÔ±ÎªµÚ£º"<<number<<"Î»"<<endl;
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»³ÉÔ±µÄÑ§ºÅ: ("<<"Ô­Êı¾İÎª£º"<<(p+number-1)->student_num_school<<")"<<endl;
-	cin>>(p+number-1)->student_num_school;
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»³ÉÔ±µÄĞÕÃû£º("<<"Ô­Êı¾İÎª£º"<<(p+number-1)->student_name<<")"<<endl;
-	cin>>(p+number-1)->student_name;
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»³ÉÔ±µÄĞÔ±ğ£º("<<"Ô­Êı¾İÎª£º"<<(p+number-1)->student_sex<<")"<<endl;
-	cin>>(p+number-1)->student_sex;
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»³ÉÔ±µÄ¼ÒÍ¥×¡Ö·£º("<<"Ô­Êı¾İÎª£º"<<(p+number-1)->student_adress_home<<")"<<endl;
-	cin>>(p+number-1)->student_adress_home;
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»³ÉÔ±µÄµç»°ºÅÂë£º("<<"Ô­Êı¾İÎª£º"<<(p+number-1)->student_num_phone<<")"<<endl;
-	cin>>(p+number-1)->student_num_phone;
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»³ÉÔ±µÄµç×ÓÓÊÏä£º("<<"Ô­Êı¾İÎª£º"<<(p+number-1)->student_e_mail<<")"<<endl;
-	cin>>(p+number-1)->student_e_mail;
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»Ñ§ÉúµÄÊıÑ§³É¼¨£º"<<"Ô­Êı¾İÎª£º"<<(p+number-1)->score[0]<<")"<<endl;
-	cin>>(p+number-1)->score[0];
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»Ñ§ÉúµÄÓ¢Óï³É¼¨£º("<<"Ô­Êı¾İÎª£º"<<(p+number-1)->score[1]<<")"<<endl;
-	cin>>(p+number-1)->score[1];
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»Ñ§ÉúµÄÕşÖÎ³É¼¨£º("<<"Ô­Êı¾İÎª£º"<<(p+number-1)->score[2]<<")"<<endl;
-	cin>>(p+number-1)->score[2];
-	cout<<"ÇëÖØĞÂÊäÈë¸ÃÎ»Ñ§ÉúµÄ×¨Òµ¿Î³É¼¨£º("<<"Ô­Êı¾İÎª£º"<<(p+number-1)->score[3]<<")"<<endl;
-	cin>>(p+number-1)->score[3];
-	p->sum_score=0;
-	for(j=0; j<4; j++) {
-		(p+number-1)->sum_score=p->sum_score+(p+number-1)->score[j];
-	}
+/*ä¿®æ”¹ä¿¡æ¯å‡½æ•°*/
+void modify() {
+    string key1, key = "123456";  //è®¾ç½®ä¿®æ”¹å¯†ç 
+    struct Info* p;
+    p = mes;
+    int number, j, sign = 1, k = 3;
+    cout << "                                              " << endl;
+    while (sign) {  //è®¾ç½®ä¿®æ”¹å¯†ç ,ä¸‰æ¬¡é”™è¯¯ç›´æ¥ç»“æŸç¨‹åº
+        cout << "è¯·è¾“å…¥ä¿®æ”¹å¯†ç "
+             << " ";
+        cin >> key1;
+        if (key1 == key)
+            break;
+        else {
+            cout << "å¯†ç é”™è¯¯ï¼Œä½ è¿˜å¯ä»¥è¾“å…¥" << k - 1 << "æ¬¡";
+            k--;
+            if (k == 0)
+                exit(0);
+        }
+    }
+    cout << "è¯·è¾“å…¥éœ€è¦ä¿®æ”¹ä¿¡æ¯çš„æˆå‘˜ç¼–å·ï¼š"; /*ç¡®ä¿ä¸è¶…å‡ºèŒƒå›´*/
+    while (sign) {
+        cin >> number;
+        if (number > N) {
+            cout << "è¯¥å­¦ç”Ÿä¿¡æ¯ä¸å­˜åœ¨ï¼ï¼ï¼è¯·é‡æ–°è¾“å…¥" << endl;
+        } else
+            break;
+    }
+    cout << "ä¿®æ”¹ä¿¡æ¯çš„æˆå‘˜ä¸ºç¬¬ï¼š" << number << "ä½" << endl;
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½æˆå‘˜çš„å­¦å·: ("
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->num << ")" << endl;
+    cin >> (p + number - 1)->num;
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½æˆå‘˜çš„å§“åï¼š("
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->name << ")" << endl;
+    cin >> (p + number - 1)->name;
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½æˆå‘˜çš„æ€§åˆ«ï¼š("
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->sex << ")" << endl;
+    cin >> (p + number - 1)->sex;
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½æˆå‘˜çš„å®¶åº­ä½å€ï¼š("
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->address << ")" << endl;
+    cin >> (p + number - 1)->address;
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½æˆå‘˜çš„ç”µè¯å·ç ï¼š("
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->phone << ")" << endl;
+    cin >> (p + number - 1)->phone;
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½æˆå‘˜çš„ç”µå­é‚®ç®±ï¼š("
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->email << ")" << endl;
+    cin >> (p + number - 1)->email;
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½å­¦ç”Ÿçš„æ•°å­¦æˆç»©ï¼š"
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->score[0] << ")" << endl;
+    cin >> (p + number - 1)->score[0];
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½å­¦ç”Ÿçš„è‹±è¯­æˆç»©ï¼š("
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->score[1] << ")" << endl;
+    cin >> (p + number - 1)->score[1];
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½å­¦ç”Ÿçš„æ”¿æ²»æˆç»©ï¼š("
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->score[2] << ")" << endl;
+    cin >> (p + number - 1)->score[2];
+    cout << "è¯·é‡æ–°è¾“å…¥è¯¥ä½å­¦ç”Ÿçš„ä¸“ä¸šè¯¾æˆç»©ï¼š("
+         << "åŸæ•°æ®ä¸ºï¼š" << (p + number - 1)->score[3] << ")" << endl;
+    cin >> (p + number - 1)->score[3];
+    p->sum_score = 0;
+    for (j = 0; j < 4; j++) {
+        (p + number - 1)->sum_score = p->sum_score + (p + number - 1)->score[j];
+    }
 }

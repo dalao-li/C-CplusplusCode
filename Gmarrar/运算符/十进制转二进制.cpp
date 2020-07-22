@@ -1,13 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
-//×¢Òâ±ØĞëµ÷ÓÃstdlib.hº¯Êı¿â
+//æ³¨æ„å¿…é¡»è°ƒç”¨stdlib.hå‡½æ•°åº“
 int main(void) {
 	int a;
 	scanf("%d",&a);
 	char str[30];
-	//2¼´ÊÇ´ú±í×ª»»Îª2½øÖÆ
+	
 	itoa(a,str,2);
-	printf("%s",str);
+	printf("%s\n",str);
+
+	itoa(a,str,16);
+	printf("%s\n",str);
 	return 0;
 }
 

@@ -8,20 +8,20 @@ typedef struct Tree {
 	Tree *rightSon;
 } Tree,*TreeList;
 
-//Ê÷µÄ³õÊ¼»¯
+//æ ‘çš„åˆå§‹åŒ–
 TreeList initTree(TreeList root) {
 	root->leftSon = NULL;
 	root->rightSon = NULL;
 	return root;
 }
 
-//Ê÷µÄ½¨Á¢
+//æ ‘çš„å»ºç«‹
 //      A
 //     / \
 //    B   C
 //   / \
 //  D   E
-//½¨Á¢³öÒ»¸öÊ÷  ABD##E##C##
+//å»ºç«‹å‡ºä¸€ä¸ªæ ‘  ABD##E##C##
 TreeList creatTree(TreeList &root) {
 
 	ElemType elem;
@@ -45,7 +45,7 @@ void inOrderTree(TreeList &root) {
 	}
 }
 
-//Í³¼ÆÒ¶×Ó½Úµã¸öÊý
+//ç»Ÿè®¡å¶å­èŠ‚ç‚¹ä¸ªæ•°
 int sumOfLeaves(TreeList &root) {
 	if(root==NULL) {
 		return 0;
@@ -56,7 +56,7 @@ int sumOfLeaves(TreeList &root) {
 	}
 }
 
-//Í³¼Æ½ÚµãµÄ¸öÊý
+//ç»Ÿè®¡èŠ‚ç‚¹çš„ä¸ªæ•°
 int sumOfNode(TreeList &root) {
 	if(root==NULL) {
 		return 0;
@@ -65,13 +65,13 @@ int sumOfNode(TreeList &root) {
 	}
 }
 
-//¼ÆËãÊ÷µÄÉî¶È
+//è®¡ç®—æ ‘çš„æ·±åº¦
 int deepOfTree(TreeList &root) {
 	return max(deepOfTree(root->leftSon),deepOfTree(root->rightSon))+1;
 }
 
 
-//Í³¼Æ¸÷¸öÒ¶×Óµ½¸ù½ÚµãµÄ¾àÀë
+//ç»Ÿè®¡å„ä¸ªå¶å­åˆ°æ ¹èŠ‚ç‚¹çš„è·ç¦»
 void  distanceFromRoot(TreeList &root,int sum) {
 	if(root->leftSon==NULL&&root->rightSon==NULL) {
 		std::cout<<sum;
@@ -89,9 +89,9 @@ int main() {
 	creatTree(root);
 	inOrderTree(root);
 	printf("\n");
-	printf("Ê÷Ò¶×Ü¸öÊýÎª£º%d\n",sumOfLeaves(root));
+	printf("æ ‘å¶æ€»ä¸ªæ•°ä¸ºï¼š%d\n",sumOfLeaves(root));
 	distanceFromRoot(root,0);
-	printf("½Úµã×Ü¸öÊýÎª£º%d\n",sumOfNode(root));
-	printf("Ê÷µÄÉî¶ÈÎª£º%d\n",deepOfTree(root));
+	printf("èŠ‚ç‚¹æ€»ä¸ªæ•°ä¸ºï¼š%d\n",sumOfNode(root));
+	printf("æ ‘çš„æ·±åº¦ä¸ºï¼š%d\n",deepOfTree(root));
 	return 0;
 }

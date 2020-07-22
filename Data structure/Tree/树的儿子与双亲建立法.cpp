@@ -11,20 +11,20 @@ typedef struct Tree {
 	int rightSon;
 } Tree,*TreeList;
 
-//Ê÷µÄ³õÊ¼»¯
+//æ ‘çš„åˆå§‹åŒ–
 TreeList initTree(TreeList root) {
 	root->leftSon = -1;
 	root->rightSon = -1;
 	return root;
 }
 
-//Ê÷µÄ½¨Á¢
+//æ ‘çš„å»ºç«‹
 //      12
 //     / \
 //    7   5
 //   / \
 //  1   4
-//½¨Á¢³öÒ»¸öÊ÷
+//å»ºç«‹å‡ºä¸€ä¸ªæ ‘
 TreeList creatTree(TreeList &root) {
 	root = new Tree[MAX+1];
 	for(int i = 0; i<MAX; i++) {
@@ -34,19 +34,19 @@ TreeList creatTree(TreeList &root) {
 	
 	for(int i = 0; i<MAX; i++) {
 		cin>>root[i].data;
-		cout<<"½ÚµãÖµ:"<<root[i].data<<endl;
+		cout<<"èŠ‚ç‚¹å€¼:"<<root[i].data<<endl;
 		//cin>>root[i].parent;
 		cin>>root[i].leftSon;
-		cout<<"×ó¶ù×Ó±àºÅ:"<<root[i].leftSon<<endl;
+		cout<<"å·¦å„¿å­ç¼–å·:"<<root[i].leftSon<<endl;
 		cin>>root[i].rightSon;	
-		cout<<"ÓÒ¶ù×Ó±àºÅ:"<<root[i].rightSon<<endl;
+		cout<<"å³å„¿å­ç¼–å·:"<<root[i].rightSon<<endl;
 
 	}
 	
 	for(int i = 0;i<MAX;i++){
-		cout<<"½ÚµãÖµ:"<<root[i].data<<endl;
-		cout<<"×ó¶ù×Ó±àºÅ:"<<root[i].leftSon<<endl;
-		cout<<"ÓÒ¶ù×Ó±àºÅ:"<<root[i].rightSon<<endl;
+		cout<<"èŠ‚ç‚¹å€¼:"<<root[i].data<<endl;
+		cout<<"å·¦å„¿å­ç¼–å·:"<<root[i].leftSon<<endl;
+		cout<<"å³å„¿å­ç¼–å·:"<<root[i].rightSon<<endl;
 		
 	}
 	return root;

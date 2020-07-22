@@ -20,7 +20,7 @@ class StudentAdapter:public unary_function<Student,bool> {
 		string name;
 	public:
 		explicit StudentAdapter(string iname):name(iname) {}
-		//ÖØÔØ()ÔËËã·û
+		//é‡è½½()è¿ç®—ç¬¦
 		bool operator()(const Student& student) {
 			return (student.name==name);
 		}
@@ -40,14 +40,14 @@ int main() {
 		cout<<it->name<<" "<<it->score<<endl;
 	}
 	cout<<endl;
-    cout<<"ÊäÈëÃû×Ö"<<endl;
+    cout<<"è¾“å…¥åå­—"<<endl;
     string str;
     cin>>str;
-	//ÊµÑéfind_if
+	//å®éªŒfind_if
 	it=find_if(v.begin(),v.end(),StudentAdapter(str));
 
 	if(it!=v.end()) {
-		cout<<"ÕÒµ½ÁË"<<endl;
+		cout<<"æ‰¾åˆ°äº†"<<endl;
 		cout<<it->name<<" "<<it->score<<endl;
 	}
 

@@ -1,14 +1,14 @@
-//·ÖÀë³öÒ»¸öÊı×ÖµÄËùÓĞÒò×Ó
+//åˆ†ç¦»å‡ºä¸€ä¸ªæ•°å­—çš„æ‰€æœ‰å› å­
 #include<iostream>
 using namespace std;
 void divide(int n) {
-	//1¿Ï¶¨ÎªÒ»¸öÊıµÄÒò×Ó
+	//1è‚¯å®šä¸ºä¸€ä¸ªæ•°çš„å› å­
 	cout<<n<<"=1*";
 	for(int i=2; i<n; i++) {
 		while(n!=i) {
 			if(n%i==0) {
 				cout<<i<<"*";
-				n=n/i;
+				n/=i;
 			} else
 				break;
 		}

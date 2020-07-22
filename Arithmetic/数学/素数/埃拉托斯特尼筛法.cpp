@@ -2,7 +2,7 @@
 #include<cstring>
 #include<ctime>
 #define MAX 1001
-//true±íÊ½¸ÃÊ½ÊÇËØÊı
+//trueè¡¨å¼è¯¥å¼æ˜¯ç´ æ•°
 bool isPrime[MAX];
 int prime[MAX];
 
@@ -11,12 +11,12 @@ int main() {
 	for(int i = 1; i<MAX; i++) {
 		prime[i] = i;
 	}
-	//ÏÈ¿ªÊ¼¼ÙÉèËùÓĞÊı¶¼ÊÇËØÊı
+	//å…ˆå¼€å§‹å‡è®¾æ‰€æœ‰æ•°éƒ½æ˜¯ç´ æ•°
 	memset(isPrime,true,sizeof(isPrime));
 	isPrime[2]=false;
     int index = 0;
 	for(int i=2; i<MAX; i++) {
-		//Èç¹ûÕâ¸öÊıÊÇËØÊıµÄ»°
+		//å¦‚æœè¿™ä¸ªæ•°æ˜¯ç´ æ•°çš„è¯
 		if(isPrime[i]==true) {
 			prime[index]=i;
 			index++;

@@ -1,9 +1,9 @@
 /*
-ÒÑÖªÒ»¸öÒÑ¾­´ÓÐ¡µ½´óÅÅÐòµÄÊý×é£¬Õâ¸öÊý×éµÄÒ»¸öÆ½Ì¨£¨Plateau£©¾ÍÊÇÁ¬ÐøµÄ
-Ò»´®ÖµÏàÍ¬µÄÔªËØ£¬²¢ÇÒÕâÒ»´®ÔªËØ²»ÄÜÔÙÑÓÉì¡£ÀýÈç£¬ÔÚ 1£¬2£¬2£¬3£¬3£¬3£¬
-4£¬5£¬5£¬6ÖÐ1£¬2-2£¬3-3-3£¬4£¬5-5£¬6¶¼ÊÇÆ½Ì¨¡£ÊÔ±àÐ´Ò»¸ö³ÌÐò£¬½ÓÊÕÒ»¸ö
-Êý×é£¬°ÑÕâ¸öÊý×é×î³¤µÄÆ½Ì¨ÕÒ³ö À´¡£ÔÚÉÏÃæµÄÀý×ÓÖÐ3-3-3¾ÍÊÇ×î³¤µÄÆ½Ì¨¡£
-Êä³ö×î³¤Æ½Ì¨µÄ³¤¶È¡£
+å·²çŸ¥ä¸€ä¸ªå·²ç»ä»Žå°åˆ°å¤§æŽ’åºçš„æ•°ç»„ï¼Œè¿™ä¸ªæ•°ç»„çš„ä¸€ä¸ªå¹³å°ï¼ˆPlateauï¼‰å°±æ˜¯è¿žç»­çš„
+ä¸€ä¸²å€¼ç›¸åŒçš„å…ƒç´ ï¼Œå¹¶ä¸”è¿™ä¸€ä¸²å…ƒç´ ä¸èƒ½å†å»¶ä¼¸ã€‚ä¾‹å¦‚ï¼Œåœ¨ 1ï¼Œ2ï¼Œ2ï¼Œ3ï¼Œ3ï¼Œ3ï¼Œ
+4ï¼Œ5ï¼Œ5ï¼Œ6ä¸­1ï¼Œ2-2ï¼Œ3-3-3ï¼Œ4ï¼Œ5-5ï¼Œ6éƒ½æ˜¯å¹³å°ã€‚è¯•ç¼–å†™ä¸€ä¸ªç¨‹åºï¼ŒæŽ¥æ”¶ä¸€ä¸ª
+æ•°ç»„ï¼ŒæŠŠè¿™ä¸ªæ•°ç»„æœ€é•¿çš„å¹³å°æ‰¾å‡º æ¥ã€‚åœ¨ä¸Šé¢çš„ä¾‹å­ä¸­3-3-3å°±æ˜¯æœ€é•¿çš„å¹³å°ã€‚
+è¾“å‡ºæœ€é•¿å¹³å°çš„é•¿åº¦ã€‚
 */
 
 /*
@@ -17,7 +17,7 @@ int main()
 		cin>>a[i];
 	}
 	for(i=1;i<n;i++){
-		//ÀûÓÃlenthÀ´¼ÇÂ¼µ±Ç°³¤¶È£¬²¢ÓÃlenthÀ´²âÁ¿ºóÃæµÄplate£¬Èç¹ûÓöÉÏ¸ü´óµÄplateÔòlenth++£¬×îºó·µ»Ø×î´ólenth¡£
+		//åˆ©ç”¨lenthæ¥è®°å½•å½“å‰é•¿åº¦ï¼Œå¹¶ç”¨lenthæ¥æµ‹é‡åŽé¢çš„plateï¼Œå¦‚æžœé‡ä¸Šæ›´å¤§çš„plateåˆ™lenth++ï¼Œæœ€åŽè¿”å›žæœ€å¤§lenthã€‚
 		if(a[i]==a[i-length]){
 			length++;
 		}
@@ -28,16 +28,16 @@ int main()
 #include<iostream>
 using namespace std;
 int main() {
-	int n,x,i,maxs=1,cur,length=0; //curÓÃÀ´±£´æµ±Ç°ÔªËØÖµ
+	int n,x,i,maxs=1,cur,length=0; //curç”¨æ¥ä¿å­˜å½“å‰å…ƒç´ å€¼
 	cin>>n>>x;
 	cur=x;
 	for(i=1; i<n; i++) {
 		cin>>x;
-		//Èç¹ûcur=x,ÔòËµÃ÷ÊÇÒ»¸öÆ½Ì¨
+		//å¦‚æžœcur=x,åˆ™è¯´æ˜Žæ˜¯ä¸€ä¸ªå¹³å°
 		if(cur == x) { 
 			length++;
 		}
-		//Èô²»ÏàµÈÔòÆ½Ì¨³¤¶ÈÖØÖÃÎª1,ÇÒ½«ÐÂÔªËØÖµ±£´æµ½curÖÐ
+		//è‹¥ä¸ç›¸ç­‰åˆ™å¹³å°é•¿åº¦é‡ç½®ä¸º1,ä¸”å°†æ–°å…ƒç´ å€¼ä¿å­˜åˆ°curä¸­
 		else {
 			length=1;
 			cur=x;

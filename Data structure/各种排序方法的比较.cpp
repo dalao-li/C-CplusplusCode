@@ -7,7 +7,7 @@ using namespace std;
 int Numberlookups[6] = {0};
 int Numbermoves[6] = {0};
 
-//²úÉúÎå×é£¬Ã¿×é100¸öËæ»úÊı
+//äº§ç”Ÿäº”ç»„ï¼Œæ¯ç»„100ä¸ªéšæœºæ•°
 void generateRandomNumbers(int testData[]) {
 	for(int j = 0 ; j < 500 ; j++) {
 		testData[j] = rand()%100+1;
@@ -15,115 +15,115 @@ void generateRandomNumbers(int testData[]) {
 
 }
 
-//Ã°ÅİÅÅĞò
+//å†’æ³¡æ’åº
 void bubbleSort3(int testData[],int len) {
-	//Ò»¹²Îå×éÊı¾İ
+	//ä¸€å…±äº”ç»„æ•°æ®
 	for(int j = 0; j< len-1; j++) {
-		//ÓÃÀ´ÅĞ¶ÏÊÇ·ñ·¢Éú¹ıÅÅĞò
+		//ç”¨æ¥åˆ¤æ–­æ˜¯å¦å‘ç”Ÿè¿‡æ’åº
 		bool exchange = false;
 		for(int i = 0; i<len-1; i++) {
 			if(testData[i] > testData[i+1]) {
 				Numberlookups[0] += 1;
-				//Èç¹û»¹ÓĞÅÅĞò£¬ÔòexchangeÎª true
+				//å¦‚æœè¿˜æœ‰æ’åºï¼Œåˆ™exchangeä¸º true
 				exchange = true;
-				//½»»»Á½ÔªËØ
+				//äº¤æ¢ä¸¤å…ƒç´ 
 				swap(testData[i],testData[i+1]);
 				Numbermoves[0] += 3;
 			}
 		}
-		//Èç¹û´Ë´ÎÉ¨ÃèÃ»ÓĞ·¢Éú¹ı½»»»£¬ÔòËµÃ÷´ËÂÖÒÑ¾­Íê³ÉÅÅĞò
+		//å¦‚æœæ­¤æ¬¡æ‰«ææ²¡æœ‰å‘ç”Ÿè¿‡äº¤æ¢ï¼Œåˆ™è¯´æ˜æ­¤è½®å·²ç»å®Œæˆæ’åº
 		if(exchange == false) {
 			break;
 		}
 	}
 }
 
-//²åÈëÅÅĞò
+//æ’å…¥æ’åº
 void insertionSorting(int testData[],int len) {
 	for(int i = 1,j; i<len; i++) {
-		//Ç°Ò»¸öÔªËØ±ÈºóÒ»¸öÔªËØ´ó
+		//å‰ä¸€ä¸ªå…ƒç´ æ¯”åä¸€ä¸ªå…ƒç´ å¤§
 		if(testData[i-1] > testData[i]) {
 			Numberlookups[1] += 1;
 			int temp = testData[i];
-			//´ÓÇ°Ò»¸öÔªËØÎ»ÖÃ¿ªÊ¼,ÈôÎ´µ½±íÍ·ÇÒµ±Ç°Î»ÖÃÔªËØ´óÓÚ´ı²åÈëÔªËØtemp
+			//ä»å‰ä¸€ä¸ªå…ƒç´ ä½ç½®å¼€å§‹,è‹¥æœªåˆ°è¡¨å¤´ä¸”å½“å‰ä½ç½®å…ƒç´ å¤§äºå¾…æ’å…¥å…ƒç´ temp
 			for(j = i-1; j >= 0 && temp < testData[j]; j--) {
-				//ËùÓĞÔªËØÒÀ´ÎÏòºóÒÆ¶¯
+				//æ‰€æœ‰å…ƒç´ ä¾æ¬¡å‘åç§»åŠ¨
 				testData[j+1] = testData[j];
 				Numbermoves[1] += 1;
 			}
-			//´Ë´¦¾ÍÊÇÎª²åÈëÁô³öµÄ¿Õ(ÍË³öÑ­»·Ê±j»á¶à¼õ1)
+			//æ­¤å¤„å°±æ˜¯ä¸ºæ’å…¥ç•™å‡ºçš„ç©º(é€€å‡ºå¾ªç¯æ—¶jä¼šå¤šå‡1)
 			testData[j+1] = temp;
 		}
 	}
 
 }
 
-//Ñ¡ÔñÅÅĞò
+//é€‰æ‹©æ’åº
 void selectionSort (int testData[],int len) {
 
 	for(int i=0; i < len-1; i++) {
-		//ÆğÊ¼»ù×¼ÂëÎª±íÍ·ÔªËØÎ»ÖÃ
+		//èµ·å§‹åŸºå‡†ç ä¸ºè¡¨å¤´å…ƒç´ ä½ç½®
 		int index = i;
-		//±éÀúÖ®ºóËùÓĞÔªËØ
+		//éå†ä¹‹åæ‰€æœ‰å…ƒç´ 
 		for(int j = i+1; j <= len-1; j++) {
-			//Èç¹ûÄ³Î»ÖÃÔªËØĞ¡ÓÚ»ù×¼Î»ÖÃÔªËØ
+			//å¦‚æœæŸä½ç½®å…ƒç´ å°äºåŸºå‡†ä½ç½®å…ƒç´ 
 			if(testData[j] < testData[index]) {
 				Numberlookups[2]+=1;
-				//¸üĞÂ»ù×¼Âë
+				//æ›´æ–°åŸºå‡†ç 
 				index = j;
 			}
 		}
-		//Èç¹û»ù×¼Âë²»ÊÇ¿ªÊ¼µÄÄÇ¸ö,ËµÃ÷ÏÖÎ»ÖÃµÄÔªËØ×îĞ¡
+		//å¦‚æœåŸºå‡†ç ä¸æ˜¯å¼€å§‹çš„é‚£ä¸ª,è¯´æ˜ç°ä½ç½®çš„å…ƒç´ æœ€å°
 		if(index!=i) {
-			//½«×îĞ¡µÄÔªËØ½»»»µ½ÆğÊ¼Î»ÖÃ
+			//å°†æœ€å°çš„å…ƒç´ äº¤æ¢åˆ°èµ·å§‹ä½ç½®
 			swap(testData[i],testData[index]);
 			Numbermoves[2]+=3;
 		}
 	}
 }
 
-//¿ìËÙÅÅĞò
+//å¿«é€Ÿæ’åº
 void quicksort(int testData[],int left,int right) {
 
-	//index±íÊ¾´ı½»»»ÔªËØµÄÎ»ÖÃ
+	//indexè¡¨ç¤ºå¾…äº¤æ¢å…ƒç´ çš„ä½ç½®
 	int index = left;
-	//Éè¶¨»ù×¼ÔªËØ,Ä¬ÈÏ»ù×¼Î»ÖÃÎª×î×ó±ßÎ»ÖÃ
+	//è®¾å®šåŸºå‡†å…ƒç´ ,é»˜è®¤åŸºå‡†ä½ç½®ä¸ºæœ€å·¦è¾¹ä½ç½®
 	int pivotElement = testData[left];
-	//±éÀú»ù×¼Î»ÖÃÖ®ºóµÄËùÓĞÔªËØ
+	//éå†åŸºå‡†ä½ç½®ä¹‹åçš„æ‰€æœ‰å…ƒç´ 
 	for(int i = left+1 ; i<= right ; i++) {
-		//Èç¹û¸ÃÔªËØ±È»ù×¼ÔªËØĞ¡
+		//å¦‚æœè¯¥å…ƒç´ æ¯”åŸºå‡†å…ƒç´ å°
 		if(testData[i]< pivotElement) {
 			Numberlookups[3]++;
-			//´ı½»»»Î»ÖÃÓÒÒÆ
+			//å¾…äº¤æ¢ä½ç½®å³ç§»
 			index++;
-			//Èç¹û´ı½»»»Î»ÖÃÓë¸ÃÎ»ÖÃ²»ÖØºÏ
+			//å¦‚æœå¾…äº¤æ¢ä½ç½®ä¸è¯¥ä½ç½®ä¸é‡åˆ
 			if(index != i) {
 				swap(testData[i],testData[index]);
 				Numbermoves[3]+=3;
 			}
 		}
 	}
-	//»ù×¼ÔªËØ¾ÍÎ»,»ù×¼Î»Î»index
+	//åŸºå‡†å…ƒç´ å°±ä½,åŸºå‡†ä½ä½index
 	testData[left] = testData[index];
 	testData[index] = pivotElement;
 	if(left < right) {
-		//¶Ô×ó²àÔªËØÒ²½øĞĞÍ¬Ñù´¦Àí
+		//å¯¹å·¦ä¾§å…ƒç´ ä¹Ÿè¿›è¡ŒåŒæ ·å¤„ç†
 		quicksort(testData,left,index-1);
-		//¶ÔÓÒ²àÔªËØÒ²½øĞĞÍ¬Ñù´¦Àí
+		//å¯¹å³ä¾§å…ƒç´ ä¹Ÿè¿›è¡ŒåŒæ ·å¤„ç†
 		quicksort(testData,index+1 ,right);
 	}
 
 }
 
-//Ï£¶ûÅÅĞò
+//å¸Œå°”æ’åº
 void shellSort(int testData[],int len) {
-	//¿ØÖÆÔöÁ¿
+	//æ§åˆ¶å¢é‡
 	for(int gap = len/2; gap > 0; gap /= 2) {
-		//Õâ¸öforÑ­»·¾ÍÊÇÇ°ÃæµÄÖ±½Ó²åÈëÅÅĞò
+		//è¿™ä¸ªforå¾ªç¯å°±æ˜¯å‰é¢çš„ç›´æ¥æ’å…¥æ’åº
 		for(int i = gap,j; i < len; i++) {
 			Numberlookups[4]++;
 			int temp = testData[i];
-			//Ñ­»·´òÓ¡Êı×éµÄÃ¿¸öÔªËØ
+			//å¾ªç¯æ‰“å°æ•°ç»„çš„æ¯ä¸ªå…ƒç´ 
 			for(j = i-gap; j>=0 && temp<testData[j]; j-=gap) {
 				testData[j+gap] = testData[j];
 				Numbermoves[4]++;
@@ -135,47 +135,47 @@ void shellSort(int testData[],int len) {
 
 }
 
-//µ÷ÕûÎªĞ¡¸ù¶Ñº¯Êı
+//è°ƒæ•´ä¸ºå°æ ¹å †å‡½æ•°
 void siftDown(int testData[],int start,int end) {
 	int parent = start;
 	int child = 2*parent+1;
-	//tempÔİ´æ×ÓÊ÷¸ù½Úµã
+	//tempæš‚å­˜å­æ ‘æ ¹èŠ‚ç‚¹
 	int temp = testData[parent];
-	//Èç¹û×ó¶ù×Ó±àºÅÎ´µ½ÖÕµã
+	//å¦‚æœå·¦å„¿å­ç¼–å·æœªåˆ°ç»ˆç‚¹
 	while(child < end) {
-		//Èç¹ûÓÒ¶ù×Ó±È×ó¶ù×ÓĞ¡
+		//å¦‚æœå³å„¿å­æ¯”å·¦å„¿å­å°
 		if(child+1 < end && testData[child] < testData[child+1]) {
-			//child±äÎªÓÒ¶ù×Ó
+			//childå˜ä¸ºå³å„¿å­
 			Numberlookups[5]++;
 			++child;
 		}
-		// Èç¹û¸ù½Úµã±È¶ù×Ó½ÚµãĞ¡,Ôò²»ĞèÒªµ÷Õû
+		// å¦‚æœæ ¹èŠ‚ç‚¹æ¯”å„¿å­èŠ‚ç‚¹å°,åˆ™ä¸éœ€è¦è°ƒæ•´
 		if(temp >= testData[child]) {
 			Numberlookups[5]++;
 			break;
 		}
-		//·ñÔòĞèµ÷Õû¶ù×ÓºÍË«Ç×µÄÎ»ÖÃ
+		//å¦åˆ™éœ€è°ƒæ•´å„¿å­å’ŒåŒäº²çš„ä½ç½®
 
 		Numberlookups[5]++;
 		testData[parent] =  testData[child];
-		//¶ù×ÓÉÏÒÆ±äÎªË«Ç×
+		//å„¿å­ä¸Šç§»å˜ä¸ºåŒäº²
 		parent = child;
-		//¸üĞÂ×ó¶ù×Ó
+		//æ›´æ–°å·¦å„¿å­
 		child = 2*child+1;
 	}
-	//¸üĞÂË«Ç×µÄÖµ
+	//æ›´æ–°åŒäº²çš„å€¼
 	testData[parent] = temp;
 
 }
 
-//¶ÑÅÅĞòº¯Êı
+//å †æ’åºå‡½æ•°
 void heapSort(int testData[],int len) {
 	for(int i =  (len-2)/2; i>=0 ; i-- ) {
-		//½¨Á¢Ò»¸öĞ¡¸ù¶Ñ
+		//å»ºç«‹ä¸€ä¸ªå°æ ¹å †
 		siftDown(testData,i,len);
 	}
 	for(int i = len-1 ; i>0 ; i--) {
-		//½»»»¸ùºÍ×îºóÒ»¸öÔªËØ,
+		//äº¤æ¢æ ¹å’Œæœ€åä¸€ä¸ªå…ƒç´ ,
 		swap(testData[0],testData[i]);
 		Numbermoves[5]+=3;
 		siftDown(testData,0,i);
@@ -184,13 +184,13 @@ void heapSort(int testData[],int len) {
 
 
 int main() {
-	//²âÊÔÊı¾İ
+	//æµ‹è¯•æ•°æ®
 	int testData[500];
-	//ÓÃÒÔÃ¿´ÎÅÅĞòÍêºó¶ÔÔªËØË³ĞòµÄ»Ö¸´£¬ÒÔ±ãÑ­»·Ê¹ÓÃ
+	//ç”¨ä»¥æ¯æ¬¡æ’åºå®Œåå¯¹å…ƒç´ é¡ºåºçš„æ¢å¤ï¼Œä»¥ä¾¿å¾ªç¯ä½¿ç”¨
 	int testData1[500],testData2[500],testData3[500],testData4[500],testData5[500];
-	//Éè¶¨Ëæ»úÊıÖÖ×Ó
+	//è®¾å®šéšæœºæ•°ç§å­
 	//srand ((unsigned)time(NULL));
-	//²úÉú5×é¹²500¸öËæ»úÊı
+	//äº§ç”Ÿ5ç»„å…±500ä¸ªéšæœºæ•°
 	generateRandomNumbers(testData);
 	for(int i = 0 ; i < 500 ; i++) {
 		testData1[i] = testData[i];
@@ -207,18 +207,18 @@ int main() {
 	shellSort(testData4,500);
 	heapSort(testData5,500);
 
-	cout<<"Ã°ÅİÅÅĞò²éÑ¯´ÎÊıÎª"<<Numberlookups[0]<<endl;
-	cout<<"Ã°ÅİÅÅĞòÒÆ¶¯´ÎÊıÎª"<< Numbermoves[0]<<endl;
-	cout<<"²åÈëÅÅĞò²éÑ¯´ÎÊıÎª"<<Numberlookups[1]<<endl;
-	cout<<"²åÈëÅÅĞòÒÆ¶¯´ÎÊıÎª"<< Numbermoves[1]<<endl;
-	cout<<"Ñ¡ÔñÅÅĞò²éÑ¯´ÎÊıÎª"<<Numberlookups[2]<<endl;
-	cout<<"Ñ¡ÔñÅÅĞòÒÆ¶¯´ÎÊıÎª"<< Numbermoves[2]<<endl;
-	cout<<"¿ìËÙÅÅĞò²éÑ¯´ÎÊıÎª"<<Numberlookups[3]<<endl;
-	cout<<"¿ìËÙÅÅĞòÒÆ¶¯´ÎÊıÎª"<< Numbermoves[3]<<endl;
-	cout<<"Ï£¶ûÅÅĞò²éÑ¯´ÎÊıÎª"<<Numberlookups[4]<<endl;
-	cout<<"Ï£¶ûÅÅĞòÒÆ¶¯´ÎÊıÎª"<< Numbermoves[4]<<endl;
-	cout<<"¶ÑÅÅĞò²éÑ¯´ÎÊıÎª"<<Numberlookups[5]<<endl;
-	cout<<"¶ÑÅÅĞòÒÆ¶¯´ÎÊıÎª"<< Numbermoves[5]<<endl;
+	cout<<"å†’æ³¡æ’åºæŸ¥è¯¢æ¬¡æ•°ä¸º"<<Numberlookups[0]<<endl;
+	cout<<"å†’æ³¡æ’åºç§»åŠ¨æ¬¡æ•°ä¸º"<< Numbermoves[0]<<endl;
+	cout<<"æ’å…¥æ’åºæŸ¥è¯¢æ¬¡æ•°ä¸º"<<Numberlookups[1]<<endl;
+	cout<<"æ’å…¥æ’åºç§»åŠ¨æ¬¡æ•°ä¸º"<< Numbermoves[1]<<endl;
+	cout<<"é€‰æ‹©æ’åºæŸ¥è¯¢æ¬¡æ•°ä¸º"<<Numberlookups[2]<<endl;
+	cout<<"é€‰æ‹©æ’åºç§»åŠ¨æ¬¡æ•°ä¸º"<< Numbermoves[2]<<endl;
+	cout<<"å¿«é€Ÿæ’åºæŸ¥è¯¢æ¬¡æ•°ä¸º"<<Numberlookups[3]<<endl;
+	cout<<"å¿«é€Ÿæ’åºç§»åŠ¨æ¬¡æ•°ä¸º"<< Numbermoves[3]<<endl;
+	cout<<"å¸Œå°”æ’åºæŸ¥è¯¢æ¬¡æ•°ä¸º"<<Numberlookups[4]<<endl;
+	cout<<"å¸Œå°”æ’åºç§»åŠ¨æ¬¡æ•°ä¸º"<< Numbermoves[4]<<endl;
+	cout<<"å †æ’åºæŸ¥è¯¢æ¬¡æ•°ä¸º"<<Numberlookups[5]<<endl;
+	cout<<"å †æ’åºç§»åŠ¨æ¬¡æ•°ä¸º"<< Numbermoves[5]<<endl;
 	cout<<endl;
 
 }

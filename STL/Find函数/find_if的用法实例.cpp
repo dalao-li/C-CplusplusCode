@@ -1,63 +1,52 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<algorithm>
-#include<functional>
+#include <algorithm>
+#include <functional>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 class Item {
-	private:
-		string  m_ItemId;
-		int m_Price;
-		int m_Count;
-	public:
-		Item(string id, int price, int count) :
-			m_ItemId(id), m_Count(count), m_Price(price) {}
-		int getCount() const {
-			return m_Count;
-		}
-		string getItemId() const {
-			return m_ItemId;
-		}
-		int getPrice() const {
-			return m_Price;
-		}
-		
-		bool operator==(const Item & obj2) const {
-			if (this->getItemId().compare(obj2.getItemId()) == 0)
-				return true;
-			else
-				return false;
-		}
+   private:
+    string id;
+    int price;
+    int count;
+
+   public:
+    Item(string id, int price, int count)
+        : id(id), count(count), price(price) {}
+    int getCount() const { return count; }
+    string getId() const { return id; }
+    int getPrice() const { return price; }
+
+    bool operator==(const Item& obj2) const {
+        return this->getId().compare(obj2.getId()) == 0;
+    }
 };
 
-bool priceComparision(Item & obj, int y) {
-	if (obj.getPrice() == y)
-		return true;
-	else
-		return false;
+bool complePrice(Item& obj, int y) {
+    return obj.getPrice() == y;
 }
 
-vector<Item> getItemList() {
-	vector<Item> vecOfItems;
-	vecOfItems.push_back(Item("D121", 100, 2));
-	vecOfItems.push_back(Item("D122", 12, 5));
-	vecOfItems.push_back(Item("D123", 28, 6));
-	vecOfItems.push_back(Item("D124", 8, 10));
-	vecOfItems.push_back(Item("D125", 99, 3));
-	return vecOfItems;
+vector<Item> getList() {
+    vector<Item> v;
+    v.push_back(Item("D121", 100, 2));
+    v.push_back(Item("D122", 12, 5));
+    v.push_back(Item("D123", 28, 6));
+    v.push_back(Item("D124", 8, 10));
+    v.push_back(Item("D125", 99, 3));
+    return v;
 }
 
 int main() {
-	vector<Item> vecOfItems = getItemList();
-	//迭代器 
-	vector<Item>::iterator it;
-	int num;
-	cout<<"输入一个m_Count：" ;
-	cin>>num; 
-	it = find_if(vecOfItems.begin(), vecOfItems.end(), bind(priceComparision, placeholders::_1, num));
-	if (it != vecOfItems.end())
-		cout << "Item Price :" << it->getPrice() << " Count : " << it->getCount() << endl;
-	else
-		cout << "Item not Found" << endl;
-	return 0;
+    vector<Item> v = getList();
+
+    vector<Item>::iterator it;
+    int num;
+    cin >> num;
+    it = find_if(v.begin(), v.end(), bind(complePrice, placeholders::_1, num));
+    if (it != v.end())
+        cout << "Item Price :" << it->getPrice()
+             << " Count : " << it->getCount() << endl;
+    else
+        cout << "Item not Found" << endl;
+    return 0;
 }

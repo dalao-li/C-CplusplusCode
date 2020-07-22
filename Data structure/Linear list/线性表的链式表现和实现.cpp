@@ -7,14 +7,14 @@ typedef struct Lnode {
 	struct Lnode *next;
 } Lnode,*Linklist;
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 Lnode *initList(Linklist head) {
 	head=(Linklist)malloc(sizeof(Lnode));
 	head->next=NULL;
 	return head;
 }
 
-//ºó²å·¨½¨Á¢Á´±í
+//åæ’æ³•å»ºç«‹é“¾è¡¨
 Lnode *inputList(Linklist &head,int n) {
 	head->next=NULL;
 	Linklist p,r;
@@ -29,13 +29,13 @@ Lnode *inputList(Linklist &head,int n) {
 	return head;
 }
 
-//²éÕÒ
+//æŸ¥æ‰¾
 void getList(Linklist head,int index) {
 	Linklist p;
 	p=head->next;
-	//jÎª¼ÆÊıÆ÷£¬ÓÃÒÔ¼ÇÂ¼µ±Ç°µÄÎ»ÖÃ
+	//jä¸ºè®¡æ•°å™¨ï¼Œç”¨ä»¥è®°å½•å½“å‰çš„ä½ç½®
 	int j=1;
-	//µ±P²»Îª¿ÕÇÒÎ´µ½Ö¸¶¨Î»ÖÃÊ±,Ö¸ÕëÏòºóÒÆ¶¯,¼ÆÊıÆ÷Ôö¼Ó
+	//å½“Pä¸ä¸ºç©ºä¸”æœªåˆ°æŒ‡å®šä½ç½®æ—¶,æŒ‡é’ˆå‘åç§»åŠ¨,è®¡æ•°å™¨å¢åŠ 
 	while(p&&j<index) {
 		p=p->next;
 		++j;
@@ -46,11 +46,11 @@ void getList(Linklist head,int index) {
 	printf("%d\n",p->data);
 }
 
-//²åÈë
+//æ’å…¥
 void insertList(Linklist &head,int index,int e) {
 	Linklist p;
 	p=head;
-	//¼ÆÊıÆ÷³õÊ¼ÖµÎª0ÊÇ¿¼ÂÇµ½ÁË¿Õ±íµÄÇé¿ö
+	//è®¡æ•°å™¨åˆå§‹å€¼ä¸º0æ˜¯è€ƒè™‘åˆ°äº†ç©ºè¡¨çš„æƒ…å†µ
 	int j=0;
 	while(p&&j<index-1) {
 		p=p->next;
@@ -66,7 +66,7 @@ void insertList(Linklist &head,int index,int e) {
 	p->next=s;
 }
 
-//É¾³ı
+//åˆ é™¤
 void insertList(Linklist &head,int index) {
 	Linklist p;
 	p=head;

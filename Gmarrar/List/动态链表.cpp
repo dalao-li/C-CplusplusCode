@@ -9,7 +9,7 @@ struct Student {
 int main() {
 	Student *head,*p,*p1,*p2;
 	int n=0;
-	cout<<"ÇëÊäÈëÑ§ÉúĞÅÏ¢ (ÒÔÁ½ÏîĞÅÏ¢¶¼Êä'0'×÷Îª½áÊø) "<<endl;
+	cout<<"è¯·è¾“å…¥å­¦ç”Ÿä¿¡æ¯ (ä»¥ä¸¤é¡¹ä¿¡æ¯éƒ½è¾“'0'ä½œä¸ºç»“æŸ) "<<endl;
 	p1=p2=new Student;
 	cin>>p1->num>>p1->name;
 	head=NULL;
@@ -25,8 +25,8 @@ int main() {
 		cin>>p1->num>>p1->name;
 	}
 	p2->next=NULL;
-	//Êä³öÑ§ÉúĞÅÏ¢
-	cout<<"Ñ§ÉúµÄĞÅÏ¢Îª£»"<<endl;
+	//è¾“å‡ºå­¦ç”Ÿä¿¡æ¯
+	cout<<"å­¦ç”Ÿçš„ä¿¡æ¯ä¸ºï¼›"<<endl;
 	p=head;
 	if(head!=NULL) {
 		do {

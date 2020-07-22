@@ -14,7 +14,7 @@ int main() {
 int strcmp(char *p1,char *p2) {
 	int i=0;
 	while(*(p1+i)==*(p2+i)) {
-		//Á½¸ö×Ö·û´®ÍêÈ«ÏàµÈ
+		//ä¸¤ä¸ªå­—ç¬¦ä¸²å®Œå…¨ç›¸ç­‰
 		if(*(p1+i++)=='\0') {
 			return 0;
 		}

@@ -1,68 +1,64 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main() {
-	int n,i,j,*a;
-	a=new int[n];
-	cin>>n;
-	for(i=0; i<n; i++) {
-		cin>>a[i];
-	}
 
-	//ÓÃÀ´¼ÇÂ¼×ó²àºÍÓÒ²à×îºóÒ»´Î½»»»µÄÎ»ÖÃ
-	int lastLeftExchangeIndex;
-	int lastRightExchangeIndex;
-	//ÎŞĞòÊıÁĞµÄ×óÓÒ±ß½ç£¬Ã¿´Î±È½ÏÖ»Ğè±Èµ½ÕâÀïÎªÖ¹
-	int leftSortBorder=0;
-	int rightSortBorder= n-1;
+void sorts(int data[], int n) {
+    //ç”¨æ¥è®°å½•å·¦ä¾§å’Œå³ä¾§æœ€åä¸€æ¬¡äº¤æ¢çš„ä½ç½®
+    int leftIndex;
+    int rightIndex;
+    //æ— åºæ•°åˆ—çš„å·¦å³è¾¹ç•Œï¼Œæ¯æ¬¡æ¯”è¾ƒåªéœ€æ¯”åˆ°è¿™é‡Œä¸ºæ­¢
+    int leftBorder = 0;
+    int rightBorder = n - 1;
 
-	for(i=0; i<n/2; i++) {
-		//Ã¿Ò»ÂÖ¿ªÊ¼Ê±Ä¬ÈÏÎªÓĞĞòÅÅĞò£¬±ê¼ÇÎªture
-		bool isSorted= true ;
-		//ÆæÊıÂÖ£¬´Ó×óÏòÓÒ½øĞĞ±È½ÏºÍ½»»»
-		for(j=leftSortBorder; j<rightSortBorder; j++) {
-			if(a[j]>a[j+1]) {
-				int temp=a[j];
-				a[j]=a[j+1];
-				a[j+1]=temp;
-				//ÓĞÔªËØ½»»»£¬ËµÃ÷²»ÊÇÓĞĞò£¬±ê¼Ç±äÎªfalse
-				isSorted=false;
-				//¼ÇÂ¼×ó²à×îºóÒ»´Î½»»»µÄÎ»ÖÃ
-				lastLeftExchangeIndex=j;
-			}
-		}
-		//½«ÓÒ²àÎŞĞòÊıÁĞµÄ±ß½ç¸üĞÂÎª×ó²à×îºóÒ»´Î½»»»µÄÎ»ÖÃ
-		rightSortBorder= lastLeftExchangeIndex; 
-		//ÈôÅÅĞòºóÈÔÎªÓĞĞò£¬ËµÃ÷ÅÅĞòÍê³É£¬Ôò½áÊø
-		if(isSorted) {
-			break;
-		}
-		//Ã¿Ò»ÂÖ¿ªÊ¼Ê±Ä¬ÈÏÎªÓĞĞòÅÅĞò£¬±ê¼ÇÎªture
-		isSorted =true;
-		//Å¼ÊıÂÖ£¬´ÓÓÒÍù×ó½øĞĞ±È½ÏºÍ½»»»
-		for(j=rightSortBorder; j>leftSortBorder; j--) {
-			if(a[j]<a[j-1]) {
-				int temp=a[j];
-				a[j]=a[j-1];
-				a[j-1]=temp;
-				//ÓĞÔªËØ½»»»£¬ËµÃ÷²»ÊÇÓĞĞò£¬±ê¼Ç±äÎªfalse
-				isSorted=false;
-				//¼ÇÂ¼ÓÒ²à×îºóÒ»´Î½»»»µÄÎ»ÖÃ
-				lastRightExchangeIndex=j;
-			}
-		}
-		//½«×ó²àÎŞĞòÊıÁĞµÄ±ß½ç¸üĞÂÎªÓÒ²à×îºóÒ»´Î½»»»µÄÎ»ÖÃ
-		leftSortBorder= lastRightExchangeIndex;
-		//ÈôÅÅĞòºóÈÔÎªÓĞĞò£¬ËµÃ÷ÅÅĞòÍê³É£¬Ôò½áÊø
-		if(isSorted) {
-			break;
-		}
-	}
-
-	for(i=0; i<n; i++) {
-		cout<<a[i]<<" ";
-	}
-	return 0;
+    for (int i = 0; i < n / 2; i++) {
+        //æ¯ä¸€è½®å¼€å§‹æ—¶é»˜è®¤ä¸ºæœ‰åºæ’åºï¼Œæ ‡è®°ä¸ºture
+        bool isSorted = true;
+        //å¥‡æ•°è½®ï¼Œä»å·¦å‘å³è¿›è¡Œæ¯”è¾ƒå’Œäº¤æ¢
+        for (int j = leftBorder; j < rightBorder; j++) {
+            if (a[j] > a[j + 1]) {
+                swap(a[j], a[j + 1]);
+                //æœ‰å…ƒç´ äº¤æ¢ï¼Œè¯´æ˜ä¸æ˜¯æœ‰åºï¼Œæ ‡è®°å˜ä¸ºfalse
+                isSorted = false;
+                //è®°å½•å·¦ä¾§æœ€åä¸€æ¬¡äº¤æ¢çš„ä½ç½®
+                leftIndex = j;
+            }
+        }
+        //å°†å³ä¾§æ— åºæ•°åˆ—çš„è¾¹ç•Œæ›´æ–°ä¸ºå·¦ä¾§æœ€åä¸€æ¬¡äº¤æ¢çš„ä½ç½®
+        rightBorder = leftIndex;
+        //è‹¥æ’åºåä»ä¸ºæœ‰åºï¼Œè¯´æ˜æ’åºå®Œæˆï¼Œåˆ™ç»“æŸ
+        if (isSorted) {
+            break;
+        }
+        //æ¯ä¸€è½®å¼€å§‹æ—¶é»˜è®¤ä¸ºæœ‰åºæ’åºï¼Œæ ‡è®°ä¸ºture
+        isSorted = true;
+        //å¶æ•°è½®ï¼Œä»å³å¾€å·¦è¿›è¡Œæ¯”è¾ƒå’Œäº¤æ¢
+        for (int j = rightBorder; j > leftBorder; j--) {
+            if (a[j] < a[j - 1]) {
+                swap(a[j], a[j - i]);
+                //æœ‰å…ƒç´ äº¤æ¢ï¼Œè¯´æ˜ä¸æ˜¯æœ‰åºï¼Œæ ‡è®°å˜ä¸ºfalse
+                isSorted = false;
+                //è®°å½•å³ä¾§æœ€åä¸€æ¬¡äº¤æ¢çš„ä½ç½®
+                rightIndex = j;
+            }
+        }
+        //å°†å·¦ä¾§æ— åºæ•°åˆ—çš„è¾¹ç•Œæ›´æ–°ä¸ºå³ä¾§æœ€åä¸€æ¬¡äº¤æ¢çš„ä½ç½®
+        leftBorder = rightIndex;
+        //è‹¥æ’åºåä»ä¸ºæœ‰åºï¼Œè¯´æ˜æ’åºå®Œæˆï¼Œåˆ™ç»“æŸ
+        if (isSorted) {
+            break;
+        }
+    }
 }
 
+int main() {
+    int *a;
+    a = new int[n];
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
 
-
+    for (i = 0; i < n; i++) {
+        cout << a[i] << " ";
+    }
+    return 0;
+}

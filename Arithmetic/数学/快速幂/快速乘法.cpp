@@ -5,14 +5,14 @@ typedef long long ll;
 ll rapidMultiplication(int a,int b) {
 	ll ans = 0;
 	while(b) {
-		//ÈôbµÄ¶þ½øÖÆÄ©Î»Îª1,¼´bÎªÆæÊýÊ± 
+		//è‹¥bçš„äºŒè¿›åˆ¶æœ«ä½ä¸º1,å³bä¸ºå¥‡æ•°æ—¶ 
 		if(b&1) {
-			//½«½á¹ûÔÝ´æÔÚansÖÐ 
+			//å°†ç»“æžœæš‚å­˜åœ¨ansä¸­ 
 			ans+=a;
 		}
-		//²ðb 
+		//æ‹†b 
 		b>>=1;
-		//À©a 
+		//æ‰©a 
 		a<<=1;
 	}
 	return ans;

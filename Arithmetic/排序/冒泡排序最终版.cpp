@@ -8,21 +8,21 @@ int main() {
 		cin>>a[i];
 	}
 
-	//������¼���һ�ν�����λ��
+	//用来记录最后一次交换的位置
 	int lastExchangeIndex = 0;
-	//�������еı߽磬ÿ�αȽ�ֻ��ȵ���Ϊֹ
+	//无序数列的边界，每次比较只需比到这为止
 	int sortBorder = n-1;
 	for(i=0; i<n; i++) {
-		//ÿһ�ֿ�ʼʱĬ��Ϊ�������򣬱��Ϊture
+		//每一轮开始时默认为有序排序，标记为ture
 		bool isSorted= true ;
 		for(j=0; j<sortBorder; j++) {
 			if(a[j]>a[j+1]) {
 				int temp=a[j];
 				a[j]=a[j+1];
 				a[j+1]=temp;
-				//��Ԫ�ؽ�����˵���������򣬱�Ǳ�Ϊfalse
+				//有元素交换，说明不是有序，标记变为false
 				isSorted=false;
-				//��¼���һ�ν�����λ��
+				//记录最后一次交换的位置
 				lastExchangeIndex = j;
 			}
 			for(int i=0; i<n; i++) {
@@ -31,9 +31,9 @@ int main() {
 			cout<<endl;
 		}
 
-		//���������б߽����Ϊ���һ�ν���Ԫ�ص�λ��
+		//把无序数列边界更新为最后一次交换元素的位置
 		sortBorder =lastExchangeIndex;
-		//���ڲ�һ���������Ϊ����˵��������ɣ�����
+		//若内侧一轮排序后仍为有序，说明排序完成，结束
 		if(isSorted) {
 			break;
 		}
