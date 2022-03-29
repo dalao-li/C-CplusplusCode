@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:07:48
+ */
 #include<stdio.h>
 #include<iostream>
 #define MAXVERTICES 20
@@ -6,21 +15,21 @@ using namespace std;
 
 typedef char TypeElement;
 typedef struct Enode{
-	int dest; //±ßµÄÁíÒ»¶¥µãÎ»ÖÃ 
+	int dest; //è¾¹çš„å¦ä¸€é¡¶ç‚¹ä½ç½® 
 	int weight;
-	struct Enode *link; //ÏÂÒ»Ìõ±ßÁ´Ö¸Õë
+	struct Enode *link; //ä¸‹ä¸€æ¡è¾¹é“¾æŒ‡é’ˆ
 }EdgeNode;
 
 typedef struct {
-	TypeElement  data;  //¶¥µãµÄÃû×Ö 
-	struct Eonde *adj;  //±ßÁ´±íµÄÍ·Ö¸Õë 
+	TypeElement  data;  //é¡¶ç‚¹çš„åå­— 
+	struct Eonde *adj;  //è¾¹é“¾è¡¨çš„å¤´æŒ‡é’ˆ 
 }VertexNode; 
 
 typedef struct {
 	VertexNode VerticesList[MAXVERTICES];
-	//Í¼ÖĞÊµ¼Ê×Ü¶¥µãÊı
+	//å›¾ä¸­å®é™…æ€»é¡¶ç‚¹æ•°
 	int sumVertices;
-	//Í¼ÖĞÊµ¼Ê×Ü±ßÊı
+	//å›¾ä¸­å®é™…æ€»è¾¹æ•°
 	int sumEdges;
 }Algraph;
 
@@ -28,10 +37,10 @@ void creatAlgraph(Algraph &G,int n,int e){
 	G.sumVertices = n;
 	G.sumEdges = e;
 	TypeElemen val,e1,e2;
-	//³õÊ¼»¯¶¥µã±í 
+	//åˆå§‹åŒ–é¡¶ç‚¹è¡¨ 
 	for(int i = 0 ; i< G.sumVertices ; i++){
 		cin>>val;
-		G.VerticesList[i].data = val; //¸üĞÂ¶¥µãÊı¾İ 
+		G.VerticesList[i].data = val; //æ›´æ–°é¡¶ç‚¹æ•°æ® 
 		G.VerticesList.adj = NULL; 
 	}
 	for(int i = 0 ; i < G.sumEdges ;i++){

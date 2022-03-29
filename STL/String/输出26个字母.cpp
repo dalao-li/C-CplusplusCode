@@ -4,7 +4,7 @@
 #define LENGTH 6
 using namespace std;
 
-//ÓÃÒÔ½øĞĞ¹ş·òÂü±àÂë
+//ç”¨ä»¥è¿›è¡Œå“ˆå¤«æ›¼ç¼–ç 
 int code[20];
 
 string huffman[LENGTH];
@@ -18,27 +18,27 @@ typedef struct logSheet {
 
 
 typedef struct Tree {
-	int data;  //¹ş·òÂüÊ÷ÖĞ½ÚµãµÄÈ¨Öµ
+	int data;  //å“ˆå¤«æ›¼æ ‘ä¸­èŠ‚ç‚¹çš„æƒå€¼
 	Tree * leftChild;
 	Tree * rightChild;
 } Tree,*TreeList;
 
 TreeList createTree(logSheet sheet) {
-	//½¨Á¢Ò»¸öÖ¸ÕëÊı×éÓÃÀ´±£´æ½ÚµãĞÅÏ¢
+	//å»ºç«‹ä¸€ä¸ªæŒ‡é’ˆæ•°ç»„ç”¨æ¥ä¿å­˜èŠ‚ç‚¹ä¿¡æ¯
 	TreeList leaves[LENGTH];
 	TreeList leaf;
-	//½¨Á¢Ò»¸ö½Úµã×÷Îª¹ş·òÂüÊ÷µÄ¸ù½Úµã
+	//å»ºç«‹ä¸€ä¸ªèŠ‚ç‚¹ä½œä¸ºå“ˆå¤«æ›¼æ ‘çš„æ ¹èŠ‚ç‚¹
 	TreeList root = NULL;
-	for (int i = 0; i < LENGTH; i++) { //³õÊ¼»¯½á¹¹ÌåÖ¸ÕëÊı×é,Êı×éÖĞÃ¿Ò»¸öÔªËØÎªÒ»¸ö½á¹¹ÌåÖ¸ÕëÀàĞÍ
+	for (int i = 0; i < LENGTH; i++) { //åˆå§‹åŒ–ç»“æ„ä½“æŒ‡é’ˆæ•°ç»„,æ•°ç»„ä¸­æ¯ä¸€ä¸ªå…ƒç´ ä¸ºä¸€ä¸ªç»“æ„ä½“æŒ‡é’ˆç±»å‹
 		leaf = new Tree;
 
 		leaf->data = sheet.occurrenceNumber[i];
 		leaf->leftChild = leaf->rightChild = NULL;
 		leaves[i] = leaf;
 	}
-	//½øĞĞ n-1 ´ÎÑ­»·½¨Á¢¹ş·òÂüÊ÷
+	//è¿›è¡Œ n-1 æ¬¡å¾ªç¯å»ºç«‹å“ˆå¤«æ›¼æ ‘
 	for(int i = 1; i < LENGTH; i++) {
-		//min1±íÊ¾É­ÁÖÖĞ¾ßÓĞ×îĞ¡È¨ÖµµÄÊ÷¸ù½áµãµÄÏÂ±ê,min2Îª´Î×îĞ¡µÄÏÂ±ê
+		//min1è¡¨ç¤ºæ£®æ—ä¸­å…·æœ‰æœ€å°æƒå€¼çš„æ ‘æ ¹ç»“ç‚¹çš„ä¸‹æ ‡,min2ä¸ºæ¬¡æœ€å°çš„ä¸‹æ ‡
 		int min1 = -1, min2;
 		for(int j = 0; j < LENGTH; j++) {
 			if (leaves[j] != NULL && min1 == -1) {
@@ -50,7 +50,7 @@ TreeList createTree(logSheet sheet) {
 				break;
 			}
 		}
-		//½«Ö¸ÕëÊı×éÖĞµÄÖ¸ÕëÖ¸ÏòµÄ×îĞ¡Öµ¸³Öµ¸øË÷ÒıºÅÎªmin1µÄ,´ÎĞ¡Öµ¸³Öµ¸øË÷ÒıºÅÎªmin2µÄ
+		//å°†æŒ‡é’ˆæ•°ç»„ä¸­çš„æŒ‡é’ˆæŒ‡å‘çš„æœ€å°å€¼èµ‹å€¼ç»™ç´¢å¼•å·ä¸ºmin1çš„,æ¬¡å°å€¼èµ‹å€¼ç»™ç´¢å¼•å·ä¸ºmin2çš„
 		for (int j = min2; j < LENGTH; j++) {
 			if(leaves[j] != NULL) {
 				if(leaves[j]->data < leaves[min1]->data) {
@@ -61,46 +61,46 @@ TreeList createTree(logSheet sheet) {
 				}
 			}
 		}
-		//ÓÉ×îĞ¡È¨ÖµÊ÷ºÍ´Î×îĞ¡È¨ÖµÊ÷½¨Á¢Ò»¿ÃĞÂÊ÷,rootÖ¸ÏòÊ÷¸ù½áµã
+		//ç”±æœ€å°æƒå€¼æ ‘å’Œæ¬¡æœ€å°æƒå€¼æ ‘å»ºç«‹ä¸€æ£µæ–°æ ‘,rootæŒ‡å‘æ ‘æ ¹ç»“ç‚¹
 		root = new Tree;
-		//¸üĞÂĞÂ½ÚµãÈ¨Öµ
+		//æ›´æ–°æ–°èŠ‚ç‚¹æƒå€¼
 		root->data = leaves[min1]->data + leaves[min2]->data;
 		root->leftChild = leaves[min1];
 		root->rightChild = leaves[min2];
-		//½«Ö¸ÏòĞÂÊ÷µÄÖ¸Õë¸³¸øleavesÖ¸ÕëÊı×éÖĞmin1Î»ÖÃ,½ÚÔ¼¿Õ¼ä
+		//å°†æŒ‡å‘æ–°æ ‘çš„æŒ‡é’ˆèµ‹ç»™leavesæŒ‡é’ˆæ•°ç»„ä¸­min1ä½ç½®,èŠ‚çº¦ç©ºé—´
 		leaves[min1] = root;
-		//min2Î»ÖÃÎª¿Õ
+		//min2ä½ç½®ä¸ºç©º
 		leaves[min2] = NULL;
 	}
 	return root;
 }
 
-//µİ¹é½øĞĞ¹ş·òÂüÊ÷±àÂëº¯Êı
+//é€’å½’è¿›è¡Œå“ˆå¤«æ›¼æ ‘ç¼–ç å‡½æ•°
 void huffmanCoding(TreeList &root,int len,logSheet sheet) {
-	//µ±Õâ¸ö½Úµã²»Îª¿Õ
+	//å½“è¿™ä¸ªèŠ‚ç‚¹ä¸ä¸ºç©º
 	if(root != NULL) {
-		//µ½ÁËÒ¶×Ó½Úµã
+		//åˆ°äº†å¶å­èŠ‚ç‚¹
 		if(root->leftChild == NULL && root->rightChild == NULL) {
-			//È·¶¨ÕâÊÇÄÄÒ»¸ö×Ö·ûµÄ¹ş·òÂüÂë
+			//ç¡®å®šè¿™æ˜¯å“ªä¸€ä¸ªå­—ç¬¦çš„å“ˆå¤«æ›¼ç 
 			int index;
 			for(int i = 0; i<LENGTH; i++) {
-				//ÒÀ¾İÈ¨ÖµÈ·¶¨×Ö·û
+				//ä¾æ®æƒå€¼ç¡®å®šå­—ç¬¦
 				if(root->data == sheet.occurrenceNumber[i]) {
 					index = i;
 					break;
 				}
 			}
 			for(int i = 0; i < len; i++) {
-				//±£´æ¹ş·òÂü±àÂë
+				//ä¿å­˜å“ˆå¤«æ›¼ç¼–ç 
 				huffman[index].push_back(code[i]+'0');
 			}
 		}
-		//·ñÔò¼ÌĞø½øĞĞ¹ş·òÂü±àÂëµÄ²Ù×÷
+		//å¦åˆ™ç»§ç»­è¿›è¡Œå“ˆå¤«æ›¼ç¼–ç çš„æ“ä½œ
 		else {
-			//×ó±ß·ÖÖ§¶¼¼ÇÎªÁã
+			//å·¦è¾¹åˆ†æ”¯éƒ½è®°ä¸ºé›¶
 			code[len] = 0;
 			huffmanCoding(root->leftChild,len+1,sheet);
-			//ÓÒ²à·ÖÖ§¶¼¼ÇÎª1
+			//å³ä¾§åˆ†æ”¯éƒ½è®°ä¸º1
 			code[len] = 1;
 			huffmanCoding(root->rightChild,len+1,sheet);
 		}
@@ -120,13 +120,13 @@ int main() {
 		sheet.occurrenceNumber[i] = arr[i];
 	}
 	
-	//·µ»ØÖ¸Ïò¹ş·òÂüÊ÷¸ù½ÚµãµÄÖ¸Õë
+	//è¿”å›æŒ‡å‘å“ˆå¤«æ›¼æ ‘æ ¹èŠ‚ç‚¹çš„æŒ‡é’ˆ
 	TreeList root = createTree(sheet);
 	
-	//½øĞĞ¹ş·òÂü±àÂë
+	//è¿›è¡Œå“ˆå¤«æ›¼ç¼–ç 
 	huffmanCoding(root,0,sheet);
 	for(int i = 0; i<LENGTH; i++) {
-		cout<<sheet.character[i]<<"µÄ¹ş·òÂü±àÂëÊÇ"<<huffman[i]<<endl;
+		cout<<sheet.character[i]<<"çš„å“ˆå¤«æ›¼ç¼–ç æ˜¯"<<huffman[i]<<endl;
 	}
 	return 0;
 }

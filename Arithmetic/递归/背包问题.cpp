@@ -1,4 +1,14 @@
-//n¸öÖØÁ¿ºÍ¼ÛÖµ·Ö±ğÎªwi viµÄÎïÆ·,´ÓÖĞÑ¡³ö×ÜÖØ²»³¬¹ıWµÄÎïÆ·,Çó¼ÛÖµµÄ×î´óÖµ
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:01:31
+ */
+
+// nä¸ªé‡é‡å’Œä»·å€¼åˆ†åˆ«ä¸ºwi viçš„ç‰©å“,ä»ä¸­é€‰å‡ºæ€»é‡ä¸è¶…è¿‡Wçš„ç‰©å“,æ±‚ä»·å€¼çš„æœ€å¤§å€¼
 #include<iostream>
 #include<algorithm> 
 #define MAX 100
@@ -6,10 +16,10 @@ using namespace std;
 int n,W;
 int w[MAX],v[MAX];
 
-//´ÓµÚi¸öÎïÆ·ÖĞÕÒ³ö×ÜÖØĞ¡ÓÚjµÄ²¿·Ö 
+// ä»ç¬¬iä¸ªç‰©å“ä¸­æ‰¾å‡ºæ€»é‡å°äºjçš„éƒ¨åˆ† 
 int rec(int i,int j) {
 	int res;
-	//Èç¹ûÒÑ¾­Ñ¡ÍêÁË 
+	//å¦‚æœå·²ç»é€‰å®Œäº† 
 	if(i==n) {
 		res = 0;
 	} else if(j<w[i]) {

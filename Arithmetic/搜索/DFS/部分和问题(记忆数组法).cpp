@@ -1,24 +1,33 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:07:22
+ */
 #include<stdio.h>
 
-int a[4] = {1,2,4,7};        //Ô­Ê¼Êı¾İ 1,2,4,7;Ä¿±êºÍ13,Èç¹ûÓĞ½âÔòÊä³öOK
+int a[4] = {1,2,4,7};        //åŸå§‹æ•°æ® 1,2,4,7;ç›®æ ‡å’Œ13,å¦‚æœæœ‰è§£åˆ™è¾“å‡ºOK
 int k = 13;
 int n = 4;
-int b[4];                    //±ê¼ÇÊı×é
+int b[4];                    //æ ‡è®°æ•°ç»„
 
 bool dfs(int x,int sum)  {
 
-	if(sum>k) {              //¼ôÖ¦,±ÜÃâ²»±ØÒªµÄ²Ù×÷
+	if(sum>k) {              //å‰ªæ,é¿å…ä¸å¿…è¦çš„æ“ä½œ
 		return false;
 	}
-	if(x==n) {               //Èç¹ûÇ°nÏî¼ÆËã¹ıÁË,·µ»Øsum=kÊÇ·ñÏàµÈ
+	if(x==n) {               //å¦‚æœå‰né¡¹è®¡ç®—è¿‡äº†,è¿”å›sum=kæ˜¯å¦ç›¸ç­‰
 		return sum==k;
 	}
 	if(dfs(x+1,sum)) {
-		b[x]=0;              //Èç¹û²»¼ÓÉÏa[x]µÄÇé¿ö,b[x]±ê¼ÇÎª0
+		b[x]=0;              //å¦‚æœä¸åŠ ä¸Ša[x]çš„æƒ…å†µ,b[x]æ ‡è®°ä¸º0
 		return true;
 	}
 	if(dfs(x+1,sum+a[x])) {
-		b[x]=1;              //Èç¹û¼ÓÉÏa[x]µÄÇé¿ö,b[x]±ê¼ÇÎª1
+		b[x]=1;              //å¦‚æœåŠ ä¸Ša[x]çš„æƒ…å†µ,b[x]æ ‡è®°ä¸º1
 		return true;
 	}
 	return false;

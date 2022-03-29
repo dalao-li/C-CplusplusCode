@@ -1,24 +1,24 @@
 #include<stdio.h>
 #include<iostream>
 #include<malloc.h>
-//¹şÏ£±í±í³¤
+//å“ˆå¸Œè¡¨è¡¨é•¿
 #define HASH_TABLE_LENGTH 50
-//ÈËÃû×î´ó¸öÊı
+//äººåæœ€å¤§ä¸ªæ•°
 #define NAME_MAX_TOTAL 30
-//³ıÊı
+//é™¤æ•°
 #define M 47
 using namespace std;
 typedef struct {
-	//ÓÃ»§µÄÃû×Ö
+	//ç”¨æˆ·çš„åå­—
 	string name;
-	//¸ÃÃû×ÖËù¶ÔÓ¦µÄ¹Ø¼ü×Ö
+	//è¯¥åå­—æ‰€å¯¹åº”çš„å…³é”®å­—
 	int keyword;
 } NameList ;
  
 
 typedef struct {
 	NameList nameUnit;
-	//²éÕÒ´ÎÊı
+	//æŸ¥æ‰¾æ¬¡æ•°
 	int LookupsNumber;
 } HashTable ;
 
@@ -54,64 +54,64 @@ void initializeNameList(NameList nameUnit[]) {
 	nameUnit[28].name = "Isaac";
 	nameUnit[29].name = "Harrison";
 	for(int i = 0 ; i<NAME_MAX_TOTAL ; i++) {
-		//sum´ú±í¸ÃÈËÃû×Ö¸÷×Ö·ûµÄASCLLÂëÖµÖ®ºÍ
+		//sumä»£è¡¨è¯¥äººåå­—å„å­—ç¬¦çš„ASCLLç å€¼ä¹‹å’Œ
 		int sum = 0;
 		for(int j = 0 ; j< nameUnit[i].name.size() ; j++) {
 			sum += nameUnit[i].name[j];
 		}
-		//¸üĞÂ¹Ø¼ü×Ö
+		//æ›´æ–°å…³é”®å­—
 		nameUnit[i].keyword = sum;
 	}
 }
 
-//½¨Á¢¹şÏ£±í , mÎªÉ¢ÁĞº¯ÊıÖĞµÄ±»³ıÊı
+//å»ºç«‹å“ˆå¸Œè¡¨ , mä¸ºæ•£åˆ—å‡½æ•°ä¸­çš„è¢«é™¤æ•°
 void creatHashTable(HashTable hashUnit[], NameList nameUnit[]) {
-	//¹şÏ£±í³õÊ¼»¯
+	//å“ˆå¸Œè¡¨åˆå§‹åŒ–
 	for(int i = 0 ; i < HASH_TABLE_LENGTH ; i++) {
 		hashUnit[i].nameUnit.name = "";
 		hashUnit[i].nameUnit.keyword = 0;
 		hashUnit[i].LookupsNumber = 0;
 	}
 
-	//¹¹½¨¹şÏ£±í
-	//±éÀúÃ¿Ò»¸öĞÕÃûµ¥Ôª,½«ËüÃÇ²åÈëµ½¹şÏ£±íÉÏÈ¥
+	//æ„å»ºå“ˆå¸Œè¡¨
+	//éå†æ¯ä¸€ä¸ªå§“åå•å…ƒ,å°†å®ƒä»¬æ’å…¥åˆ°å“ˆå¸Œè¡¨ä¸Šå»
 	for(int  i = 0 ; i<NAME_MAX_TOTAL ; i++) {
-		//initialAddress´ú±í¸ÃĞÕÃûµ¥Ôª×î³õ´¢´æµØÖ·,ÆäÖµÎªĞÕÃûµ¥ÔªµÄ¹Ø¼üÂëkeyword % m
+		//initialAddressä»£è¡¨è¯¥å§“åå•å…ƒæœ€åˆå‚¨å­˜åœ°å€,å…¶å€¼ä¸ºå§“åå•å…ƒçš„å…³é”®ç keyword % m
 		int initialAddress = nameUnit[i].keyword % M;
-		//ultimaAddress´ú±íÆä×îÖÕ´¢´æµØÖ·,³õÊ¼Ê±Á½µØÖ·ÏàµÈ
+		//ultimaAddressä»£è¡¨å…¶æœ€ç»ˆå‚¨å­˜åœ°å€,åˆå§‹æ—¶ä¸¤åœ°å€ç›¸ç­‰
 		int ultimaAddress =  initialAddress;
-		//Èç¹û¹şÏ£±íÉÏ¸Ã×î³õµØÖ·ÉÏµÄ²éÕÒ´ÎÊıÎª0,ËµÃ÷¸ÃÎ»ÖÃ²¢Î´²åÈë¹Ø¼üÂë
+		//å¦‚æœå“ˆå¸Œè¡¨ä¸Šè¯¥æœ€åˆåœ°å€ä¸Šçš„æŸ¥æ‰¾æ¬¡æ•°ä¸º0,è¯´æ˜è¯¥ä½ç½®å¹¶æœªæ’å…¥å…³é”®ç 
 		if(hashUnit[initialAddress].LookupsNumber == 0) {
-			//½«¸ÃĞÕÃûµ¥ÔªµÄ¹Ø¼üÂë²åÈë¹şÏ£±í
+			//å°†è¯¥å§“åå•å…ƒçš„å…³é”®ç æ’å…¥å“ˆå¸Œè¡¨
 			hashUnit[initialAddress].nameUnit.keyword = nameUnit[i].keyword;
-			//¸üĞÂ¹şÏ£±íÉÏ¸ÃÎ»ÖÃµÄĞÕÃû
+			//æ›´æ–°å“ˆå¸Œè¡¨ä¸Šè¯¥ä½ç½®çš„å§“å
 			hashUnit[initialAddress].nameUnit.name = nameUnit[i].name;
-			//¸Ã¹Ø¼üÂëµÄ²éÕÒ´ÎÊıÎª1
+			//è¯¥å…³é”®ç çš„æŸ¥æ‰¾æ¬¡æ•°ä¸º1
 			hashUnit[initialAddress].LookupsNumber = 1;
 		}
-		//·ñÔòËµÃ÷·¢ÉúÁË"³åÍ»"
+		//å¦åˆ™è¯´æ˜å‘ç”Ÿäº†"å†²çª"
 		else {
-			////ÏßĞÔÌ½²â·¨½â¾ö³åÍ»,sum´ú±í×Ü²éÕÒ´ÎÊı
+			////çº¿æ€§æ¢æµ‹æ³•è§£å†³å†²çª,sumä»£è¡¨æ€»æŸ¥æ‰¾æ¬¡æ•°
 			int sum = 0;
-			//µ±×îÖÕÎ»ÖÃÉÏµÄ¹Ø¼üÂë²»ÎªÁãÊ±¼ÌĞøÌ½²é
+			//å½“æœ€ç»ˆä½ç½®ä¸Šçš„å…³é”®ç ä¸ä¸ºé›¶æ—¶ç»§ç»­æ¢æŸ¥
 			do {
 				ultimaAddress = (ultimaAddress + 1) % HASH_TABLE_LENGTH;
 				sum++;
 			} while(hashUnit[ultimaAddress].nameUnit.keyword != 0);
-			//ÕÒµ½²åÈëÎ»ÖÃÖ®ºó,¸üĞÂ¹şÏ£±íÉÏµÄ¹Ø¼ü×ÖÃû×Ö
+			//æ‰¾åˆ°æ’å…¥ä½ç½®ä¹‹å,æ›´æ–°å“ˆå¸Œè¡¨ä¸Šçš„å…³é”®å­—åå­—
 			hashUnit[ultimaAddress].nameUnit.keyword = nameUnit[i].keyword;
 			hashUnit[ultimaAddress].nameUnit.name =  nameUnit[i].name;
-			//¸üĞÂ²éÕÒ´ÎÊı
+			//æ›´æ–°æŸ¥æ‰¾æ¬¡æ•°
 			hashUnit[ultimaAddress].LookupsNumber = sum + 1;
 		}
 	}
 }
 
-//¼ÆËãASLÖµ
+//è®¡ç®—ASLå€¼
 double averageSearchLength(HashTable hashUnit[]) {
 	double sum = 0;
 	for(int i = 0 ; i<HASH_TABLE_LENGTH ; i++) {
-		//ÀÛ¼Ó²éÕÒ´ÎÊı²»Îª0µÄÏî
+		//ç´¯åŠ æŸ¥æ‰¾æ¬¡æ•°ä¸ä¸º0çš„é¡¹
 		if(hashUnit[i].LookupsNumber != 0) {
 			sum += hashUnit[i].LookupsNumber;
 		}
@@ -120,8 +120,8 @@ double averageSearchLength(HashTable hashUnit[]) {
 }
 
 void disPlay(HashTable hashUnit[]) {
-	cout << "ĞòºÅ" << "\t" << "¹Ø¼ü×Ö" << "\t\t" <<
-	     "ËÑË÷´ÎÊı" << "\t" << "H(key)" << "\t\t" << "ĞÕÃû" << endl;
+	cout << "åºå·" << "\t" << "å…³é”®å­—" << "\t\t" <<
+	     "æœç´¢æ¬¡æ•°" << "\t" << "H(key)" << "\t\t" << "å§“å" << endl;
 	for (int i = 0; i<HASH_TABLE_LENGTH; i++) {
 		cout << i << "\t" << hashUnit[i].nameUnit.keyword << "\t\t" << hashUnit[i].LookupsNumber << "\t\t"
 		     << (hashUnit[i].nameUnit.keyword) % M << "\t\t" << hashUnit[i].nameUnit.name << endl;

@@ -1,20 +1,29 @@
-//ÇóÁ½¸ö×Ö·û´®µÄ×î³¤¹«¹²×ÓĞòÁĞ
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:05:02
+ */
+//æ±‚ä¸¤ä¸ªå­—ç¬¦ä¸²çš„æœ€é•¿å…¬å…±å­åºåˆ—
 #include<iostream>
 #include<algorithm>
 #define MAX_N 100
 using namespace std;
 
-//ÓÃÀ´¼ÇÂ¼×ÓĞòÁĞ³¤¶È
+//ç”¨æ¥è®°å½•å­åºåˆ—é•¿åº¦
 int dp[MAX_N][MAX_N];
-//ÓÃÀ´»Ö¸´³ö×ÓĞòÁĞ
+//ç”¨æ¥æ¢å¤å‡ºå­åºåˆ—
 int lcs[MAX_N][MAX_N];
 
 string s,t;
 int n,m;
 
-//Êä³ö×î³¤×ÓĞòÁĞ³¤¶È
+//è¾“å‡ºæœ€é•¿å­åºåˆ—é•¿åº¦
 void solve() {
-	//cout<<"ÊäÈëÁ½¸öĞòÁĞ³¤¶È"<<endl; 
+	//cout<<"è¾“å…¥ä¸¤ä¸ªåºåˆ—é•¿åº¦"<<endl; 
 	cin>>n>>s>>m>>t;
 	for(int i = 0; i<n; i++) {
 		for(int j = 0; j<m; j++) {
@@ -33,7 +42,7 @@ void solve() {
 	cout<<dp[n][m]<<endl;
 }
 
-//Êä³ö×î³¤×ÓĞòÁĞ
+//è¾“å‡ºæœ€é•¿å­åºåˆ—
 void ouputLcs(string &s,int i,int j) {
 	if(i==0||j==0) {
 		return ;

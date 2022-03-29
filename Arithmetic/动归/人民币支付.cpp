@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:04:11
+ */
 #include<iostream>
 using namespace std;
 int main() {
@@ -6,7 +15,7 @@ int main() {
 	int quantity[6]= {0};
 	cin>>payMoney;
 	for(i=0; i<6; i++) {
-		//»Ù÷¡…Ÿƒ‹”√“ª’≈
+		//Ëã•Ëá≥Â∞ëËÉΩÁî®‰∏ÄÂº†
 		if(payMoney>=money[i]) {
 			quantity[i]=payMoney/money[i];
 			payMoney-=quantity[i]*money[i];
@@ -14,7 +23,7 @@ int main() {
 				break;
 			}
 		}
-		//“ª’≈∂º”√≤ª¡À
+		//‰∏ÄÂº†ÈÉΩÁî®‰∏ç‰∫Ü
 		else {
 			continue;
 		}

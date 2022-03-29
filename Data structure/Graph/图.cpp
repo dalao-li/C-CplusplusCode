@@ -6,19 +6,19 @@ using namespace std;
 
 typedef char TypeElement;
 typedef struct {
-	//Í¼ÖĞÊµ¼Ê×Ü¶¥µãÊı
+	//å›¾ä¸­å®é™…æ€»é¡¶ç‚¹æ•°
 	int sumVertices;
-	//Í¼ÖĞÊµ¼Ê×Ü±ßÊı
+	//å›¾ä¸­å®é™…æ€»è¾¹æ•°
 	int sumEdges;
-	//¶¥µã±í
+	//é¡¶ç‚¹è¡¨
 	TypeElement verticesList[MAXVERTICES];
-	//ÁÚ½Ó¾ØÕó
+	//é‚»æ¥çŸ©é˜µ
 	int adjacentMatrix[MAXVERTICES][MAXVERTICES];
-	//ÓÃÀ´±íÊ¾µãÄ³¸öµãÊÇ·ñ±»Ñ¡¹ı
+	//ç”¨æ¥è¡¨ç¤ºç‚¹æŸä¸ªç‚¹æ˜¯å¦è¢«é€‰è¿‡
 	bool isExchanged[MAXVERTICES];
 } Graph;
 
-//²éÕÒÄ³¸öÔÚ¶¥µã±íÖĞµÄÎ»ÖÃ,²»´æÔÚÔò·µ»Ø-1
+//æŸ¥æ‰¾æŸä¸ªåœ¨é¡¶ç‚¹è¡¨ä¸­çš„ä½ç½®,ä¸å­˜åœ¨åˆ™è¿”å›-1
 int getPositionInVerticesList(Graph & G,TypeElement val) {
 	for(int i = 0; i<G.sumVertices ; i++) {
 		if(G.verticesList[i] == val) {
@@ -28,15 +28,15 @@ int getPositionInVerticesList(Graph & G,TypeElement val) {
 	return -1;
 }
 
-//²éÕÒÄ³¸ö¶¥µãµÄµÚÒ»¸öÁÚ½Ó¶¥µã,²ÎÊıÎª¶¥µãÔÚ¶¥µã±íÖĞµÄÎ»ÖÃ
+//æŸ¥æ‰¾æŸä¸ªé¡¶ç‚¹çš„ç¬¬ä¸€ä¸ªé‚»æ¥é¡¶ç‚¹,å‚æ•°ä¸ºé¡¶ç‚¹åœ¨é¡¶ç‚¹è¡¨ä¸­çš„ä½ç½®
 int findFirstNeighborVertex(Graph &G , int vertexPosition) {
-	//Èç¹ûÎ»ÖÃºÏ·¨
+	//å¦‚æœä½ç½®åˆæ³•
 	if(vertexPosition != -1) {
-		//±éÀú¶¥µã±í
+		//éå†é¡¶ç‚¹è¡¨
 		for(int j = 0; j<G.sumVertices ; j++) {
-			//ÕÒµ½Ò»¸öºÏ·¨µÄÁÚ½Óµã
+			//æ‰¾åˆ°ä¸€ä¸ªåˆæ³•çš„é‚»æ¥ç‚¹
 			if(G.adjacentMatrix[vertexPosition][j] > 0 && G.adjacentMatrix[vertexPosition][j] <MAXWEIGHT) {
-				//·µ»Ø¸ÃÁÚ½ÓµãµÄÎ»ÖÃ
+				//è¿”å›è¯¥é‚»æ¥ç‚¹çš„ä½ç½®
 				return j;
 			}
 		}
@@ -44,10 +44,10 @@ int findFirstNeighborVertex(Graph &G , int vertexPosition) {
 	return -1;
 }
 
-//ÕÒ³öÒ»¸ö¶¥µã³ıÒ»¸öÁÚ½Ó¶¥µãÖ®ÍâµÄÁíÒ»¸öÁÚ½Ó¶¥µã
+//æ‰¾å‡ºä¸€ä¸ªé¡¶ç‚¹é™¤ä¸€ä¸ªé‚»æ¥é¡¶ç‚¹ä¹‹å¤–çš„å¦ä¸€ä¸ªé‚»æ¥é¡¶ç‚¹
 int findNextNeighborVertex(Graph &G , int vertexPosition1, int vertexPosition2) {
 	if(vertexPosition1 != -1 && vertexPosition2 != -1) {
-		//Ö±½Ó´Ó vertexPosition2 + 1ÅĞ¶Ï, ÒòÎªvertexPosition2Ö®Ç°µÄµã¿Ï¶¨²»ÊÇÆäÁÚ½Óµã
+		//ç›´æ¥ä» vertexPosition2 + 1åˆ¤æ–­, å› ä¸ºvertexPosition2ä¹‹å‰çš„ç‚¹è‚¯å®šä¸æ˜¯å…¶é‚»æ¥ç‚¹
 		for(int j = vertexPosition2 + 1 ; j< G.sumVertices ; j++ ) {
 			if(G.adjacentMatrix[vertexPosition1][j] >0 && G.adjacentMatrix[vertexPosition1][j] < MAXWEIGHT ) {
 				return j;
@@ -57,21 +57,21 @@ int findNextNeighborVertex(Graph &G , int vertexPosition1, int vertexPosition2) 
 	return -1;
 }
 
-//³õÊ¼»¯Í¼º¯Êı,n,e´ú±í¶¥µãÊıºÍ±ßÊı
+//åˆå§‹åŒ–å›¾å‡½æ•°,n,eä»£è¡¨é¡¶ç‚¹æ•°å’Œè¾¹æ•°
 void createGraph(Graph &G,int n,int e) {
 	G.sumVertices = n;
 	G.sumEdges = e;
 	for(int i = 0 ; i<G.sumVertices ; i++) {
-		//±ê¼Ç¸ÃµãÎªÎ´Ñ¡×´Ì¬
+		//æ ‡è®°è¯¥ç‚¹ä¸ºæœªé€‰çŠ¶æ€
 		G.isExchanged[i] == false;
 		TypeElement val;
-		cout<<"ÇëÊäÈë¶¥µãÖµ"<<endl;
-		//ÊäÈë¶¥µãÖµ
+		cout<<"è¯·è¾“å…¥é¡¶ç‚¹å€¼"<<endl;
+		//è¾“å…¥é¡¶ç‚¹å€¼
 		cin>>val;
-		//¸üĞÂ¶¥µã±í
+		//æ›´æ–°é¡¶ç‚¹è¡¨
 		G.verticesList[i] = val;
 		for(int j = 0 ; j< G.sumVertices ; j++) {
-			//¶Ô½ÇÏßÖµÎª0
+			//å¯¹è§’çº¿å€¼ä¸º0
 			if(i == j) {
 				G.adjacentMatrix[i][j] = 0;
 			} else {
@@ -79,125 +79,125 @@ void createGraph(Graph &G,int n,int e) {
 			}
 		}
 	}
-	//³õÊ¼»¯Ã¿Ò»Ìõ±ß
+	//åˆå§‹åŒ–æ¯ä¸€æ¡è¾¹
 	for(int i = 0; i< G.sumEdges ; i++) {
 		TypeElement e1,e2;
 		int weight;
-		//ÊäÈëÕâ¸ö±ßµÄÁ½¸öµãºÍÈ¨Öµ
-		cout<<"ÊäÈëÕâ¸ö±ßµÄÁ½¸öµãºÍÈ¨Öµ"<<endl;
+		//è¾“å…¥è¿™ä¸ªè¾¹çš„ä¸¤ä¸ªç‚¹å’Œæƒå€¼
+		cout<<"è¾“å…¥è¿™ä¸ªè¾¹çš„ä¸¤ä¸ªç‚¹å’Œæƒå€¼"<<endl;
 		cin>>e1>>e2>>weight;
-		//»ñÈ¡ÕâÁ½¸öµãÔÚ¶¥µã±íÖĞµÄ×ø±ê
+		//è·å–è¿™ä¸¤ä¸ªç‚¹åœ¨é¡¶ç‚¹è¡¨ä¸­çš„åæ ‡
 		int position1 = getPositionInVerticesList(G,e1);
 		int position2 = getPositionInVerticesList(G,e2);
-		//¸üĞÂÁÚ½Ó¾ØÕó
+		//æ›´æ–°é‚»æ¥çŸ©é˜µ
 		G.adjacentMatrix[position1][position2] = weight;
 		G.adjacentMatrix[position2][position1] = weight;
 	}
 }
 
-//²éÕÒ½Úµã
+//æŸ¥æ‰¾èŠ‚ç‚¹
 TypeElement getTypeElement(Graph &G , int vertexPosition) {
 	if(vertexPosition != -1) {
 		return G.verticesList[vertexPosition];
 	}
 }
 
-//±éÀúÍ¼,ĞÎ²ÎÎª×î¿ªÊ¼±éÀúµÄ½ÚµãÎ»ÖÃ
+//éå†å›¾,å½¢å‚ä¸ºæœ€å¼€å§‹éå†çš„èŠ‚ç‚¹ä½ç½®
 void dfs(Graph &G,int vertexPosition) {
 	cout<<"->"<<getTypeElement(G,vertexPosition);
-	//±ê¼Ç¸ÃÎ»ÖÃÎªÒÑÑ¡
+	//æ ‡è®°è¯¥ä½ç½®ä¸ºå·²é€‰
 	G.isExchanged[vertexPosition] = true;
-	// firstNeighborVertex±íÊ¾vertexPositionµÄµÚÒ»¸öÁÚ½Óµã
+	// firstNeighborVertexè¡¨ç¤ºvertexPositionçš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹
 	int neighborPosition = findFirstNeighborVertex(G,vertexPosition);
-	//µ±vertexPositionµÄÁÚ½Óµã´æÔÚÊ±
+	//å½“vertexPositionçš„é‚»æ¥ç‚¹å­˜åœ¨æ—¶
 	while (neighborPosition != -1 ) {
-		//Èç¹û¸ÃµãÃ»ÓĞ±»Ñ¡¹ı
+		//å¦‚æœè¯¥ç‚¹æ²¡æœ‰è¢«é€‰è¿‡
 		if(G.isExchanged[neighborPosition] == false) {
-			//µİ¹é·ÃÎÊ ÏÂÒ»¸öÁÚ½Óµã
+			//é€’å½’è®¿é—® ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹
 			dfs(G,neighborPosition);
 		}
-		//·ñÔòÈ¡ vertexPosition µÄÁíÒ»¸öÁÚ½Óµã neighborPosition
+		//å¦åˆ™å– vertexPosition çš„å¦ä¸€ä¸ªé‚»æ¥ç‚¹ neighborPosition
 		neighborPosition =  findNextNeighborVertex(G,vertexPosition,neighborPosition);
 	}
 }
 
-//ÇóvertexPositionµÄ×î¶ÌÂ·¾¶
+//æ±‚vertexPositionçš„æœ€çŸ­è·¯å¾„
 void theShortestPath(Graph &G,int vertexPosition,int distance[],int path[]) {
-	//×î¶ÌÂ·¾¶¶¥µã¼¯ºÏ
+	//æœ€çŸ­è·¯å¾„é¡¶ç‚¹é›†åˆ
 	int isGetShortestPath[MAXVERTICES];
 	for(int i = 0 ; i<G.sumVertices ; i++) {
-		//Â·¾¶³¤¶ÈÊı×é³õÊ¼»¯,ÆäÖµÎªvertexPositionµ½ÆäËûÃ¿¸öµãµÄ¾àÀë
+		//è·¯å¾„é•¿åº¦æ•°ç»„åˆå§‹åŒ–,å…¶å€¼ä¸ºvertexPositionåˆ°å…¶ä»–æ¯ä¸ªç‚¹çš„è·ç¦»
 		distance[i] = G.adjacentMatrix[vertexPosition][i];
-		//±íÊ¾¶¥µãiÊÇ·ñÇóµÃ×î¶ÌÂ·¾¶
+		//è¡¨ç¤ºé¡¶ç‚¹iæ˜¯å¦æ±‚å¾—æœ€çŸ­è·¯å¾„
 		isGetShortestPath[i] =0;
-		//Èç¹û´ÓvertexPositionµ½iÓĞ±ß,path[i]Îª¸Ã±ßÊ¼¶¥µãºÅvertexPosition
+		//å¦‚æœä»vertexPositionåˆ°iæœ‰è¾¹,path[i]ä¸ºè¯¥è¾¹å§‹é¡¶ç‚¹å·vertexPosition
 		if(i != vertexPosition && distance[i] < MAXWEIGHT) {
 			path[i] = vertexPosition;
 		}
-		//ÈôÃ»ÓĞ±ßÔòpath[i]Îª-1
+		//è‹¥æ²¡æœ‰è¾¹åˆ™path[i]ä¸º-1
 		else {
 			path[i] = -1;
 		}
 	}
-	//¶¥µãvertexPosition¼ÓÈë¼¯ºÏisGetShortestPath
+	//é¡¶ç‚¹vertexPositionåŠ å…¥é›†åˆisGetShortestPath
 	isGetShortestPath[vertexPosition] = 1;
 	distance [vertexPosition] = 0;
-	//Öğ¸öÇóµÃisGetShortestPathµ½ÆäËû¶¥µãµÄ×î¶ÌÂ·¾¶
+	//é€ä¸ªæ±‚å¾—isGetShortestPathåˆ°å…¶ä»–é¡¶ç‚¹çš„æœ€çŸ­è·¯å¾„
 	for(int i = 0; i < G.sumVertices -1; i++) {
 		int min  = MAXWEIGHT;
-		//Ñ¡²»ÔÚ isGetShortestPathÖĞ¾ßÓĞ×î¶ÌÂ·¾¶µÄ¶¥µãpoint
+		//é€‰ä¸åœ¨ isGetShortestPathä¸­å…·æœ‰æœ€çŸ­è·¯å¾„çš„é¡¶ç‚¹point
 		int point = vertexPosition;
 		for(int j = 0 ; j< G.sumVertices ; j++) {
-			//Èç¹û¸ÃµãjÃ»ÓĞ±»Ñ¡ÈëÇÒ´ÓvertexPositionµ½¸ÃµãµÄ¾àÀëĞ¡ÓÚmin
+			//å¦‚æœè¯¥ç‚¹jæ²¡æœ‰è¢«é€‰å…¥ä¸”ä»vertexPositionåˆ°è¯¥ç‚¹çš„è·ç¦»å°äºmin
 			if(!isGetShortestPath[j] && distance[j] < min ) {
-				//¸üĞÂÎ»ÖÃ
+				//æ›´æ–°ä½ç½®
 				point = j;
-				//¸üĞÂ×î¶ÌÂ·¾¶
+				//æ›´æ–°æœ€çŸ­è·¯å¾„
 				min = distance[j];
 			}
 		}
-		//½«¶¥µãpoint¼ÓÈëisGetShortestPath¼¯ºÏ
+		//å°†é¡¶ç‚¹pointåŠ å…¥isGetShortestPathé›†åˆ
 		isGetShortestPath[point] = 1;
-		//ĞŞ¸Ä¾­¹ıpointµ½ÆäËû¶¥µãµÄÂ·¾¶³¤¶È
+		//ä¿®æ”¹ç»è¿‡pointåˆ°å…¶ä»–é¡¶ç‚¹çš„è·¯å¾„é•¿åº¦
 		for(int k = 0 ; k< G.sumVertices ; k++) {
-			//weightÎªµãpointµ½µãkµÄ¾àÀë
+			//weightä¸ºç‚¹pointåˆ°ç‚¹kçš„è·ç¦»
 			int weight = G.adjacentMatrix[point][k];
-			/* Èç¹ûµãkÎ´±»Ñ¡¹ı
-			ÇÒ µãpointµ½µãkÓĞ±ß
-			ÇÒ vertexPositionµ½µãkµÄ¾àÀë±ÈvertexPosition¾­µãpointµ½µãkµÄ¾àÀë³¤*/
+			/* å¦‚æœç‚¹kæœªè¢«é€‰è¿‡
+			ä¸” ç‚¹pointåˆ°ç‚¹kæœ‰è¾¹
+			ä¸” vertexPositionåˆ°ç‚¹kçš„è·ç¦»æ¯”vertexPositionç»ç‚¹pointåˆ°ç‚¹kçš„è·ç¦»é•¿*/
 			if(!isGetShortestPath[k] && weight < MAXWEIGHT && distance[point] + weight < distance[k]) {
-				//vertexPositionµ½µãkµÄ¾àÀëÂ·¾¶¿ÉÒÔËõ¶Ì
+				//vertexPositionåˆ°ç‚¹kçš„è·ç¦»è·¯å¾„å¯ä»¥ç¼©çŸ­
 				distance[k] = distance[point] + weight;
-				// vertexPositionµ½µãkµÄÇ°Ò»¸ö¶¥µãÎªpoint
+				// vertexPositionåˆ°ç‚¹kçš„å‰ä¸€ä¸ªé¡¶ç‚¹ä¸ºpoint
 				path[k] = point;
 			}
 		}
 	}
 }
 
-//Í¼µÄ²åÈë(²åÈëÒ»Ìõ±ß)
+//å›¾çš„æ’å…¥(æ’å…¥ä¸€æ¡è¾¹)
 void insertGraphEdge(Graph &G,int point1,int point2,int weight) {
 	if(point1 != -1 && point2 !=- 1) {
-		//ÁÚ½Ó¾ØÕóÖĞÌí¼Ó¸Ã±ß
+		//é‚»æ¥çŸ©é˜µä¸­æ·»åŠ è¯¥è¾¹
 		G.adjacentMatrix[point1][point2] = weight;
 		G.adjacentMatrix[point2][point1] = weight;
 	}
 }
 
-//Í¼µÄ²åÈë(²åÈëÒ»¸ö¶¥µã)
+//å›¾çš„æ’å…¥(æ’å…¥ä¸€ä¸ªé¡¶ç‚¹)
 void insertGraphVertice(Graph &G,TypeElement val) {
 	if(G.sumVertices<MAXVERTICES) {
-		//×Ü½ÚµãÊı¼Ó1
+		//æ€»èŠ‚ç‚¹æ•°åŠ 1
 		G.sumVertices++;
-		//¸üĞÂ½Úµã
+		//æ›´æ–°èŠ‚ç‚¹
 		G.verticesList[G.sumVertices] = val;
 	}
 
 }
 
-//É¾³ıÒ»Ìõ±ß
+//åˆ é™¤ä¸€æ¡è¾¹
 void deleteGraphEdeg(Graph &G,int point1,int point2) {
-	//½â³ı±ßµÄ¹ØÏµ
+	//è§£é™¤è¾¹çš„å…³ç³»
 	if(point1 != -1 && point2 !=- 1) {
 		G.adjacentMatrix[point1][point2] = MAXWEIGHT;
 		G.adjacentMatrix[point1][point2] = MAXWEIGHT;
@@ -205,21 +205,21 @@ void deleteGraphEdeg(Graph &G,int point1,int point2) {
 }
 
 
-//É¾³ıÒ»¸ö¶¥µãºÍÏàÓ¦µÄ±ß
+//åˆ é™¤ä¸€ä¸ªé¡¶ç‚¹å’Œç›¸åº”çš„è¾¹
 void deleteGraphVetric(Graph &G,TypeElement val) {
-	//ÕÒµ½¸ÃµãµÄÎ»ÖÃ
+	//æ‰¾åˆ°è¯¥ç‚¹çš„ä½ç½®
 	int position = getPositionInVerticesList(G,val);
-	//½«Ëü»»µ½¶¥µã±íµÄ×îºóÒ»Î»ÉÏÈ¥
+	//å°†å®ƒæ¢åˆ°é¡¶ç‚¹è¡¨çš„æœ€åä¸€ä½ä¸Šå»
 	int temp = G.verticesList[G.sumVertices];
 	G.verticesList[G.sumVertices] = G.verticesList[position];
 	G.verticesList[position] = temp;
-	//×ª»¯±ßµÄ¹ØÏµ
+	//è½¬åŒ–è¾¹çš„å…³ç³»
 	for(int j = 0 ; j< G.sumVertices ; j++) {
 		G.adjacentMatrix[position][j] = MAXWEIGHT;
 		G.adjacentMatrix[j][position] = MAXWEIGHT;
 	}
 	G.adjacentMatrix[position][position] = 0;
-	//×Ü¶¥µãÊı¼õ1
+	//æ€»é¡¶ç‚¹æ•°å‡1
 	G.sumVertices--;
 }
 

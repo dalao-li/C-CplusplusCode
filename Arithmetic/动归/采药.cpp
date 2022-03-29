@@ -1,6 +1,15 @@
-//T�����ܹ��ܹ�������ҩ��ʱ�䣬M����ɽ����Ĳ�ҩ����Ŀ��
-//��������M��ÿ�а���������1��100֮�䣨����1��100���ĵ�
-//����,�ֱ��ʾ��ժĳ���ҩ��ʱ��������ҩ�ļ�ֵ��
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:03:35
+ */
+//T代表总共能够用来采药的时间，M代表山洞里的草药的数目。
+//接下来的M行每行包括两个在1到100之间（包括1和100）的的
+//整数,分别表示采摘某株草药的时间和这株草药的价值。
 #include<iostream>
 #include<algorithm>
 #include<cstring>
@@ -8,7 +17,7 @@ using namespace std;
 int M,T;
 int t[101],m[101];
 int dp[101][101];
-//�ӵ�i����Ʒ���ҳ���ʱ��С��j�Ĳ���
+//从第i个物品中找出总时间小于j的部分
 
 int main() {
 	cin>>T>>M;
@@ -20,7 +29,7 @@ int main() {
 	}
 	for(int i = 0; i<M; i++) {
 		for(int j = 0; j<=T; j++) {
-			//�������ѡ
+			//如果不能选
 			if(t[i]>j) {
 				dp[i+1][j] = dp[i][j];
 			} else {

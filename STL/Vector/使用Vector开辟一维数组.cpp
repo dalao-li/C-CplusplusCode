@@ -1,11 +1,20 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:20:25
+ */
 #include<iostream>
 #include<vector>
 using namespace std;
 void inputArray(vector<int> &v) {
 	int len,i,t;
-	cout<<"ÇëÊäÈëÊý×é³¤¶È"<<endl;
+	cout<<"è¯·è¾“å…¥æ•°ç»„é•¿åº¦"<<endl;
 	cin>>len;
-	cout<<"ÇëÊäÈë"<<len<<"¸öÊý¾Ý"<<endl;
+	cout<<"è¯·è¾“å…¥"<<len<<"ä¸ªæ•°æ®"<<endl;
 	for(i=0; i<len; i++) {
 		cin>>t;
 		v.push_back(t);
@@ -13,7 +22,7 @@ void inputArray(vector<int> &v) {
 }
 
 void ouputArray(vector<int> &v) {
-	cout<<"¸ÃÊý×éÎª£º";
+	cout<<"è¯¥æ•°ç»„ä¸ºï¼š";
 	for(auto v_quote:v) {
 		cout<<v_quote<<" ";
 	}

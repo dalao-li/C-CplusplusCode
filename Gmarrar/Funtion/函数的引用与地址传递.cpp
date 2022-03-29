@@ -1,14 +1,14 @@
 /*
-	Name:地址传递与引用传递综合应用
+	Name:锟斤拷址锟斤拷锟斤拷锟斤拷锟斤拷锟矫达拷锟斤拷锟桔猴拷应锟斤拷
 	Copyright:
-	Author:李元昊
+	Author:
 	Date: 10/04/18 07:33
 	Description:
 */
 #include <iostream>
 #define  SIZE 10
 using namespace std;
-void maxAndMin(int a[],int &maximum,int &minimum) //形参是引用
+void maxAndMin(int a[],int &maximum,int &minimum) //锟轿诧拷锟斤拷锟斤拷锟斤拷
 {
 	maximum=a[0];
 	minimum=a[0];

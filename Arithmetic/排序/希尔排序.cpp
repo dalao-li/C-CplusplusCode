@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:05:45
+ */
 #include<iostream>
 #include<stdio.h>
 #include<process.h>
@@ -5,12 +14,12 @@ using namespace std;
 
 void shellSort(int a[],int len) {
 	int h,i,j,temp;
-	//¿ØÖÆÔöÁ¿
+	//æ§åˆ¶å¢é‡
 	for(h = len/2; h > 0; h /= 2) {
-		//Õâ¸öforÑ­»·¾ÍÊÇÇ°ÃæµÄÖ±½Ó²åÈëÅÅĞò
+		//è¿™ä¸ªforå¾ªç¯å°±æ˜¯å‰é¢çš„ç›´æ¥æ’å…¥æ’åº
 		for(i = h; i < len; i++) {
 			temp = a[i];
-			//Ñ­»·´òÓ¡Êı×éµÄÃ¿¸öÔªËØ
+			//å¾ªç¯æ‰“å°æ•°ç»„çš„æ¯ä¸ªå…ƒç´ 
 			for(j=i-h; j>=0&&temp<a[j]; j-=h) {
 				a[j+h]=a[j];
 			}
@@ -19,7 +28,7 @@ void shellSort(int a[],int len) {
 	}
 }
 
-//Êä³öº¯Êı
+//è¾“å‡ºå‡½æ•°
 void printArray(int a[],int len) {
 	for(int i=0; i<len; i++) {
 		cout<<a[i]<<" ";
@@ -29,17 +38,17 @@ void printArray(int a[],int len) {
 
 int main() {
 	int *a,n;
-	cout<<"ÇëÊäÈëÒªÅÅĞòµÄÊıÄ¿"<<endl;            //¾ö¶¨Ò»¹²¶Ô¼¸¸öÊı×ÖÅÅĞò
+	cout<<"è¯·è¾“å…¥è¦æ’åºçš„æ•°ç›®"<<endl;            //å†³å®šä¸€å…±å¯¹å‡ ä¸ªæ•°å­—æ’åº
 	cin>>n;
 	a=new int[n];
-	cout<<"ÇëÊäÈëÒªÅÅĞòµÄÊı×Ö"<<endl;
+	cout<<"è¯·è¾“å…¥è¦æ’åºçš„æ•°å­—"<<endl;
 	for(int i=0; i<n; i++) {
 		cin>>a[i];
 	}
-	cout<<"shellÅÅĞòÇ°:";
+	cout<<"shellæ’åºå‰:";
 	printArray(a,n);
 	shellSort(a,n);
-	cout<<"shellÅÅĞòºó(ÕıĞò):";
+	cout<<"shellæ’åºå(æ­£åº):";
 	printArray(a,n);
 	delete[]a;
 	return 0;

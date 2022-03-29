@@ -1,8 +1,17 @@
 /*
-1.dp[i][j]����a�ַ���ǰi���ַ���b�ַ���ǰj���ַ��Ķ�����;
-2.��i����0ʱ,��Ҫ�Ķ�j��,j����0ʱ,��Ҫ�Ķ�i��,��dp[0][j]=j,dp[i][0]=i;
-3.��a[i]=b[j]ʱ,����Ҫ�Ķ�,��dp[i][j]=dp[i-1][j-1];
-4.��a[i]!=b[j]ʱ,�����ָĶ���ʽ���ĳ�һ��,ɾa[i],ɾb[j],����dp[i][j]=min(f[i-1][j-1],dp[i-1][j],dp[i][j-1]);
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:03:59
+ */
+/*
+1.dp[i][j]代表a字符串前i个字符和b字符串前j个字符改动次数;
+2.当i等于0时,需要改动j次,j等于0时,需要改动i次,即dp[0][j]=j,dp[i][0]=i;
+3.当a[i]=b[j]时,不需要改动,即dp[i][j]=dp[i-1][j-1];
+4.当a[i]!=b[j]时,有三种改动方式：改成一样,删a[i],删b[j],即得dp[i][j]=min(f[i-1][j-1],dp[i-1][j],dp[i][j-1]);
 */ 
 
 

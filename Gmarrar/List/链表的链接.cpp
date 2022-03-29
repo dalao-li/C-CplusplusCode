@@ -1,12 +1,21 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:14:00
+ */
 #include <stdio.h>
 #include <stdlib.h>
 struct student {
-	long num; /*Ñ§ºÅ*/
-	int score; /*³É¼¨*/
+	long num; /*å­¦å·*/
+	int score; /*æˆç»©*/
 	struct student *next;
 };
 
-//³ÌĞòÊ×ÏÈÍê³É´´½¨Á½¸öÁ´±í£¬ÒªÇó²¹³äÍê³ÉÊµÏÖ½«µÚ¶ş¸öÁ´±íºÏ²¢µ½µÚÒ»¸öÁ´±íÎ´Î²µÄº¯Êı¡£
+//ç¨‹åºé¦–å…ˆå®Œæˆåˆ›å»ºä¸¤ä¸ªé“¾è¡¨ï¼Œè¦æ±‚è¡¥å……å®Œæˆå®ç°å°†ç¬¬äºŒä¸ªé“¾è¡¨åˆå¹¶åˆ°ç¬¬ä¸€ä¸ªé“¾è¡¨æœªå°¾çš„å‡½æ•°ã€‚
 struct student *merge(struct student *head, struct student *head1) {
 	struct student *g_St;
 	g_St=head;

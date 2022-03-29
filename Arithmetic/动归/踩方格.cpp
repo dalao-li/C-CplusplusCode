@@ -1,5 +1,14 @@
-//Ò»¸öÎÞÏÞ´óµÄ·½¸ñ¾ØÕó£¬ÄÜÏò±±¡¢¶«¡¢Î÷Èý¸ö·½Ïò×ß¡£
-//ÎÊ×ßN²½¹²ÓÐ¶àÉÙÖÖ²»Í¬µÄ·½°¸¡£
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:03:51
+ */
+//ä¸€ä¸ªæ— é™å¤§çš„æ–¹æ ¼çŸ©é˜µï¼Œèƒ½å‘åŒ—ã€ä¸œã€è¥¿ä¸‰ä¸ªæ–¹å‘èµ°ã€‚
+//é—®èµ°Næ­¥å…±æœ‰å¤šå°‘ç§ä¸åŒçš„æ–¹æ¡ˆã€‚
 #include<iostream>
 using namespace std;
 /*Ii = Ni+Ei+Wi;Ni=Ni-1+Ei-1+Wi-1;

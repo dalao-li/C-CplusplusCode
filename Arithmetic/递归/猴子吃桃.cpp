@@ -1,25 +1,35 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:02:01
+ */
+ 
 #include<iostream>
 using namespace std;
 int main() {
-	//sum´ú±íÌÒ×Ó×ÜÊý,beforeSum´ú±í·ÖÖ®Ç°Ê£ÏÂµÄÌÒ×ÓÊý
+	//sumä»£è¡¨æ¡ƒå­æ€»æ•°,beforeSumä»£è¡¨åˆ†ä¹‹å‰å‰©ä¸‹çš„æ¡ƒå­æ•°
 	int n,sum=0,beforeSum,i,j;
-	//ÊäÈëºï×Ó×ÜÊý
+	//è¾“å…¥çŒ´å­æ€»æ•°
 	cin>>n;
-	//i´ú±í×îºóÒ»¸öºï×ÓÄÃ×ßµÄÌÒ×ÓÊý
+	//iä»£è¡¨æœ€åŽä¸€ä¸ªçŒ´å­æ‹¿èµ°çš„æ¡ƒå­æ•°
 	for(i=1; ; i++) {
-		//ÒòÎªÊ£ÏÂµÄÌÒ×ÓÆ½¾ù·Ö³ÉN·Ý,ÓÖ¶àÁËÒ»¸ö,ËùÒÔ·ÖÖ®Ç°Îªn*i+1¸ö
+		//å› ä¸ºå‰©ä¸‹çš„æ¡ƒå­å¹³å‡åˆ†æˆNä»½,åˆå¤šäº†ä¸€ä¸ª,æ‰€ä»¥åˆ†ä¹‹å‰ä¸ºn*i+1ä¸ª
 		beforeSum=n*i+1;
-		//´Ó×îºóÒ»¸öºï×ÓÍùÇ°µÝ¹é
+		//ä»Žæœ€åŽä¸€ä¸ªçŒ´å­å¾€å‰é€’å½’
 		for(j=1; j<n; j++) {
-			//ÅÐ¶Ï·ÖÖ®Ç°µÄÌÒ×ÓÊý·û²»·ûºÏÒªÇó,¼´beforeSum-1ÄÜ¹»±»nÕû³ý
+			//åˆ¤æ–­åˆ†ä¹‹å‰çš„æ¡ƒå­æ•°ç¬¦ä¸ç¬¦åˆè¦æ±‚,å³beforeSum-1èƒ½å¤Ÿè¢«næ•´é™¤
 			if((beforeSum-1)%n!=0) {
-				//Èç¹û²»ÐÐ,ËµÃ÷×îºóÒ»¸öÒ»¸öºï×ÓÄÃµÄÌÒ×ÓÊý²»¶Ô£¬ÖØÐÂÃ¶¾Ù
+				//å¦‚æžœä¸è¡Œ,è¯´æ˜Žæœ€åŽä¸€ä¸ªä¸€ä¸ªçŒ´å­æ‹¿çš„æ¡ƒå­æ•°ä¸å¯¹ï¼Œé‡æ–°æžšä¸¾
 				break;
 			}
-			//beforeSum/(n-1)´ú±íÇ°Ò»¸öºï×ÓÄÃ×ßµÄÌÒ×ÓÊý
+			//beforeSum/(n-1)ä»£è¡¨å‰ä¸€ä¸ªçŒ´å­æ‹¿èµ°çš„æ¡ƒå­æ•°
 			beforeSum=beforeSum*n+1;
 		}
-		//µ½µÚÒ»¸öºï×ÓÊ±ÍË³öÑ­»·
+		//åˆ°ç¬¬ä¸€ä¸ªçŒ´å­æ—¶é€€å‡ºå¾ªçŽ¯
 		if(j==n) {
 			break;
 		}

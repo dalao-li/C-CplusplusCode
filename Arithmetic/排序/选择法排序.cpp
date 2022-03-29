@@ -1,24 +1,33 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:05:57
+ */
 #include<iostream>
 using namespace std;
-//Ñ¡ÔñÅÅĞò
+//é€‰æ‹©æ’åº
 void selectionSort (int testData[],int len) {
 	for(int i=0; i < len-1; i++) {
-		//ÆğÊ¼»ù×¼ÂëÎª±íÍ·ÔªËØÎ»ÖÃ
+		//èµ·å§‹åŸºå‡†ç ä¸ºè¡¨å¤´å…ƒç´ ä½ç½®
 		int index = i;
-		//±éÀúÖ®ºóËùÓĞÔªËØ
+		//éå†ä¹‹åæ‰€æœ‰å…ƒç´ 
 		for(int j = i+1; j <= len-1; j++) {
-			//Èç¹ûÄ³Î»ÖÃÔªËØĞ¡ÓÚ»ù×¼Î»ÖÃÔªËØ
+			//å¦‚æœæŸä½ç½®å…ƒç´ å°äºåŸºå‡†ä½ç½®å…ƒç´ 
 			if(testData[j] < testData[index]) {
-				//¸üĞÂ»ù×¼Âë
+				//æ›´æ–°åŸºå‡†ç 
 				index = j;
 			}
 		}
-		//Èç¹û»ù×¼Âë²»ÊÇ¿ªÊ¼µÄÄÇ¸ö,ËµÃ÷ÏÖÎ»ÖÃµÄÔªËØ×îĞ¡
+		//å¦‚æœåŸºå‡†ç ä¸æ˜¯å¼€å§‹çš„é‚£ä¸ª,è¯´æ˜ç°ä½ç½®çš„å…ƒç´ æœ€å°
 		if(index!=i) {
-			//½«×îĞ¡µÄÔªËØ½»»»µ½ÆğÊ¼Î»ÖÃ
+			//å°†æœ€å°çš„å…ƒç´ äº¤æ¢åˆ°èµ·å§‹ä½ç½®
 			swap(testData[i],testData[index]);
 		}
-		cout<<"µÚ"<<i+1<<"ÌË ";
+		cout<<"ç¬¬"<<i+1<<"è¶Ÿ ";
 		for(int i = 0 ; i<len ;i++){
 			cout<<testData[i]<<" ";
 		} 

@@ -1,21 +1,30 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:19:12
+ */
 #include<iostream>
 #include<vector>
 using namespace std;
 int main() {
 	vector<int> v;
-	v.push_back(3);  //Êı×éÎ²²¿²åÈë3
+	v.push_back(3);  //æ•°ç»„å°¾éƒ¨æ’å…¥3
 	v.push_back(2);
 	v.push_back(1);
 	v.push_back(0);
-	cout << " ÏÂ±ê " << v[3] << endl;
-	cout << " µü´úÆ÷ " << endl;
+	cout << " ä¸‹æ ‡ " << v[3] << endl;
+	cout << " è¿­ä»£å™¨ " << endl;
 	for(vector<int>::iterator i = v.begin(); i!= v.end(); ++i) {
 		cout << *i << " ";
 	}
 	cout << endl;
-	//ÔÚµÚÒ»¸öÔªËØÖ®Ç°²åÈë111  insert begin+nÊÇÔÚµÚn¸öÔªËØÖ®Ç°²åÈë
+	//åœ¨ç¬¬ä¸€ä¸ªå…ƒç´ ä¹‹å‰æ’å…¥111  insert begin+næ˜¯åœ¨ç¬¬nä¸ªå…ƒç´ ä¹‹å‰æ’å…¥
 	v.insert(v.begin(),111);
-	//ÔÚ×îºóÒ»¸öÔªËØÖ®ºó²åÈë222 insert end + n ÊÇÔÚn¸öÔªËØÖ®ºó²åÈë
+	//åœ¨æœ€åä¸€ä¸ªå…ƒç´ ä¹‹åæ’å…¥222 insert end + n æ˜¯åœ¨nä¸ªå…ƒç´ ä¹‹åæ’å…¥
 	v.insert(v.end(),222);
 	for(vector<int>::iterator i = v.begin(); i!= v.end(); ++i) {
 		cout << *i << " ";
@@ -32,13 +41,13 @@ int main() {
 	cout << endl;
 	
 	
-	//É¾³ı Í¬insert
-	arr.erase(arr.begin());   //É¾³ıÁË¿ªÍ·ÔªËØ 
+	//åˆ é™¤ åŒinsert
+	arr.erase(arr.begin());   //åˆ é™¤äº†å¼€å¤´å…ƒç´  
 	for(vector<int>::iterator i = arr.begin(); i!= arr.end(); ++i) {
 		cout << *i << " " ;
 	}
 	cout << endl ;
-	arr.erase(arr.begin(),arr.begin()+5);  //É¾³ıÁËÏÂ±ê5(º¬)Ö®Ç°µÄÔªËØ 
+	arr.erase(arr.begin(),arr.begin()+5);  //åˆ é™¤äº†ä¸‹æ ‡5(å«)ä¹‹å‰çš„å…ƒç´  
 	for(vector<int>::iterator i = arr.begin(); i!= arr.end(); ++i) {
 		cout << *i << " " ;
 	}

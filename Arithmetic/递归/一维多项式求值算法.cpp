@@ -1,5 +1,14 @@
-//�����ʽp(x)=3x^6+7x^5-3x^4+2x^3+7x^2-7x-15�ڲ�ͬλ�õ�ֵ
-//ʹ�õݹ��㷨p(x)=(...((an-1*x+an-2)*x+an-3)*x+...+a1)*x+a0 
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:03:00
+ */
+//求多项式p(x)=3x^6+7x^5-3x^4+2x^3+7x^2-7x-15在不同位置的值
+//使用递归算法p(x)=(...((an-1*x+an-2)*x+an-3)*x+...+a1)*x+a0 
 #include<iostream>
 using namespace std;
 double polynomial(double a[],int n,int x){

@@ -1,21 +1,30 @@
-/*°ÑM¸öÍ¬ÑùµÄÆ»¹û·ÅÔÚN¸öÍ¬ÑùµÄÅÌ×ÓÀï£¬
-ÔÊÐíÓÐµÄÅÌ×Ó¿Õ×Å²»·Å£¬ÎÊ¹²ÓÐ¶àÉÙÖÖ²»Í¬
-µÄ·Ö·¨£¿
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:01:49
+ */
+/*æŠŠMä¸ªåŒæ ·çš„è‹¹æžœæ”¾åœ¨Nä¸ªåŒæ ·çš„ç›˜å­é‡Œï¼Œ
+å…è®¸æœ‰çš„ç›˜å­ç©ºç€ä¸æ”¾ï¼Œé—®å…±æœ‰å¤šå°‘ç§ä¸åŒ
+çš„åˆ†æ³•ï¼Ÿ
 */
 #include<iostream>
 #include<vector>
 using namespace std;
-//m´ú±íÆ»¹ûÊý,n´ú±íÅÌ×ÓÊý
+//mä»£è¡¨è‹¹æžœæ•°,nä»£è¡¨ç›˜å­æ•°
 int fun(int m,int n) {
-	//Èç¹ûÃ»ÓÐÆ»¹û»òÕßÅÌ×ÓÖ»ÓÐÒ»¸ö,½áÊøµÝ¹é
+	//å¦‚æžœæ²¡æœ‰è‹¹æžœæˆ–è€…ç›˜å­åªæœ‰ä¸€ä¸ª,ç»“æŸé€’å½’
 	if(m==0||n==1) {
 		return 1;
 	}
-	//Èç¹ûÅÌ×ÓÊý¶àÓÚÆ»¹ûÊý,Ïàµ±ÓÚ×î¶àÖ»ÓÐm¸öÅÌ×ÓÖÐ×°ÁËÆ»¹û
+	//å¦‚æžœç›˜å­æ•°å¤šäºŽè‹¹æžœæ•°,ç›¸å½“äºŽæœ€å¤šåªæœ‰mä¸ªç›˜å­ä¸­è£…äº†è‹¹æžœ
 	if(m<n) {
 		return fun(m,m);
 	}
-	//²»È»ÖÁÉÙÓÐÒ»¸öÅÌ×Ó¿Õ×Å,»òÕßÏàµ±ÓÚ¿ÉÒÔ´ÓÃ¿¸öÅÌ×ÓÖÐÄÃµôÒ»¸öÆ»¹û£¬²»Ó°Ïì²»Í¬·Å·¨µÄÊýÄ¿
+	//ä¸ç„¶è‡³å°‘æœ‰ä¸€ä¸ªç›˜å­ç©ºç€,æˆ–è€…ç›¸å½“äºŽå¯ä»¥ä»Žæ¯ä¸ªç›˜å­ä¸­æ‹¿æŽ‰ä¸€ä¸ªè‹¹æžœï¼Œä¸å½±å“ä¸åŒæ”¾æ³•çš„æ•°ç›®
 	else {
 		return fun(m,n-1)+fun(m-n,n);
 	}
