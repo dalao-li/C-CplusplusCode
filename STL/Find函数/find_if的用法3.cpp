@@ -6,53 +6,53 @@
 using namespace std;
 
 class Student {
-	public:
-		Student() {}
-		Student(string iname,float iscore):name(iname),score(iscore) {}
-		~Student() {}
+    public:
+        Student() {}
+        Student(string iname,float iscore):name(iname),score(iscore) {}
+        ~Student() {}
 
-		string name;
-		float score;
+        string name;
+        float score;
 };
 
 class StudentAdapter:public unary_function<Student,bool> {
-	private:
-		float score;
-	public:
-		explicit StudentAdapter(float isore):score(isore) {}
-		//ÖØÔØ()ÔËËã·û
-		bool operator()(const Student& student) {
-			return (student.score==score);
-		}
+    private:
+        float score;
+    public:
+        explicit StudentAdapter(float isore):score(isore) {}
+        //ï¿½ï¿½ï¿½ï¿½()ï¿½ï¿½ï¿½ï¿½ï¿½
+        bool operator()(const Student& student) {
+            return (student.score==score);
+        }
 };
 
 int main() {
-	vector<Student> v;
-	vector<Student>::iterator it;
-	Student stu1("lanzhihui",89.1);
-	Student stu2("wangdan",89.2);
-	Student stu3("wangqian",89.3);
-	v.push_back(stu1);
-	v.push_back(stu2);
-	v.push_back(stu3);
+    vector<Student> v;
+    vector<Student>::iterator it;
+    Student stu1("lanzhihui",89.1);
+    Student stu2("wangdan",89.2);
+    Student stu3("wangqian",89.3);
+    v.push_back(stu1);
+    v.push_back(stu2);
+    v.push_back(stu3);
 
-	for(it=v.begin(); it!=v.end(); ++it) {
-		cout<<it->name<<" "<<it->score<<endl;
-	}
-	cout<<endl;
+    for(it=v.begin(); it!=v.end(); ++it) {
+        cout<<it->name<<" "<<it->score<<endl;
+    }
+    cout<<endl;
 
-	//ÊµÑéfind_if
-	cout<<"ÊäÈë³É¼¨£º";
-	float s;
-	cin>>s; 
-	it=find_if(v.begin(),v.end(),StudentAdapter(s));
+    //Êµï¿½ï¿½find_if
+    cout<<"ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½";
+    float s;
+    cin>>s; 
+    it=find_if(v.begin(),v.end(),StudentAdapter(s));
 
-	if(it!=v.end()) {
-		cout<<"ÕÒµ½ÁË"<<endl;
-		cout<<it->name<<" "<<it->score<<endl;
-	}
+    if(it!=v.end()) {
+        cout<<"ï¿½Òµï¿½ï¿½ï¿½"<<endl;
+        cout<<it->name<<" "<<it->score<<endl;
+    }
 
-	system("pause");
-	return 0;
+    system("pause");
+    return 0;
 }
 

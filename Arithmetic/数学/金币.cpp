@@ -10,32 +10,32 @@ N+1枚金币（N为任意正整数）。
 #include<stdio.h>
 int main()
 {
-	int n,i,j=1,k=1,sum=0;
-	scanf("%d",&n);
-	for(i=1;i<=n;i++){
-		sum+=k;
-		if(i==j){
-			k++;   //k表示当天可以获得的金币数 
-			j+=k;  //j表示到获得下一金币数所需要经历的天数 
-		}
-	}
-	printf("%d\n",sum);
-	return 0;
+    int n,i,j=1,k=1,sum=0;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++){
+        sum+=k;
+        if(i==j){
+            k++;   //k表示当天可以获得的金币数 
+            j+=k;  //j表示到获得下一金币数所需要经历的天数 
+        }
+    }
+    printf("%d\n",sum);
+    return 0;
 }
 
 /*
 int n,sum=0,day=0;coins=1;
 scanf("%d",&n);
 for(i=1;i<=n;i++){
-	sum+=coins;
-	day++;
-	if(coins==day){
-		coins++;
-		day=0;
-	}
+    sum+=coins;
+    day++;
+    if(coins==day){
+        coins++;
+        day=0;
+    }
 }
 printf("%d\n",sum);
-	return 0;
+    return 0;
 */
 
 

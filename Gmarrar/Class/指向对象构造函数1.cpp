@@ -1,31 +1,31 @@
 #include<iostream>
 using namespace std;
 class Time {
-	public:
-		Time(int,int,int);
-		int hour;
-		int minute;
-		int sec;
-		void get_time();
+    public:
+        Time(int,int,int);
+        int hour;
+        int minute;
+        int sec;
+        void get_time();
 };
 Time::Time(int h,int m,int s) {
-	hour=h;
-	minute=m;
-	sec=s;
+    hour=h;
+    minute=m;
+    sec=s;
 }
 
 void Time::get_time() {
-	cout<<hour<<":"<<minute<<":"<<sec<<endl;
+    cout<<hour<<":"<<minute<<":"<<sec<<endl;
 }
 
 int main() {
-	Time t1(10,13,56);
-	int *p1=&t1.hour;              //¶¨ÒåÖ¸ÏòÕûÐÎÊý¾ÝµÄÖ¸Õë±äÁ¿P1£¬²¢Ê¹ÆäÖ¸Ïòt1.hour
-	cout<<*p1<<endl;
-	t1.get_time();                 //µ÷ÓÃ¶ÔÏót1µÄÒ»¸ö³ÉÔ±º¯Êýget_time()
-	Time *p2=&t1;                  //¶¨ÒåÖ¸ÏòÀàTimeÒ»¸ö¶ÔÏót1µÄÖ¸Õë±äÁ¿£¬²¢Ê¹p2Ö¸Ïòt1
-	p2->get_time();                //p2Ö¸Ïòt1µÄ³ÉÔ±º¯Êýget_time
-	void(Time::*p3)();             //¶¨ÒåÖ¸ÏòÀàTime¹«¹²³ÉÔ±º¯ÊýµÄÒ»¸öÖ¸Õë±äÁ¿p3
-	p3=&Time::get_time;            //p3->get_time,p3Ö¸Ïòget_time
-	(t1.*p3)();                    //¼´t1.get_time
+    Time t1(10,13,56);
+    int *p1=&t1.hour;              //ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½P1ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ö¸ï¿½ï¿½t1.hour
+    cout<<*p1<<endl;
+    t1.get_time();                 //ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½t1ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½get_time()
+    Time *p2=&t1;                  //ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½TimeÒ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½t1ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹p2Ö¸ï¿½ï¿½t1
+    p2->get_time();                //p2Ö¸ï¿½ï¿½t1ï¿½Ä³ï¿½Ô±ï¿½ï¿½ï¿½ï¿½get_time
+    void(Time::*p3)();             //ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Timeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½p3
+    p3=&Time::get_time;            //p3->get_time,p3Ö¸ï¿½ï¿½get_time
+    (t1.*p3)();                    //ï¿½ï¿½t1.get_time
 }

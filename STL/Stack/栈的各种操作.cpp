@@ -2,20 +2,20 @@
 #include<stack>
 using namespace std;
 int main(){
-	stack<int> s;
-	int n,item;
-	cin>>n;   
-	for(int i=0;i<n;i++){
-		cin>>item;
-		//ÈëÕ»  
-		s.push(item);
-	}
-	while(!s.empty()){
-		//·ÃÎÊÕ»¶¥ÔªËØ 
-		cout<<s.top()<<" ";
-		//É¾³ýÕ»¶¥ÔªËØ 
-		s.pop();
-	}
-	cout<<endl;
-	return 0;
+    stack<int> s;
+    int n,item;
+    cin>>n;   
+    for(int i=0;i<n;i++){
+        cin>>item;
+        //ï¿½ï¿½Õ»  
+        s.push(item);
+    }
+    while(!s.empty()){
+        //ï¿½ï¿½ï¿½ï¿½Õ»ï¿½ï¿½Ôªï¿½ï¿½ 
+        cout<<s.top()<<" ";
+        //É¾ï¿½ï¿½Õ»ï¿½ï¿½Ôªï¿½ï¿½ 
+        s.pop();
+    }
+    cout<<endl;
+    return 0;
 } 

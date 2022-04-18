@@ -1,15 +1,15 @@
-//ÎÊÌâ:Ê¹ÓÃcinÊäÈëÒ»¸ö×Ö·û´®Ê±£¬Óöµ½¿Õ¸ñ¾ÍÍ£Ö¹¶ÁÈ¡
+//ï¿½ï¿½ï¿½ï¿½:Ê¹ï¿½ï¿½cinï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¸ï¿½ï¿½Í£Ö¹ï¿½ï¿½È¡
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
-	string str;
-	int n;
-	cin>>n;
-	//ÓÃgetlineÀ´»ñÈ¡Ò»ÕûÐÐÄÚÈÝ
-	for(int i=0; i<n; i++) {
-		getline(cin,str);
-		cout<<str<<endl;
-	}
+    string str;
+    int n;
+    cin>>n;
+    //ï¿½ï¿½getlineï¿½ï¿½ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    for(int i=0; i<n; i++) {
+        getline(cin,str);
+        cout<<str<<endl;
+    }
 
-	return 0;
+    return 0;
 }

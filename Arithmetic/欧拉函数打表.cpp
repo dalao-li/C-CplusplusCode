@@ -3,25 +3,25 @@
 #define size 1000001
 int euler[size];
 void init() {
-	memset(euler,0,sizeof(euler));
-	euler[1]=1;
-	for(int i=2; i<size; i++) {
-		if(!euler[i]) {
-			for(int j=i; j<size; j+=i) {
-				if(!euler[j]) {
-					euler[j]=j;
-				}
-				euler[j]=euler[j]/i*(i-1);//ÏÈ½øÐÐ³ý·¨ÊÇÎªÁË·ÀÖ¹ÖÐ¼äÊý¾ÝµÄÒç³ö
-			}
-		}
-	}
+    memset(euler,0,sizeof(euler));
+    euler[1]=1;
+    for(int i=2; i<size; i++) {
+        if(!euler[i]) {
+            for(int j=i; j<size; j+=i) {
+                if(!euler[j]) {
+                    euler[j]=j;
+                }
+                euler[j]=euler[j]/i*(i-1);//ï¿½È½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ë·ï¿½Ö¹ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½
+            }
+        }
+    }
 }
 
 int main(){
-	init();
-	for(int i = 1;i<100 ;i++){
-		printf("%d %d\n",i,euler[i]);
-	}
-	return 0;
+    init();
+    for(int i = 1;i<100 ;i++){
+        printf("%d %d\n",i,euler[i]);
+    }
+    return 0;
 } 
 

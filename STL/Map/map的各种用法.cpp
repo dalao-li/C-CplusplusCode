@@ -1,42 +1,51 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-04-08 21:18:13
+ */
 #include<iostream>
 #include<map>
 using namespace std;
 int main() {
-	//mapµÄÊäÈëÓëÊä³ö 
-	int temp;
-	string str;
-	map<int,string> m1;
-	//1---one  2--two  3--three
-	for(int i=0; i<3; i++) {
-		//ÊäÈë¼ü--Öµ,»á°´ÕÕ¼üµÄË³Ğò×Ô¶¯ÅÅĞò 
-		cin>>temp>>str;
-		m1.insert(make_pair(temp,str));
-	}
-	
-	cout<<"ÊäÈëm1ÖĞ¸÷¼ü---Öµ"<<endl;
-	for(map<int,string>::iterator it=m1.begin(); it!=m1.end(); it++) {
-		cout<<it->first<<"------"<<it->second<<endl;
-	}
-	
-	//mapµÄ²éÕÒÓë¶ÁÈ¡
-	
-	//²éÕÒ¸ÃÖµÊÇ·ñ´æÔÚ£¬¿ÉÒÔÊ¹ÓÃº¯Êıcount(k),·µ»ØµÄÊÇk³öÏÖµÄ´ÎÊı 
-	if(m1.count(1)){
-		cout<<"yes"<<endl;
-	}
-	
-	//È¡µÃÈ¡µÃkey¶ÔÓ¦µÄÖµ£¬¿ÉÒÔÊ¹ÓÃº¯Êıfind(k) 
-	map<int,string>::iterator it;
-	it=m1.find(1);
-	if(it!=m1.end()){
-		cout<<"1¶ÔÓ¦µÄÖµÎª:"<<it->second<<endl;
-	}
-	
-	//mapÖĞÉ¾³ıÔªËØ
-	//É¾³ıµÄÊÇmÖĞ¼üÎªkµÄÔªËØ
-	m1.erase(1);
-	for(map<int,string>::iterator it=m1.begin(); it!=m1.end(); it++) {
-		cout<<it->first<<"------"<<it->second<<endl;
-	}
-	return 0;
+    //mapçš„è¾“å…¥ä¸è¾“å‡º 
+    int temp;
+    string str;
+    map<int,string> m1;
+    //1---one  2--two  3--three
+    for(int i=0; i<3; i++) {
+        //è¾“å…¥é”®--å€¼,ä¼šæŒ‰ç…§é”®çš„é¡ºåºè‡ªåŠ¨æ’åº 
+        cin>>temp>>str;
+        m1.insert(make_pair(temp,str));
+    }
+    
+    cout<<"è¾“å…¥m1ä¸­å„é”®---å€¼"<<endl;
+    for(map<int,string>::iterator it=m1.begin(); it!=m1.end(); it++) {
+        cout<<it->first<<"------"<<it->second<<endl;
+    }
+    
+    //mapçš„æŸ¥æ‰¾ä¸è¯»å–
+    
+    //æŸ¥æ‰¾è¯¥å€¼æ˜¯å¦å­˜åœ¨ï¼Œå¯ä»¥ä½¿ç”¨å‡½æ•°count(k),è¿”å›çš„æ˜¯kå‡ºç°çš„æ¬¡æ•° 
+    if(m1.count(1)){
+        cout<<"yes"<<endl;
+    }
+    
+    //å–å¾—å–å¾—keyå¯¹åº”çš„å€¼ï¼Œå¯ä»¥ä½¿ç”¨å‡½æ•°find(k) 
+    map<int,string>::iterator it;
+    it=m1.find(1);
+    if(it!=m1.end()){
+        cout<<"1å¯¹åº”çš„å€¼ä¸º:"<<it->second<<endl;
+    }
+    
+    //mapä¸­åˆ é™¤å…ƒç´ 
+    //åˆ é™¤çš„æ˜¯mä¸­é”®ä¸ºkçš„å…ƒç´ 
+    m1.erase(1);
+    for(map<int,string>::iterator it=m1.begin(); it!=m1.end(); it++) {
+        cout<<it->first<<"------"<<it->second<<endl;
+    }
+    return 0;
 }

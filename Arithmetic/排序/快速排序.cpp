@@ -1,58 +1,58 @@
 #include<iostream>
 using namespace std;
 void quickSort(int arr[],int startIndex,int endIndex) {
-	//µÝ¹é½áÊøÌõ¼þ£¬startIndex´óµÈÓÚendIndexÊ±
-	if(startIndex>=endIndex) {
-		return 0;
-	}
-	//µÃµ½»ù×¼ÔªËØÎ»ÖÃ
-	int pivotIndex = partition(arr,startIndex,endIndex);
-	quickSort(arr,startIndex,pivotIndex-1);
-	quickSort(arr,pivotIndex+1,endIndex);
+    //ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½startIndexï¿½ï¿½ï¿½ï¿½ï¿½endIndexÊ±
+    if(startIndex>=endIndex) {
+        return 0;
+    }
+    //ï¿½Ãµï¿½ï¿½ï¿½×¼Ôªï¿½ï¿½Î»ï¿½ï¿½
+    int pivotIndex = partition(arr,startIndex,endIndex);
+    quickSort(arr,startIndex,pivotIndex-1);
+    quickSort(arr,pivotIndex+1,endIndex);
 }
 
 void partition(int arr[],int startIndex,int endIndex) {
-	//È¡µÚÒ»¸öÔªËØ×÷»ù×¼ÔªËØ
-	int pivot=arr[startIndex];
-	int left=startIndex;
-	int right=endIndex;
-	//¿ÓµÄÎ»ÖÃ£¬³õÊ¼µÈÓÚpivotµÄÎ»ÖÃ
-	int index=startIndex;
-	//´óÑ­»·ÔÚ×óÓÒÖ¸ÕëÖØºÏ»òÕß½»´íÊ±½áÊø
-	while(right>=left) {
-		//rightÖ¸Õë´ÓÓÒÏò×ó½øÐÐ±È½Ï
-		while(right>=left) {
-			if(arr[right] < pivot)	{
-				arr[left]=arr[right];
-				index=right;
-				left++;
-				break;
-			}
-			right--;
-		}
-		//leftÖ¸Õë´Ó×óÏòÓÒ½øÐÐ±È½Ï
-		while(right>=left) {
-			if(arr[left]>pivot) {
-				arr[right]=arr[left];
-				index=left;
-				right--;
-				break
-				;
-			}
-			left++;
-		}
-	}
-	arr[index]=pivot;
+    //È¡ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¼Ôªï¿½ï¿½
+    int pivot=arr[startIndex];
+    int left=startIndex;
+    int right=endIndex;
+    //ï¿½Óµï¿½Î»ï¿½Ã£ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½pivotï¿½ï¿½Î»ï¿½ï¿½
+    int index=startIndex;
+    //ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ØºÏ»ï¿½ï¿½ß½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+    while(right>=left) {
+        //rightÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±È½ï¿½
+        while(right>=left) {
+            if(arr[right] < pivot)    {
+                arr[left]=arr[right];
+                index=right;
+                left++;
+                break;
+            }
+            right--;
+        }
+        //leftÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½ï¿½ï¿½Ð±È½ï¿½
+        while(right>=left) {
+            if(arr[left]>pivot) {
+                arr[right]=arr[left];
+                index=left;
+                right--;
+                break
+                ;
+            }
+            left++;
+        }
+    }
+    arr[index]=pivot;
 
-	return index;
+    return index;
 }
 int main() {
-	int arr[8]= {4,7,6,5,3,2,8,1};
-	quickSort(arr,0,arr.size()-1);
-	for(int i=0; i<8; i++) {
-		cout<<arr[i]<<" ";
-	}
-	return 0;
+    int arr[8]= {4,7,6,5,3,2,8,1};
+    quickSort(arr,0,arr.size()-1);
+    for(int i=0; i<8; i++) {
+        cout<<arr[i]<<" ";
+    }
+    return 0;
 }
 
 

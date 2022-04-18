@@ -1,67 +1,76 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:37:06
+ */
 #include<iostream>
 #include<vector>
 using namespace std;
 /*
-¶şÎ¬ÏòÁ¿µÄÊäÈëÎÊÌâ£º
-²»Ïñ¶şÎ¬Êı×éÄÇÑù£¬¿ÉÒÔÖ±½Ó¶Ôarr[i][j]½øĞĞÑ­»·¸³Öµ¡£ÔÚ
-vector<vector<int>>ÖĞ£¬ÒòÎªvectorÊÇÒ»¸öÈİÆ÷£¬×îÍâ²ãµÄ
-vectorÈİÆ÷ÖĞ·Å×Å¸üĞ¡µÄvector£¬¶øÀï²ãµÄvectorÀïÃæ·ÅµÄÊÇ
-intĞÍµÄÊı×Ö¡£ËùÒÔÎÒÃÇÊ×ÏÈÒª¶ÔÀï²ãµÄvectorÈİÆ÷¸³Öµ£¬ÔÙ
-°ÑÀï²ãµÄvector×÷ÎªÔªËØ²åÈëµ½Íâ²ãµÄvectorÖĞ¡£
-´úÂëÈçÏÂ£º
+äºŒç»´å‘é‡çš„è¾“å…¥é—®é¢˜ï¼š
+ä¸åƒäºŒç»´æ•°ç»„é‚£æ ·ï¼Œå¯ä»¥ç›´æ¥å¯¹arr[i][j]è¿›è¡Œå¾ªç¯èµ‹å€¼ã€‚åœ¨
+vector<vector<int>>ä¸­ï¼Œå› ä¸ºvectoræ˜¯ä¸€ä¸ªå®¹å™¨ï¼Œæœ€å¤–å±‚çš„
+vectorå®¹å™¨ä¸­æ”¾ç€æ›´å°çš„vectorï¼Œè€Œé‡Œå±‚çš„vectoré‡Œé¢æ”¾çš„æ˜¯
+intå‹çš„æ•°å­—ã€‚æ‰€ä»¥æˆ‘ä»¬é¦–å…ˆè¦å¯¹é‡Œå±‚çš„vectorå®¹å™¨èµ‹å€¼ï¼Œå†
+æŠŠé‡Œå±‚çš„vectorä½œä¸ºå…ƒç´ æ’å…¥åˆ°å¤–å±‚çš„vectorä¸­ã€‚
+ä»£ç å¦‚ä¸‹ï¼š
 */
 int main() {
-	vector<vector<int> >test;
-	vector<int> v;
-	int n,m,temp;
-	cout<<"ÊäÈëÁ½¸öÎ¬¶È£º";
-	cin>>n>>m;
-	test.clear();
-	//ÊäÈë
-	for(int i = 0; i<n; i++) {
-		//Ã¿´Î¼ÇµÃclear,ÒÔ±ã´æ·ÅÏÂÒ»×é¶ÔÀï²ãµÄvectorÈİÆ÷µÄ¸³Öµ
-		v.clear();
-		for(int j = 0; j<m; j++) {
-			cin>>temp;
-			v.push_back(temp);
-		}
-		//°ÑÄÚ²ã²åºÃµÄÒ»ĞĞ²åÈëÍâ²ãÖĞ
-		test.push_back(v);
-	}
-	//Êä³ö
-	cout<<"Êı×éÎª£º"<<endl;
-	/*
-	
-	for(vector<vector<int> >::iterator it = test.begin();it!=test.end();it++){
-		for(vector<int>::iterator jt=v.begin();jt!=v.end();jt++){
-			cout<<*jt<<" ";
-		}
-		cout<<endl;
-	}
-	*/
-	for(int i = 0; i < n; i++) {
-		for(int j = 0; j < m; j++) {
-			cout << test[i][j] << " ";
-		}
-		cout << endl;
-	}
+    vector<vector<int> >test;
+    vector<int> v;
+    int n,m,temp;
+    cout<<"è¾“å…¥ä¸¤ä¸ªç»´åº¦ï¼š";
+    cin>>n>>m;
+    test.clear();
+    //è¾“å…¥
+    for(int i = 0; i<n; i++) {
+        //æ¯æ¬¡è®°å¾—clear,ä»¥ä¾¿å­˜æ”¾ä¸‹ä¸€ç»„å¯¹é‡Œå±‚çš„vectorå®¹å™¨çš„èµ‹å€¼
+        v.clear();
+        for(int j = 0; j<m; j++) {
+            cin>>temp;
+            v.push_back(temp);
+        }
+        //æŠŠå†…å±‚æ’å¥½çš„ä¸€è¡Œæ’å…¥å¤–å±‚ä¸­
+        test.push_back(v);
+    }
+    //è¾“å‡º
+    cout<<"æ•°ç»„ä¸ºï¼š"<<endl;
+    /*
+    
+    for(vector<vector<int> >::iterator it = test.begin();it!=test.end();it++){
+        for(vector<int>::iterator jt=v.begin();jt!=v.end();jt++){
+            cout<<*jt<<" ";
+        }
+        cout<<endl;
+    }
+    */
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
+            cout << test[i][j] << " ";
+        }
+        cout << endl;
+    }
 
 }
 
 /*
-	int X,Y,i,j;
-	cout<<"ÊäÈëÒ»¶şÎ¬µÄ´óĞ¡:";
-	cin>>X>>Y;
-	vector< vector<int> > a(X,vector<int>(Y));
-	for(i=0;i<X;i++){
-		for(j=0;j<Y;j++){
-			cin>>a[i][j];
-		}
-	}
-	for(i=0;i<X;i++){
-		for(j=0;j<Y;j++){
-		cout<<a[i][j]<<"  ";
-		}
-		cout<<endl;
-	}
+    int X,Y,i,j;
+    cout<<"è¾“å…¥ä¸€äºŒç»´çš„å¤§å°:";
+    cin>>X>>Y;
+    vector< vector<int> > a(X,vector<int>(Y));
+    for(i=0;i<X;i++){
+        for(j=0;j<Y;j++){
+            cin>>a[i][j];
+        }
+    }
+    for(i=0;i<X;i++){
+        for(j=0;j<Y;j++){
+        cout<<a[i][j]<<"  ";
+        }
+        cout<<endl;
+    }
 */

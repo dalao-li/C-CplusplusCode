@@ -5,20 +5,20 @@
 using namespace std;
 
 int main() {
-	ofstream outfile;      //ÖÕ¶ËÊäÈë--¡·ÄÚ´æ--¡·ÎÄ±¾
-	outfile.open("2.txt");//(ÊäÈëÁ÷) £¨±äÁ¿£©£¨Êä³öÎÄ¼şÁ÷£©
-	if(!outfile) cout<<"error"<<endl;
+    ofstream outfile;      //ï¿½Õ¶ï¿½ï¿½ï¿½ï¿½ï¿½--ï¿½ï¿½ï¿½Ú´ï¿½--ï¿½ï¿½ï¿½Ä±ï¿½
+    outfile.open("2.txt");//(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+    if(!outfile) cout<<"error"<<endl;
 
-	string str;
-	int t1;
-	int i=0;
-	while(cin>>t1) {           //°´¿Õ¸ñ¶ÁÈ¡£¬Óöµ½¿Õ°×·û½áÊø
-		if(i!=0&&i%3==0)
-			outfile<<"\n";
-		outfile<<t1<<" ";
-		i++;
-	}
+    string str;
+    int t1;
+    int i=0;
+    while(cin>>t1) {           //ï¿½ï¿½ï¿½Õ¸ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ°×·ï¿½ï¿½ï¿½ï¿½ï¿½
+        if(i!=0&&i%3==0)
+            outfile<<"\n";
+        outfile<<t1<<" ";
+        i++;
+    }
 
-	outfile.close();
-	return 0;
+    outfile.close();
+    return 0;
 }

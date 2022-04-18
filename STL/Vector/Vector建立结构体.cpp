@@ -1,31 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef struct Student {
-	string name;
-	int num;
+    string name;
+    int num;
 } Student;
 
 void inputValue(vector<Student> &v) {
-	Student stu;
-	int temp;
-	cout<<"ÇëÊäÈëÏëÒªÔö¼ÓµÄÈËÊý:";
-	cin>>temp;
-	for(int i=0; i<temp; i++) {
-		cin>>stu.name >>stu.num;
-		v.push_back(stu);
-	}
+    Student stu;
+    int temp;
+    cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½:";
+    cin>>temp;
+    for(int i=0; i<temp; i++) {
+        cin>>stu.name >>stu.num;
+        v.push_back(stu);
+    }
 }
 
 void ouputValue(vector<Student> &v) {
-	for(vector<Student>::iterator it=v.begin(); it!=v.end(); it++) {
-		cout<<it->name<<" "<<it->num<<endl;
-	}
+    for(vector<Student>::iterator it=v.begin(); it!=v.end(); it++) {
+        cout<<it->name<<" "<<it->num<<endl;
+    }
 }
 
 int main(int argc,char *args[]) {
-	//½¨Á¢Ò»¸ö½á¹¹Ìå¶ÔÏó
-	vector<Student> value;
+    //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½
+    vector<Student> value;
     inputValue(value);
-	ouputValue(value);
-	return 0;
+    ouputValue(value);
+    return 0;
 }

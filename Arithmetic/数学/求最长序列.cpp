@@ -4,33 +4,33 @@ using namespace std;
 
 
 int lis(vector<int> &v,int n) {
-	//b[i]À´±£´æÐòÁÐ³¤¶È 
-	vector<int> v2;
-	//±éÀúËùÓÐÔªËØ 
-	for(int i=0; i<n; i++) {
-		//³õÊ¼³¤¶È1 
-		v2.push_back(1);
-		for(int j=0; j<i; j++) {
-			if(v[j]<v[i]&&v2[j]+1>v2[i])
-				v2[i]=v2[j]+1;
-		}
-	}
-	int max=0;
-	for(int i=0; i<n; i++)
-		if(max<v2[i]) {
-			max=v2[i];
-		}
-	return max;
+    //b[i]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ 
+    vector<int> v2;
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ 
+    for(int i=0; i<n; i++) {
+        //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½1 
+        v2.push_back(1);
+        for(int j=0; j<i; j++) {
+            if(v[j]<v[i]&&v2[j]+1>v2[i])
+                v2[i]=v2[j]+1;
+        }
+    }
+    int max=0;
+    for(int i=0; i<n; i++)
+        if(max<v2[i]) {
+            max=v2[i];
+        }
+    return max;
 }
 
 int main() {
-	long n;
-	int item;
-	cin>>n;
-	vector<int> v1;
-	for(int i=0; i<n; i++){
-		cin>>item;
-		v1.push_back(item);
-	}
-	cout<<lis(v1,n);
+    long n;
+    int item;
+    cin>>n;
+    vector<int> v1;
+    for(int i=0; i<n; i++){
+        cin>>item;
+        v1.push_back(item);
+    }
+    cout<<lis(v1,n);
 }

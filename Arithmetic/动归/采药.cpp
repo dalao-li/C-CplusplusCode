@@ -20,23 +20,23 @@ int dp[101][101];
 //从第i个物品中找出总时间小于j的部分
 
 int main() {
-	cin>>T>>M;
-	for(int j = 0; j<=T; j++) {
-		dp[0][j] = 0;
-	}
-	for(int i = 0; i<M; i++) {
-		cin>>t[i]>>m[i];
-	}
-	for(int i = 0; i<M; i++) {
-		for(int j = 0; j<=T; j++) {
-			//如果不能选
-			if(t[i]>j) {
-				dp[i+1][j] = dp[i][j];
-			} else {
-				dp[i+1][j] = max(dp[i][j],dp[i][j-t[i]]+m[i]);
-			}
-		}
-	}
-	cout<<dp[M][T]<<endl;
-	return 0;
+    cin>>T>>M;
+    for(int j = 0; j<=T; j++) {
+        dp[0][j] = 0;
+    }
+    for(int i = 0; i<M; i++) {
+        cin>>t[i]>>m[i];
+    }
+    for(int i = 0; i<M; i++) {
+        for(int j = 0; j<=T; j++) {
+            //如果不能选
+            if(t[i]>j) {
+                dp[i+1][j] = dp[i][j];
+            } else {
+                dp[i+1][j] = max(dp[i][j],dp[i][j-t[i]]+m[i]);
+            }
+        }
+    }
+    cout<<dp[M][T]<<endl;
+    return 0;
 }

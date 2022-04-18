@@ -12,9 +12,9 @@
 using namespace std;
 
 #define LENGTH 6
-//ÓÃÒÔ½øÐÐ¹þ·òÂü±àÂë
+//ï¿½ï¿½ï¿½Ô½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int code[20];
-//ÓÃÒÔ±£´æ¹þ·òÂü±àÂë
+//ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 string huffman[LENGTH];
 
 int arr[LENGTH] = {12,24,35,67,46,55}; 
@@ -22,102 +22,102 @@ int arr[LENGTH] = {12,24,35,67,46,55};
 char alph[LENGTH] = {'A','B','C','D','E','F'}; 
 
 typedef struct Tree {
-	//½ÚµãµÄÈ¨Öµ 
-	int data;
-	Tree* leftChild;
-	Tree* rightChild;
+    //ï¿½Úµï¿½ï¿½È¨Öµ 
+    int data;
+    Tree* leftChild;
+    Tree* rightChild;
 } Tree, *TreeList;
 
-//½¨¹þ·òÂüÊ÷,·µ»Ø¸ù½Úµã
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Úµï¿½
 TreeList createTree(int arr[]) {
-	//½¨Á¢Ö¸ÕëÊý×éÓÃÀ´±£´æ½ÚµãÐÅÏ¢
-	TreeList leaves[LENGTH];
-	for (int i = 0; i < LENGTH; i++) {
-		TreeList leaf = new Tree;
-		leaf->data = arr[i];
-		leaf->leftChild = leaf->rightChild = NULL;
-		leaves[i] = leaf;
-	}
-	//½¨Á¢Ò»¸ö½Úµã×÷Îª¹þ·òÂüÊ÷µÄ¸ù½Úµã
-	TreeList root = NULL;
-	//½¨Á¢¹þ·òÂüÊ÷ 
-	for (int i = 1; i < LENGTH; i++) {
-		// min1±íÊ¾×îÐ¡È¨ÖµµÄÊ÷¸ù½áµãµÄÏÂ±ê,min2Îª´ÎÐ¡È¨Öµ½ÚµãµÄÏÂ±ê
-		int min1 = -1, min2;
-		//³õÊ¼»¯min1Óëmin2 
-		for (int j = 0; j < LENGTH; j++) {
-			if (leaves[j] != NULL && min1 == -1) {
-				min1 = j;
-				continue;
-			}
-			if (leaves[j] != NULL) {
-				min2 = j;
-				break;
-			}
-		}
-		//ÕÒ³ö×îÐ¡ÖµºÍ´ÎÐ¡Öµ½ÚµãµÄÏÂ±ê
-		for (int j = min2; j < LENGTH; j++) {
-			if (leaves[j] != NULL) {
-				if (leaves[j]->data < leaves[min1]->data) {
-					min2 = min1;
-					min1 = j;
-				} else if (leaves[j]->data < leaves[min2]->data) {
-					min2 = j;
-				}
-			}
-		}
-		//ÓÃ×îÐ¡È¨ÖµÊ÷ºÍ´ÎÐ¡È¨ÖµÊ÷½¨Á¢Ò»¿ÃÐÂÊ÷,rootÖ¸ÏòÊ÷¸ù½áµã
-		root = new Tree;
-		root->data = leaves[min1]->data + leaves[min2]->data;
-		root->leftChild = leaves[min1];
-		root->rightChild = leaves[min2];
-		//½«Ö¸ÏòÐÂÊ÷µÄÖ¸Õë¸³¸øleavesÖ¸ÕëÊý×éÖÐmin1Î»ÖÃ
-		leaves[min1] = root;
-		// min2Î»ÖÃÎª¿Õ
-		leaves[min2] = NULL;
-	}
-	return root;
+    //ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½Ï¢
+    TreeList leaves[LENGTH];
+    for (int i = 0; i < LENGTH; i++) {
+        TreeList leaf = new Tree;
+        leaf->data = arr[i];
+        leaf->leftChild = leaf->rightChild = NULL;
+        leaves[i] = leaf;
+    }
+    //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½Úµï¿½
+    TreeList root = NULL;
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+    for (int i = 1; i < LENGTH; i++) {
+        // min1ï¿½ï¿½Ê¾ï¿½ï¿½Ð¡È¨Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½,min2Îªï¿½ï¿½Ð¡È¨Öµï¿½Úµï¿½ï¿½ï¿½Â±ï¿½
+        int min1 = -1, min2;
+        //ï¿½ï¿½Ê¼ï¿½ï¿½min1ï¿½ï¿½min2 
+        for (int j = 0; j < LENGTH; j++) {
+            if (leaves[j] != NULL && min1 == -1) {
+                min1 = j;
+                continue;
+            }
+            if (leaves[j] != NULL) {
+                min2 = j;
+                break;
+            }
+        }
+        //ï¿½Ò³ï¿½ï¿½ï¿½Ð¡Öµï¿½Í´ï¿½Ð¡Öµï¿½Úµï¿½ï¿½ï¿½Â±ï¿½
+        for (int j = min2; j < LENGTH; j++) {
+            if (leaves[j] != NULL) {
+                if (leaves[j]->data < leaves[min1]->data) {
+                    min2 = min1;
+                    min1 = j;
+                } else if (leaves[j]->data < leaves[min2]->data) {
+                    min2 = j;
+                }
+            }
+        }
+        //ï¿½ï¿½ï¿½ï¿½Ð¡È¨Öµï¿½ï¿½ï¿½Í´ï¿½Ð¡È¨Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,rootÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        root = new Tree;
+        root->data = leaves[min1]->data + leaves[min2]->data;
+        root->leftChild = leaves[min1];
+        root->rightChild = leaves[min2];
+        //ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë¸³ï¿½ï¿½leavesÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½min1Î»ï¿½ï¿½
+        leaves[min1] = root;
+        // min2Î»ï¿½ï¿½Îªï¿½ï¿½
+        leaves[min2] = NULL;
+    }
+    return root;
 }
 
-//¸ù¾ÝÈ¨Öµ»ñÈ¡ÏÂ±ê 
+//ï¿½ï¿½ï¿½ï¿½È¨Öµï¿½ï¿½È¡ï¿½Â±ï¿½ 
 int getIndex(int weight){
-	for(int i = 0 ;i<LENGTH;i++){
-		if(weight == arr[i]){
-			return i;
-		}
-	}
+    for(int i = 0 ;i<LENGTH;i++){
+        if(weight == arr[i]){
+            return i;
+        }
+    }
 } 
 
-//µÝ¹é½øÐÐ¹þ·òÂüÊ÷±àÂë,lenÊÇµ±Ç°Ê÷µÄ²ãÊý
+//ï¿½Ý¹ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,lenï¿½Çµï¿½Ç°ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
 void huffmanCoding(TreeList& root, int len) {
-	if (root == NULL) {
-		return;
-	}
-	//Èôµ½Ò¶×Ó½Úµã
-	if (root->leftChild == NULL && root->rightChild == NULL) {
-		//»ñÈ¡¸Ã½ÚµãÈ¨Öµ¶ÔÓ¦µÄ×Ö·ûÏÂ±ê 
-		int index = getIndex(root->data);
-		//±£´æ¸Ã×Ö·ûµÄ¹þ·òÂü±àÂë
-		for (int i = 0; i < len; i++) {
-			huffman[index].push_back(code[i] + '0');
-		}
-	}
-	//·ñÔò¼ÌÐø½øÐÐ¹þ·òÂü±àÂëµÄ²Ù×÷
-	else {
-		//×ó²à·ÖÖ§¶¼¼ÇÎªÁã
-		code[len] = 0;
-		huffmanCoding(root->leftChild, len + 1);
-		//ÓÒ²à·ÖÖ§¶¼¼ÇÎªÒ»
-		code[len] = 1;
-		huffmanCoding(root->rightChild, len + 1);
-	}
+    if (root == NULL) {
+        return;
+    }
+    //ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½Ó½Úµï¿½
+    if (root->leftChild == NULL && root->rightChild == NULL) {
+        //ï¿½ï¿½È¡ï¿½Ã½Úµï¿½È¨Öµï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Â±ï¿½ 
+        int index = getIndex(root->data);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        for (int i = 0; i < len; i++) {
+            huffman[index].push_back(code[i] + '0');
+        }
+    }
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
+    else {
+        //ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
+        code[len] = 0;
+        huffmanCoding(root->leftChild, len + 1);
+        //ï¿½Ò²ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ÎªÒ»
+        code[len] = 1;
+        huffmanCoding(root->rightChild, len + 1);
+    }
 }
 
 int main() {
-	TreeList root = createTree(arr);
-	huffmanCoding(root, 0);
-	for (int i = 0; i < LENGTH; i++) {
-		cout << alph[i] << "µÄ¹þ·òÂü±àÂëÊÇ : " << huffman[i] << endl;
-	}
-	return 0;
+    TreeList root = createTree(arr);
+    huffmanCoding(root, 0);
+    for (int i = 0; i < LENGTH; i++) {
+        cout << alph[i] << "ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : " << huffman[i] << endl;
+    }
+    return 0;
 }

@@ -2,18 +2,18 @@
 #include<string>
 using namespace std;
 int main() {
-	string s1,s2;
-	getline(cin,s1);
-	cin>>s2;
-	int indexS1;
-	int lengthS2;
-	while(s1.find(s2, 0) != string::npos) {
-		//ÕÒµ½×Ö´®µÄÎ»ÖÃ 
-		indexS1 =s1.find(s2,0);
-		lengthS2 =s2.size();
-		s1.erase(indexS1,lengthS2);
-	}
+    string s1,s2;
+    getline(cin,s1);
+    cin>>s2;
+    int indexS1;
+    int lengthS2;
+    while(s1.find(s2, 0) != string::npos) {
+        //ï¿½Òµï¿½ï¿½Ö´ï¿½ï¿½ï¿½Î»ï¿½ï¿½ 
+        indexS1 =s1.find(s2,0);
+        lengthS2 =s2.size();
+        s1.erase(indexS1,lengthS2);
+    }
 
-	cout<<s1;
-	return 0;
+    cout<<s1;
+    return 0;
 }

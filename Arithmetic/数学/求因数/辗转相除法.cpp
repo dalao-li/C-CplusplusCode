@@ -1,18 +1,18 @@
-/*ÇóÁ½¸öÊý×ÖµÄ×î´ó¹«Ô¼Êý*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½*/
 #include<iostream>
 using namespace std;
 int number_value(int m,int n) {
-	int r;
-	while((r=m%n)!=0) {            /*ÈôÁ½¸öÊýÏà³ýµÄÓàÊýr²»ÎªÁã(ÀýÈç15%9=6)*/
-		m=n;                       /*m=9,n=6.r=3...m=6,n=3..r=0*/
-		n=r;
-	}
-	return n;                      /*n=3*/
+    int r;
+    while((r=m%n)!=0) {            /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rï¿½ï¿½Îªï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½15%9=6)*/
+        m=n;                       /*m=9,n=6.r=3...m=6,n=3..r=0*/
+        n=r;
+    }
+    return n;                      /*n=3*/
 }
 int main() {
-	int a,b;
-	cin>>a>>b;
-	printf("×î´ó¹«Ô¼ÊýÎª:%d\n",number_value(a,b));
-	return 0;
+    int a,b;
+    cin>>a>>b;
+    printf("ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Îª:%d\n",number_value(a,b));
+    return 0;
 }
 

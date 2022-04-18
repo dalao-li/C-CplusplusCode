@@ -2,55 +2,55 @@
 #include<algorithm>
 using namespace std;
 
-//µ÷ÕûÎªĞ¡¸ù¶Ñº¯Êı
+//ï¿½ï¿½ï¿½ï¿½ÎªĞ¡ï¿½ï¿½ï¿½Ñºï¿½ï¿½ï¿½
 void siftDown(int testData[],int start,int end) {
-	int parent = start;
-	int child = 2*start+1;
-	//tempÔİ´æ×ÓÊ÷¸ù½Úµã
-	int temp = testData[parent];
-	//Èç¹û×ó¶ù×Ó±àºÅÎ´µ½ÖÕµã
-	while(child < end) {
-		//Èç¹ûÓÒ¶ù×Ó±È×ó¶ù×ÓĞ¡
-		if(child+1 < end && testData[child] < testData[child+1]) {
-			//child±äÎªÓÒ¶ù×Ó
-			++child;
-		}
-		// Èç¹û¸ù½Úµã±È¶ù×Ó½ÚµãĞ¡,Ôò²»ĞèÒªµ÷Õû
-		if(temp >= testData[child]) {
-			break;
-		}
-		//·ñÔòĞèµ÷Õû¶ù×ÓºÍË«Ç×µÄÎ»ÖÃ
-		testData[parent] =  testData[child];
-		//¶ù×ÓÉÏÒÆ±äÎªË«Ç×
-		parent = child;
-		//¸üĞÂ×ó¶ù×Ó
-		child = 2*child+1;
-	}
-	//¸üĞÂË«Ç×µÄÖµ
-	testData[parent] = temp;
+    int parent = start;
+    int child = 2*start+1;
+    //tempï¿½İ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
+    int temp = testData[parent];
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó±ï¿½ï¿½Î´ï¿½ï¿½ï¿½Õµï¿½
+    while(child < end) {
+        //ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½Ó±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡
+        if(child+1 < end && testData[child] < testData[child+1]) {
+            //childï¿½ï¿½Îªï¿½Ò¶ï¿½ï¿½ï¿½
+            ++child;
+        }
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½È¶ï¿½ï¿½Ó½Úµï¿½Ğ¡,ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½
+        if(temp >= testData[child]) {
+            break;
+        }
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óºï¿½Ë«ï¿½×µï¿½Î»ï¿½ï¿½
+        testData[parent] =  testData[child];
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ÎªË«ï¿½ï¿½
+        parent = child;
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        child = 2*child+1;
+    }
+    //ï¿½ï¿½ï¿½ï¿½Ë«ï¿½×µï¿½Öµ
+    testData[parent] = temp;
 
 }
 
-//¶ÑÅÅĞòº¯Êı
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void heapSort(int testData[],int len,int n) {
-	for(int i =  (len-2)/2; i>=0 ; i-- ) {
-		//½¨Á¢Ò»¸öĞ¡¸ù¶Ñ
-		siftDown(testData,i,len);
-	}
-	for(int i = len-1 ; i>0 ; i--) {
-		//½»»»¸ùºÍ×îºóÒ»¸öÔªËØ,
-		swap(testData[0],testData[i]);
-		siftDown(testData,0,i);
-	}
+    for(int i =  (len-2)/2; i>=0 ; i-- ) {
+        //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ğ¡ï¿½ï¿½ï¿½ï¿½
+        siftDown(testData,i,len);
+    }
+    for(int i = len-1 ; i>0 ; i--) {
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½,
+        swap(testData[0],testData[i]);
+        siftDown(testData,0,i);
+    }
 }
 
 int a[10000];
 int n ,k;
 int main() {
-	cin>>n>>k;
-	for(int i = 0; i<n; i++) {
-		cin>>a[i];
-	}
-	heapSort(a,n,n);
-	cout<<a[n-k]<<endl;
+    cin>>n>>k;
+    for(int i = 0; i<n; i++) {
+        cin>>a[i];
+    }
+    heapSort(a,n,n);
+    cout<<a[n-k]<<endl;
 }

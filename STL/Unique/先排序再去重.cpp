@@ -1,12 +1,12 @@
 #include <iostream>
 #include <algorithm>  //sort(), unique()
-#include <functional>  //less<int>()Ë³Ðò 
+#include <functional>  //less<int>()Ë³ï¿½ï¿½ 
 using namespace std;
 int main() {
-	int i;
-	int a[10] = { 0, 7, 7, 6, 1, 1, 5, 5, 8, 9 };
-	sort( a, a + 10, less<int>() );  //ÅÅÐò
-	int n = unique(a, a + 10) - a;   //È¥ÖØ
-	for ( i = 0; i < n; i++)         //×¢Òâi < n
-		cout << a[i] << " ";         //0 1 5 6 7 8 9
+    int i;
+    int a[10] = { 0, 7, 7, 6, 1, 1, 5, 5, 8, 9 };
+    sort( a, a + 10, less<int>() );  //ï¿½ï¿½ï¿½ï¿½
+    int n = unique(a, a + 10) - a;   //È¥ï¿½ï¿½
+    for ( i = 0; i < n; i++)         //×¢ï¿½ï¿½i < n
+        cout << a[i] << " ";         //0 1 5 6 7 8 9
 }

@@ -2,17 +2,17 @@
 #include<cstdio>
 using namespace std;
 void multiplicationTable(const int n){
-	for(int i=1; i<=n; i++) {
-		for(int j=1; j<=i; j++) {
-			/*-4d±íÊ¾×ó¶ÔÆë£¬Õ¼4Î»*/
-			printf("%d*%d=%-4d ",j,i,i*j);        
-		}
-		cout<<endl;
-	}
+    for(int i=1; i<=n; i++) {
+        for(int j=1; j<=i; j++) {
+            /*-4dï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ë£¬Õ¼4Î»*/
+            printf("%d*%d=%-4d ",j,i,i*j);        
+        }
+        cout<<endl;
+    }
 } 
 int main() {
-	int n;
-	cin>>n;
-	multiplicationTable(n);
-	return 0;
+    int n;
+    cin>>n;
+    multiplicationTable(n);
+    return 0;
 }

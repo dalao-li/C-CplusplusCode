@@ -1,20 +1,20 @@
 /*
-unique的作用就是"去除"数组中重复的元素，
-但实际上并没有真正的把重复的元素删去了
-，而是把重复的元素全部放在了数组末尾
+unique锟斤拷锟斤拷锟矫撅拷锟斤拷"去锟斤拷"锟斤拷锟斤拷锟斤拷锟截革拷锟斤拷元锟截ｏ拷
+锟斤拷实锟斤拷锟较诧拷没锟斤拷锟斤拷锟斤拷锟侥帮拷锟截革拷锟斤拷元锟斤拷删去锟斤拷
+锟斤拷锟斤拷锟角帮拷锟截革拷锟斤拷元锟斤拷全锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷末尾
 */
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
 int main() {
-	int a[10] = { 0, 7, 7, 6, 1, 1, 5, 5, 8, 9 };
-	int n = unique(a, a + 10) - a;
-	cout << n << endl;  //n==7
-	for (int i = 0; i < 10; i++)
-		cout << a[i] << " ";  //0 7 6 1 5 8 9 5 8 9
-	for(int i=0; i<n; i++) {
-		cout<<a[i]<<" ";      //0 7 6 1 5 8 9
-	}
-	return 0;
+    int a[10] = { 0, 7, 7, 6, 1, 1, 5, 5, 8, 9 };
+    int n = unique(a, a + 10) - a;
+    cout << n << endl;  //n==7
+    for (int i = 0; i < 10; i++)
+        cout << a[i] << " ";  //0 7 6 1 5 8 9 5 8 9
+    for(int i=0; i<n; i++) {
+        cout<<a[i]<<" ";      //0 7 6 1 5 8 9
+    }
+    return 0;
 }

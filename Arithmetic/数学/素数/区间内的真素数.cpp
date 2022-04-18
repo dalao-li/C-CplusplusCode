@@ -1,49 +1,49 @@
 /*
-ÕÒ³öÕýÕûÊý M ºÍ N Ö®¼ä£¨N ²»Ð¡ÓÚ M£©µÄËùÓÐÕæËØÊý¡£
-ÕæËØÊýµÄ¶¨Òå£ºÈç¹ûÒ»¸öÕýÕûÊý P ÎªËØÊý£¬ÇÒÆä·´ÐòÒ²
-ÎªËØÊý£¬ÄÇÃ´ P ¾ÍÎªÕæËØÊý¡£ÀýÈç£¬11£¬13 ¾ùÎªÕæËØÊý
-£¬ÒòÎª11µÄ·´Ðò»¹ÊÇÎª11£¬13 µÄ·´ÐòÎª 31 Ò²ÎªËØÊý¡£
+ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ M ï¿½ï¿½ N Ö®ï¿½ä£¨N ï¿½ï¿½Ð¡ï¿½ï¿½ Mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½å£ºï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ P Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä·´ï¿½ï¿½Ò²
+Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ P ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£¬11ï¿½ï¿½13 ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½Îª11ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½Îª11ï¿½ï¿½13 ï¿½Ä·ï¿½ï¿½ï¿½Îª 31 Ò²Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 #include<iostream>
 #include<math.h>
 using namespace std;
 bool isPrime(int n) {
-	int i;
-	for(i=2; i<=sqrt(n); i++) {
-		if(n%i==0) {
-			return false;
-		}
-	}
-	return true;
+    int i;
+    for(i=2; i<=sqrt(n); i++) {
+        if(n%i==0) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int inverNum(int n) {
-	int num=0;
-	while(n) {
-		num=num*10+n%10;
-		n/=10;
-	}
-	return num;
+    int num=0;
+    while(n) {
+        num=num*10+n%10;
+        n/=10;
+    }
+    return num;
 }
 
 int main() {
-	int M,N,i,a[100001],j=0;
-	bool b=false;
-	cin>>M>>N;
-	for(i=M; i<=N; i++) {
-		if(isPrime(i)&&isPrime(inverNum(i))) {
-			b=true;
-			a[j]=i;
-			j+=1;
-		}
-	}
-	for(i=0; i<j-1; i++) {
-		cout<<a[i]<<",";
-	}
-	cout<<a[j-1]<<endl;
+    int M,N,i,a[100001],j=0;
+    bool b=false;
+    cin>>M>>N;
+    for(i=M; i<=N; i++) {
+        if(isPrime(i)&&isPrime(inverNum(i))) {
+            b=true;
+            a[j]=i;
+            j+=1;
+        }
+    }
+    for(i=0; i<j-1; i++) {
+        cout<<a[i]<<",";
+    }
+    cout<<a[j-1]<<endl;
 
-	if(b=false) {
-		cout<<"No"<<endl;
-	}
-	return 0;
+    if(b=false) {
+        cout<<"No"<<endl;
+    }
+    return 0;
 }

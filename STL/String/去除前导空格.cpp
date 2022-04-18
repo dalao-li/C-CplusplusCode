@@ -1,28 +1,37 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-04-08 21:23:28
+ */
 #include<iostream>
 using namespace std;
 int main() {
-	string strOld;
-	string strNew;
-	getline(cin,strOld);
-	cout<<strOld<<endl;
-	//Èç¹ûÃ»ÓÐÇ°µ¼¿Õ¸ñ£¬Ö±½Ó¸´ÖÆ
-	if(strOld[0]!=' ') {
-		strNew=strOld;
-	}
-	//Èç¹ûµÚ¶þ¸ö×Ö·û²»ÊÇ¿Õ¸ñ£¬½«Õâ¸ö×Ö·û¸´ÖÆ¹ýÈ¥
-	else if(strOld[1]!=' ') {
-		strNew[0]=strOld[1];
-	}
-	//´Ó 
-	for(int i=2,j=0,length=strOld.size(); i<length; i++) {
-		if(strOld[i]!=' ') {
-			strNew[j++]=strOld[i];
-		} else {
-			if(strOld[i-1]!=' '||strOld[i+1]!=' ') {
-				strNew[j++]=strOld[i];
-			}
-		}
-	}
+    string strOld;
+    string strNew;
+    getline(cin,strOld);
+    cout<<strOld<<endl;
+    //å¦‚æžœæ²¡æœ‰å‰å¯¼ç©ºæ ¼ï¼Œç›´æŽ¥å¤åˆ¶
+    if(strOld[0]!=' ') {
+        strNew=strOld;
+    }
+    //å¦‚æžœç¬¬äºŒä¸ªå­—ç¬¦ä¸æ˜¯ç©ºæ ¼ï¼Œå°†è¿™ä¸ªå­—ç¬¦å¤åˆ¶è¿‡åŽ»
+    else if(strOld[1]!=' ') {
+        strNew[0]=strOld[1];
+    }
+    //ä»Ž 
+    for(int i=2,j=0,length=strOld.size(); i<length; i++) {
+        if(strOld[i]!=' ') {
+            strNew[j++]=strOld[i];
+        } else {
+            if(strOld[i-1]!=' '||strOld[i+1]!=' ') {
+                strNew[j++]=strOld[i];
+            }
+        }
+    }
 }
 cout<<strNew<<endl;
 return 0;

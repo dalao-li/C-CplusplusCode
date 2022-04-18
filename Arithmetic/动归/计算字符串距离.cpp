@@ -20,27 +20,27 @@
 #include<string.h>
 using namespace std;
 int dp[1001][1001];
-int main() {	
-	memset(dp,0,sizeof(dp));
-	string s1,s2;
-	cin>>s1>>s2;
-	int len1 = s1.size();
-	int len2 = s2.size();
-	for(int i = 0 ; i<len1 ; i++) {
-		dp[i][0] = i;
-	}
-	for(int j = 0; j<len2 ; j++) {
-		dp[0][j] = j;
-	}
-	for(int i = 0; i<len1 ; i++) {
-		for(int j = 0; j<len2 ; j++) {
-			if(s1[i]==s2[j]) {
-				dp[i+1][j+1]=dp[i][j];
-			} else {
-				dp[i+1][j+1] = min(min(dp[i][j],dp[i][j+1]),dp[i+1][j])+1;
-			}
-		}
-	}
-	cout<<dp[len1][len2]<<endl;
-	return 0;
+int main() {    
+    memset(dp,0,sizeof(dp));
+    string s1,s2;
+    cin>>s1>>s2;
+    int len1 = s1.size();
+    int len2 = s2.size();
+    for(int i = 0 ; i<len1 ; i++) {
+        dp[i][0] = i;
+    }
+    for(int j = 0; j<len2 ; j++) {
+        dp[0][j] = j;
+    }
+    for(int i = 0; i<len1 ; i++) {
+        for(int j = 0; j<len2 ; j++) {
+            if(s1[i]==s2[j]) {
+                dp[i+1][j+1]=dp[i][j];
+            } else {
+                dp[i+1][j+1] = min(min(dp[i][j],dp[i][j+1]),dp[i+1][j])+1;
+            }
+        }
+    }
+    cout<<dp[len1][len2]<<endl;
+    return 0;
 }

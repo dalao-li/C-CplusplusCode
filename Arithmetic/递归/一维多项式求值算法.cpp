@@ -12,15 +12,15 @@
 #include<iostream>
 using namespace std;
 double polynomial(double a[],int n,int x){
-	double result = a[0];
-	for(int i=1;i<n;i++){
-		result = result*x+a[i];
-	}
-	return result;
+    double result = a[0];
+    for(int i=1;i<n;i++){
+        result = result*x+a[i];
+    }
+    return result;
 }
 
 int main(){
     double a[7]={3,7,-3,2,7,-7,-15};
-	double x=1;
-	cout<< polynomial(a,7,x);
+    double x=1;
+    cout<< polynomial(a,7,x);
 }  

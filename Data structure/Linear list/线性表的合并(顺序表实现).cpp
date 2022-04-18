@@ -1,87 +1,87 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-//½¨Á¢Ë³Ðò±í
+//ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½
 typedef struct {
-	int *elem;
-	int length;
+    int *elem;
+    int length;
 } Sqlist;
 
-//Ë³Ðò±íµÄ³õÊ¼»¯
+//Ë³ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ê¼ï¿½ï¿½
 void initialize(Sqlist &L,const int n) {
-	//¶¯Ì¬¿ª±Ù½á¹¹ÌåÊý×é
-	L.elem = (int *) malloc (100 * sizeof(Sqlist));
-	if(!L.elem) {
-		return;
-	}
-	L.length=0;
-	printf("³õÊ¼»¯³É¹¦\n",L.length);
-	//Ë³Ðò±íµÄÊäÈë
-	for(int i=0; i<n; i++) {
-		scanf("%d",&L.elem[i]);
-		L.length++;
-	}
+    //ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ù½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    L.elem = (int *) malloc (100 * sizeof(Sqlist));
+    if(!L.elem) {
+        return;
+    }
+    L.length=0;
+    printf("ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½\n",L.length);
+    //Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    for(int i=0; i<n; i++) {
+        scanf("%d",&L.elem[i]);
+        L.length++;
+    }
 }
 
-//Ë³Ðò±íµÄÈ¡Öµ,
+//Ë³ï¿½ï¿½ï¿½ï¿½ï¿½È¡Öµ,
 int getElem(Sqlist &L,const int index) {
-	if(index>=L.length||index<0) {
-		printf("Ë÷Òý´íÎó!");
-		return 0;
-	}
-	return L.elem[index];
+    if(index>=L.length||index<0) {
+        printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
+        return 0;
+    }
+    return L.elem[index];
 }
 
-//Ë³Ðò±íµÄ²éÕÒ
+//Ë³ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
 bool locateElem(Sqlist &L,int e) {
-	for(int i=0; i<L.length; i++) {
-		if(L.elem[i]==e) {
-			return true;
-		}
-	}
-	return false;
+    for(int i=0; i<L.length; i++) {
+        if(L.elem[i]==e) {
+            return true;
+        }
+    }
+    return false;
 
 }
 
-//Ë³Ðò±íµÄ²åÈë,µ½Ä©Î²
+//Ë³ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½,ï¿½ï¿½Ä©Î²
 void insertElem(Sqlist &L,int e) {
-	//Ôö³¤±íµÄ³¤¶È 
-	++L.length;
-	//½«Öµ²åÈëµ½Ä©Î² 
-	L.elem[L.length-1]=e;
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ 
+    ++L.length;
+    //ï¿½ï¿½Öµï¿½ï¿½ï¿½ëµ½Ä©Î² 
+    L.elem[L.length-1]=e;
 }
 
-//ÊµÏÖ½«s2ÖÐÔÚs1ÖÐ²»´æÔÚÔªËØÕªÈ¡µ½s1ÖÐ
+//Êµï¿½Ö½ï¿½s2ï¿½ï¿½ï¿½ï¿½s1ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ÕªÈ¡ï¿½ï¿½s1ï¿½ï¿½
 void mergeList(Sqlist &S1,Sqlist &S2) {
-	int size1=S1.length;
-	int size2=S2.length;
-	int e;
-	for(int i=0; i<size2; i++) {
-		//Á¤±és2ÖÐÃ¿Ò»¸öÔªËØ,½«Æä¸³¸øe
-		e=getElem(S2,i);
-		//Èôe²»ÔÙS1ÖÐ£¬Ôò½«Ëü²åÈës1µÄÄ©Î²
-		if(locateElem(S1,e)==false) {
-			insertElem(S1,e);
-		}
-	}
+    int size1=S1.length;
+    int size2=S2.length;
+    int e;
+    for(int i=0; i<size2; i++) {
+        //ï¿½ï¿½ï¿½ï¿½s2ï¿½ï¿½Ã¿Ò»ï¿½ï¿½Ôªï¿½ï¿½,ï¿½ï¿½ï¿½ä¸³ï¿½ï¿½e
+        e=getElem(S2,i);
+        //ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½S1ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s1ï¿½ï¿½Ä©Î²
+        if(locateElem(S1,e)==false) {
+            insertElem(S1,e);
+        }
+    }
 }
 
-//Ë³Ðò±íµÄÊä³ö
+//Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void ouputElem(Sqlist &L) {
-	for(int i=0; i<L.length; i++) {
-		printf("%d ",L.elem[i]);
-	}
-	printf("\n");
+    for(int i=0; i<L.length; i++) {
+        printf("%d ",L.elem[i]);
+    }
+    printf("\n");
 }
 
 int main() {
-	Sqlist S1,S2;
-	int size1,size2;
-	scanf("%d",&size1);
-	initialize(S1,size1);
-	scanf("%d",&size2);
-	initialize(S2,size2);
-	mergeList(S1,S2);
-	ouputElem(S1);
+    Sqlist S1,S2;
+    int size1,size2;
+    scanf("%d",&size1);
+    initialize(S1,size1);
+    scanf("%d",&size2);
+    initialize(S2,size2);
+    mergeList(S1,S2);
+    ouputElem(S1);
 }
 

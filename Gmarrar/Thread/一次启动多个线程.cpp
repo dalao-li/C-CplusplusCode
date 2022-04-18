@@ -3,18 +3,18 @@
 #include <iostream> // std::cout
 #include <thread>   // std::thread
 int main() {
-	int num_threads;
-	std::thread t[num_threads];
-	std::cin>>num_threads;
-	//Launch a group of threads Æô¶¯Ò»×éÏß³Ì
-	for (int i = 0; i < num_threads; ++i) {
-		t[i] = std::thread(call_from_thread);
-	}
-	std::cout << "Launched from the mainn";
-	//Join the threads with the main thread
-	for (int i = 0; i < num_threads; ++i) {
-		t[i].join();
-	}
-	return 0;
+    int num_threads;
+    std::thread t[num_threads];
+    std::cin>>num_threads;
+    //Launch a group of threads ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß³ï¿½
+    for (int i = 0; i < num_threads; ++i) {
+        t[i] = std::thread(call_from_thread);
+    }
+    std::cout << "Launched from the mainn";
+    //Join the threads with the main thread
+    for (int i = 0; i < num_threads; ++i) {
+        t[i].join();
+    }
+    return 0;
 }
 

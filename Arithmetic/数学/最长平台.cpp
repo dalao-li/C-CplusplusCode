@@ -11,41 +11,41 @@
 using namespace std;
 int main()
 {
-	int a[1000],length=1,n,i;
-	cin>>n;
-	for(i=0;i<n;i++){
-		cin>>a[i];
-	}
-	for(i=1;i<n;i++){
-		//利用lenth来记录当前长度，并用lenth来测量后面的plate，如果遇上更大的plate则lenth++，最后返回最大lenth。
-		if(a[i]==a[i-length]){
-			length++;
-		}
-	}
-	cout<<length<<endl;
-	return 0;
+    int a[1000],length=1,n,i;
+    cin>>n;
+    for(i=0;i<n;i++){
+        cin>>a[i];
+    }
+    for(i=1;i<n;i++){
+        //利用lenth来记录当前长度，并用lenth来测量后面的plate，如果遇上更大的plate则lenth++，最后返回最大lenth。
+        if(a[i]==a[i-length]){
+            length++;
+        }
+    }
+    cout<<length<<endl;
+    return 0;
 }*/
 #include<iostream>
 using namespace std;
 int main() {
-	int n,x,i,maxs=1,cur,length=0; //cur用来保存当前元素值
-	cin>>n>>x;
-	cur=x;
-	for(i=1; i<n; i++) {
-		cin>>x;
-		//如果cur=x,则说明是一个平台
-		if(cur == x) { 
-			length++;
-		}
-		//若不相等则平台长度重置为1,且将新元素值保存到cur中
-		else {
-			length=1;
-			cur=x;
-		}
-		maxs = max(maxs,length);
-	}
-	cout<<max<<endl;
-	return 0;
+    int n,x,i,maxs=1,cur,length=0; //cur用来保存当前元素值
+    cin>>n>>x;
+    cur=x;
+    for(i=1; i<n; i++) {
+        cin>>x;
+        //如果cur=x,则说明是一个平台
+        if(cur == x) { 
+            length++;
+        }
+        //若不相等则平台长度重置为1,且将新元素值保存到cur中
+        else {
+            length=1;
+            cur=x;
+        }
+        maxs = max(maxs,length);
+    }
+    cout<<max<<endl;
+    return 0;
 }
 
 

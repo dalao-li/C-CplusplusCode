@@ -1,48 +1,48 @@
 #include<iostream>
 using namespace std;
 
-//Ã°ÅÝÅÅÐò
+//Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void bubbleSort3(int testData[],int len) {
-	//Ò»¹²Îå×éÊý¾Ý
+    //Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	for(int j = 0; j< len-1; j++) {
-		//ÓÃÀ´ÅÐ¶ÏÊÇ·ñ·¢Éú¹ýÅÅÐò
-		bool exchange = false;
-		for(int i = 0; i<len-1; i++) {
-			if(testData[i] > testData[i+1]) {
+    for(int j = 0; j< len-1; j++) {
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        bool exchange = false;
+        for(int i = 0; i<len-1; i++) {
+            if(testData[i] > testData[i+1]) {
 
-				//Èç¹û»¹ÓÐÅÅÐò£¬ÔòexchangeÎª true
-				exchange = true;
-				//½»»»Á½ÔªËØ
-				swap(testData[i],testData[i+1]);
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½exchangeÎª true
+                exchange = true;
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+                swap(testData[i],testData[i+1]);
 
-			}
-		}
-		//Èç¹û´Ë´ÎÉ¨ÃèÃ»ÓÐ·¢Éú¹ý½»»»£¬ÔòËµÃ÷´ËÂÖÒÑ¾­Íê³ÉÅÅÐò
-		if(exchange == false) {
-			break;
-		}
-		cout<<"µÚ"<<j<<"ÌË "; 
-		for(int i=0; i<10; i++) {
-			cout<<testData[i]<<" ";
-		}
-		cout<<endl;
-	}
+            }
+        }
+        //ï¿½ï¿½ï¿½ï¿½Ë´ï¿½É¨ï¿½ï¿½Ã»ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        if(exchange == false) {
+            break;
+        }
+        cout<<"ï¿½ï¿½"<<j<<"ï¿½ï¿½ "; 
+        for(int i=0; i<10; i++) {
+            cout<<testData[i]<<" ";
+        }
+        cout<<endl;
+    }
 }
 
 
 int main() {
-	int i;
-	int a[10];
-	for(i=0; i<10; i++) {
-		cin>>a[i];
-	}
+    int i;
+    int a[10];
+    for(i=0; i<10; i++) {
+        cin>>a[i];
+    }
 
-	bubbleSort3(a,10);
-	for(i=0; i<10; i++) {
-		cout<<a[i]<<" ";
-	}
-	return 0;
+    bubbleSort3(a,10);
+    for(i=0; i<10; i++) {
+        cout<<a[i]<<" ";
+    }
+    return 0;
 
 
 }

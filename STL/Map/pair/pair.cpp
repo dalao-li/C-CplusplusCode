@@ -1,26 +1,35 @@
 /*
-pairÊÇ½«2¸öÊı¾İ×éºÏ³ÉÒ»¸öÊı¾İ,µ±ĞèÒªÕâÑùµÄĞèÇóÊ±¾Í¿ÉÒÔÊ¹ÓÃpair,
-ÈçstlÖĞµÄmap¾ÍÊÇ½«keyºÍvalue·ÅÔÚÒ»ÆğÀ´±£´æ¡£ÁíÒ»¸öÓ¦ÓÃÊÇ,µ±Ò»¸ö
-º¯ÊıĞèÒª·µ»Ø2¸öÊı¾İµÄÊ±ºò,¿ÉÒÔÑ¡Ôñpair¡£ pairµÄÊµÏÖÊÇÒ»¸ö½á¹¹Ìå
-,Ö÷ÒªµÄÁ½¸ö³ÉÔ±±äÁ¿ÊÇfirst second ÒòÎªÊÇÊ¹ÓÃstruct²»ÊÇclass,Ëù
-ÒÔ¿ÉÒÔÖ±½ÓÊ¹ÓÃpairµÄ³ÉÔ±±äÁ¿¡£
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:40:30
+ */
+/*
+pairæ˜¯å°†2ä¸ªæ•°æ®ç»„åˆæˆä¸€ä¸ªæ•°æ®,å½“éœ€è¦è¿™æ ·çš„éœ€æ±‚æ—¶å°±å¯ä»¥ä½¿ç”¨pair,
+å¦‚stlä¸­çš„mapå°±æ˜¯å°†keyå’Œvalueæ”¾åœ¨ä¸€èµ·æ¥ä¿å­˜ã€‚å¦ä¸€ä¸ªåº”ç”¨æ˜¯,å½“ä¸€ä¸ª
+å‡½æ•°éœ€è¦è¿”å›2ä¸ªæ•°æ®çš„æ—¶å€™,å¯ä»¥é€‰æ‹©pairã€‚ pairçš„å®ç°æ˜¯ä¸€ä¸ªç»“æ„ä½“
+,ä¸»è¦çš„ä¸¤ä¸ªæˆå‘˜å˜é‡æ˜¯first second å› ä¸ºæ˜¯ä½¿ç”¨structä¸æ˜¯class,æ‰€
+ä»¥å¯ä»¥ç›´æ¥ä½¿ç”¨pairçš„æˆå‘˜å˜é‡ã€‚
 
-pair½«Ò»¶ÔÖµ×éºÏ³ÉÒ»¸öÖµ,ÕâÒ»¶ÔÖµ¿ÉÒÔ¾ßÓĞ²»Í¬µÄÊı¾İÀàĞÍ
-(T1ºÍT2),Á½¸öÖµ¿ÉÒÔ·Ö±ğÓÃpairµÄÁ½¸ö¹«ÓĞº¯ÊıfirstºÍsecond·ÃÎÊ¡£
+pairå°†ä¸€å¯¹å€¼ç»„åˆæˆä¸€ä¸ªå€¼,è¿™ä¸€å¯¹å€¼å¯ä»¥å…·æœ‰ä¸åŒçš„æ•°æ®ç±»å‹
+(T1å’ŒT2),ä¸¤ä¸ªå€¼å¯ä»¥åˆ†åˆ«ç”¨pairçš„ä¸¤ä¸ªå…¬æœ‰å‡½æ•°firstå’Œsecondè®¿é—®ã€‚
 */
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
-	pair<int,double> p1;
-	pair<int,double> p2;
-	p1.first=1;
-	p1.second=2.5;
-	
-	p2=make_pair(2,2.2);
-	
-	pair<int,double> p3=p1;
-	
-	cout<<"p1"<<" "<<p1.first<<" "<<p1.second<<endl;
-	cout<<"p2"<<" "<<p2.first<<" "<<p2.second<<endl;
-	cout<<"p3"<<" "<<p3.first<<" "<<p3.second<<endl;
+    pair<int,double> p1;
+    pair<int,double> p2;
+    p1.first=1;
+    p1.second=2.5;
+    
+    p2=make_pair(2,2.2);
+    
+    pair<int,double> p3=p1;
+    
+    cout<<"p1"<<" "<<p1.first<<" "<<p1.second<<endl;
+    cout<<"p2"<<" "<<p2.first<<" "<<p2.second<<endl;
+    cout<<"p3"<<" "<<p3.first<<" "<<p3.second<<endl;
 }

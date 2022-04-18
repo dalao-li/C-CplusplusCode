@@ -4,82 +4,82 @@
 typedef int ElemType;
 
 typedef struct Lnode {
-	ElemType data;
-	struct Lnode *next;
+    ElemType data;
+    struct Lnode *next;
 } Lnode,*Linklist;
 
 
 
-//³õÊ¼»¯
+//ï¿½ï¿½Ê¼ï¿½ï¿½
 Lnode *initList(Linklist &head) {
-	head = (Linklist)malloc(sizeof(Lnode));
-	head->next=NULL;
-	return head;
+    head = (Linklist)malloc(sizeof(Lnode));
+    head->next=NULL;
+    return head;
 }
 
-//ºó²å·¨½¨Á¢Ñ­»·Á´±í
+//ï¿½ï¿½å·¨ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 Lnode *inputList(Linklist &head,int n) {
-	head->next=NULL;
-	//rÊÇÎ²Ö¸Õë
-	Linklist p,r;
-	r=head;
-	for(int i=0; i<n; i++) {
-		p=(Lnode *)malloc(sizeof(Lnode));
-		scanf("%d",&p->data);
-		p->next=NULL;
-		r->next=p;
-		r=p;
-	}
-	p->next=head;
-	return head;
+    head->next=NULL;
+    //rï¿½ï¿½Î²Ö¸ï¿½ï¿½
+    Linklist p,r;
+    r=head;
+    for(int i=0; i<n; i++) {
+        p=(Lnode *)malloc(sizeof(Lnode));
+        scanf("%d",&p->data);
+        p->next=NULL;
+        r->next=p;
+        r=p;
+    }
+    p->next=head;
+    return head;
 }
 
-//Á¤±é
+//ï¿½ï¿½ï¿½ï¿½
 void ouputList(Linklist &head) {
-	Linklist p;
-	p=head->next; 
-	while(p->next!=head) {
-		printf("%d ",p->data);
-		p=p->next;
-	}
-	printf("\n");
+    Linklist p;
+    p=head->next; 
+    while(p->next!=head) {
+        printf("%d ",p->data);
+        p=p->next;
+    }
+    printf("\n");
 }
 
 /*
-//Á½¸öÑ­»·Á´±íµÄÁ¬½Ó
+//ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 Lnode *linkTwolinks(Linklist &head1,Linklist &head2) {
-	//tail´ú±íÎ²½Úµã
-	Linklist tail1,tail2;
-	//Ò»¿ªÊ¼Î²½ÚµãÖ¸ÏòÍ·½Úµã
-	tail1=head1;
-	tail2=head2;
-	while(tail1->next!=head1) {
-		tail1=tail1->next;
-	}
-	while(tail2->next!=head2) {
-		tail2=tail2->next;
-	}
-	Linklist p;
-	p=tail2->next->next;
-	tail2->next=tail1->next;
-	tail1->next=p;
-	return head1;
+    //tailï¿½ï¿½ï¿½ï¿½Î²ï¿½Úµï¿½
+    Linklist tail1,tail2;
+    //Ò»ï¿½ï¿½Ê¼Î²ï¿½Úµï¿½Ö¸ï¿½ï¿½Í·ï¿½Úµï¿½
+    tail1=head1;
+    tail2=head2;
+    while(tail1->next!=head1) {
+        tail1=tail1->next;
+    }
+    while(tail2->next!=head2) {
+        tail2=tail2->next;
+    }
+    Linklist p;
+    p=tail2->next->next;
+    tail2->next=tail1->next;
+    tail1->next=p;
+    return head1;
 }
 
 */
 int main() {
-	Linklist head1,head2;
-	head1=initList(head1);
-	head2=initList(head2);
-	int n;
-	scanf("%d",&n);
-	head1=inputList(head1,n);
-	/*ouputList(head1);
-	scanf("%d",&n);
-	head2=inputList(head2,n);
-	ouputList(head2);
-	head1=linkTwolinks(head1,head2);*/
+    Linklist head1,head2;
+    head1=initList(head1);
+    head2=initList(head2);
+    int n;
+    scanf("%d",&n);
+    head1=inputList(head1,n);
+    /*ouputList(head1);
+    scanf("%d",&n);
+    head2=inputList(head2,n);
+    ouputList(head2);
+    head1=linkTwolinks(head1,head2);*/
 
-	ouputList(head1);
-	return 0;
+    ouputList(head1);
+    return 0;
 }

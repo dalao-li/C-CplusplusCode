@@ -1,8 +1,17 @@
 /*
-set¸úvector²î²»¶à£¬Ëü¸úvectorµÄÎ¨Ò»Çø±ğ¾ÍÊÇ£¬
-setÀïÃæµÄÔªËØÊÇÓĞĞòµÄÇÒÎ¨Ò»µÄ£¬Ö»ÒªÄãÍùsetÀï
-Ìí¼ÓÔªËØ£¬Ëü¾Í»á×Ô¶¯ÅÅĞò£¬¶øÇÒ£¬Èç¹ûÄãÌí¼ÓµÄ
-ÔªËØsetÀïÃæ±¾À´¾Í´æÔÚ£¬ÄÇÃ´Õâ´ÎÌí¼Ó²Ù×÷¾Í²»Ö´ĞĞ¡£
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:40:50
+ */
+/*
+setè·Ÿvectorå·®ä¸å¤šï¼Œå®ƒè·Ÿvectorçš„å”¯ä¸€åŒºåˆ«å°±æ˜¯ï¼Œ
+seté‡Œé¢çš„å…ƒç´ æ˜¯æœ‰åºçš„ä¸”å”¯ä¸€çš„ï¼Œåªè¦ä½ å¾€seté‡Œ
+æ·»åŠ å…ƒç´ ï¼Œå®ƒå°±ä¼šè‡ªåŠ¨æ’åºï¼Œè€Œä¸”ï¼Œå¦‚æœä½ æ·»åŠ çš„
+å…ƒç´ seté‡Œé¢æœ¬æ¥å°±å­˜åœ¨ï¼Œé‚£ä¹ˆè¿™æ¬¡æ·»åŠ æ“ä½œå°±ä¸æ‰§è¡Œã€‚
 */
 #include<iostream>
 #include<set>
@@ -10,27 +19,27 @@ setÀïÃæµÄÔªËØÊÇÓĞĞòµÄÇÒÎ¨Ò»µÄ£¬Ö»ÒªÄãÍùsetÀï
 using namespace std;
 template <typename T>
 void showset(set<T> v) {
-	for (typename std::set<T>::iterator it = v.begin(); it != v.end(); it++) {
-		cout << *it<<" ";
-	}
-	cout << endl;
+    for (typename std::set<T>::iterator it = v.begin(); it != v.end(); it++) {
+        cout << *it<<" ";
+    }
+    cout << endl;
 }
 
 int main() {
-	set<int> s1 {9,8,1,2,3,4,5,5,5,6,7,7 }; //×Ô¶¯ÅÅĞò£¬´ÓĞ¡µ½´ó,ÌŞ³ıÏàÍ¬Ïî
-	cout<<"×Ô¶¯ÅÅĞò£¬´ÓĞ¡µ½´ó,ÌŞ³ıÏàÍ¬ÏîºóµÄs1:";
-	showset(s1);
-	set<string> s2 { "hello","sysy","school","hello" }; //×ÖµäĞòÅÅĞò
-	cout<<"×ÖµäĞòÅÅĞòºó(ÈÎÈ»ÌŞ³ıÏàÍ¬Öµ)µÄs2:";
-	showset(s2);
-	s1.insert(9); //ÓĞÕâ¸öÖµÁË£¬do nothing
-	cout<<"Íùs1ÖĞÔÙ²åÈëÒ»¸ö´æÔÚµÄÖµºóµÄ½á¹û:";
-	showset(s1);
-	cout<<"Íùs2ÖĞ²åÈëÒ»¸ö²»´æÔÚµÄÖµºóµÄ½á¹û:";
-	s2.insert("aaa"); //Ã»ÓĞÕâ¸ö×Ö·û´®£¬Ìí¼Ó²¢ÇÒÅÅĞò
-	showset(s2);
+    set<int> s1 {9,8,1,2,3,4,5,5,5,6,7,7 }; //è‡ªåŠ¨æ’åºï¼Œä»å°åˆ°å¤§,å‰”é™¤ç›¸åŒé¡¹
+    cout<<"è‡ªåŠ¨æ’åºï¼Œä»å°åˆ°å¤§,å‰”é™¤ç›¸åŒé¡¹åçš„s1:";
+    showset(s1);
+    set<string> s2 { "hello","sysy","school","hello" }; //å­—å…¸åºæ’åº
+    cout<<"å­—å…¸åºæ’åºå(ä»»ç„¶å‰”é™¤ç›¸åŒå€¼)çš„s2:";
+    showset(s2);
+    s1.insert(9); //æœ‰è¿™ä¸ªå€¼äº†ï¼Œdo nothing
+    cout<<"å¾€s1ä¸­å†æ’å…¥ä¸€ä¸ªå­˜åœ¨çš„å€¼åçš„ç»“æœ:";
+    showset(s1);
+    cout<<"å¾€s2ä¸­æ’å…¥ä¸€ä¸ªä¸å­˜åœ¨çš„å€¼åçš„ç»“æœ:";
+    s2.insert("aaa"); //æ²¡æœ‰è¿™ä¸ªå­—ç¬¦ä¸²ï¼Œæ·»åŠ å¹¶ä¸”æ’åº
+    showset(s2);
 
-	system("pause");
-	return 0;
+    system("pause");
+    return 0;
 }
 

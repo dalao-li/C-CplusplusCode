@@ -1,89 +1,89 @@
 /*
-	Name:ÈË¡¢Ñ§ÉúºÍ½ÌÊ¦ 
-	Copyright: 
-	Author: ÀîÔªê» 
-	Date: 21/05/18 22:46
-	Description: 
+    Name:ï¿½Ë¡ï¿½Ñ§ï¿½ï¿½ï¿½Í½ï¿½Ê¦ 
+    Copyright: 
+    Author: ï¿½ï¿½Ôªï¿½ 
+    Date: 21/05/18 22:46
+    Description: 
 */
 #include<iostream>
 #include<string>
 using namespace std;
 class People 
 {
-	public:
-		People(){}  //½¨Á¢ÎÞ²Î¹¹Ôìº¯Êý 
-		People(int a,string s)
-		{
-			age=a;
-			name=s;
-		}
-		void setValue()
-		{
-			cout<<"please input the age and name"<<endl;
-			cin>>age>>name;
-		} 
-		virtual void display()=0;  //½¨Á¢´¿Ðéº¯Êý 
-		~People(){}  //½¨Á¢Îç²ÍÎö¹¹º¯Êý 
-	protected:
-	    int age;
-		string name;  
+    public:
+        People(){}  //ï¿½ï¿½ï¿½ï¿½ï¿½Þ²Î¹ï¿½ï¿½ìº¯ï¿½ï¿½ 
+        People(int a,string s)
+        {
+            age=a;
+            name=s;
+        }
+        void setValue()
+        {
+            cout<<"please input the age and name"<<endl;
+            cin>>age>>name;
+        } 
+        virtual void display()=0;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ 
+        ~People(){}  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+    protected:
+        int age;
+        string name;  
 };
 void People::display() 
 {
-	cout<<"age= "<<age<<"\nname= "<<name<<endl;
+    cout<<"age= "<<age<<"\nname= "<<name<<endl;
 }
 
-class Student:public People  //¹«ÓÐ¼Ì³Ð»ùÀà 
+class Student:public People  //ï¿½ï¿½ï¿½Ð¼Ì³Ð»ï¿½ï¿½ï¿½ 
 {
-	public:
-		Student(){}
-		Student(int a,string s,int b):People(a,s),studentID(b){} //½¨Á¢ÓÐ²Î¹¹Ôìº¯Êý 
-		void setID1()
-		{
-			cout<<"please input the studentID"<<endl;
-			cin>>studentID;
-		}
-		void display()
-		{
-			cout<<"age= "<<age<<"\nname= "<<name<<"\nstudentID= "<<studentID<<endl;	
-		}
-		~Student(){}
-	private:
-		int studentID;
+    public:
+        Student(){}
+        Student(int a,string s,int b):People(a,s),studentID(b){} //ï¿½ï¿½ï¿½ï¿½ï¿½Ð²Î¹ï¿½ï¿½ìº¯ï¿½ï¿½ 
+        void setID1()
+        {
+            cout<<"please input the studentID"<<endl;
+            cin>>studentID;
+        }
+        void display()
+        {
+            cout<<"age= "<<age<<"\nname= "<<name<<"\nstudentID= "<<studentID<<endl;    
+        }
+        ~Student(){}
+    private:
+        int studentID;
 }; 
 
-class Teacher:public People //¹«ÓÐ¼Ì³Ð»ùÀà 
+class Teacher:public People //ï¿½ï¿½ï¿½Ð¼Ì³Ð»ï¿½ï¿½ï¿½ 
 {
-	public:
-		Teacher(){}
-		Teacher(int a,string s,int b):People(a,s),teacherID(b){}
-		void setID2()
-		{
-			cout<<"please input the teacherID"<<endl;
-			cin>>teacherID;
-		}
-		void display()
-		{
-			cout<<"age= "<<age<<"\nname= "<<name<<"\nteacherID= "<<teacherID<<endl;
-			cout<<endl; 
-		}
-		~Teacher(){} 
-	private:
-	    int teacherID;		
+    public:
+        Teacher(){}
+        Teacher(int a,string s,int b):People(a,s),teacherID(b){}
+        void setID2()
+        {
+            cout<<"please input the teacherID"<<endl;
+            cin>>teacherID;
+        }
+        void display()
+        {
+            cout<<"age= "<<age<<"\nname= "<<name<<"\nteacherID= "<<teacherID<<endl;
+            cout<<endl; 
+        }
+        ~Teacher(){} 
+    private:
+        int teacherID;        
 };
 
 int main()
 {
-	Student *p1,stu;
-	Teacher *p2,tea;
-	p1=&stu;
-	p1->setValue();
-	p1->setID1();
-	p1->display();
-	p2=&tea;
-	p2->setValue();
+    Student *p1,stu;
+    Teacher *p2,tea;
+    p1=&stu;
+    p1->setValue();
+    p1->setID1();
+    p1->display();
+    p2=&tea;
+    p2->setValue();
     p2->setID2();
-	p2->display();
-	return 0;
-	   
+    p2->display();
+    return 0;
+       
 }

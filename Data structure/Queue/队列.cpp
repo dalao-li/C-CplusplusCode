@@ -4,72 +4,72 @@
 #define MAXPARKSPORT 5
 using namespace std;
 typedef struct {
-	char flag;
-	int licensePlate;
+    char flag;
+    int licensePlate;
 
 } Car,*CarList;
 
-//±ãµÀ
+//ï¿½ï¿½ï¿½
 typedef struct {
-	Car *base;
-	//Í·Ö¸Õë
-	int front;
-	//Î²Ö¸Õë
-	int rear;
+    Car *base;
+    //Í·Ö¸ï¿½ï¿½
+    int front;
+    //Î²Ö¸ï¿½ï¿½
+    int rear;
 } Road,*RoadList;
 
-//³õÊ¼»¯±ãµÀ
+//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
 void initQuene(Road &r) {
-	r.base = (CarList)malloc(MAXPARKSPORT *sizeof(Road));
-	if(!r.base) {
-		exit(0);
-	}
-	//Í·Î²Ö¸ÕëÖÃÎª0¶ÓÁÐÎª¿Õ
-	r.front = r.rear = 0;
-	printf("³õÊ¼»¯³É¹¦\n");
+    r.base = (CarList)malloc(MAXPARKSPORT *sizeof(Road));
+    if(!r.base) {
+        exit(0);
+    }
+    //Í·Î²Ö¸ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
+    r.front = r.rear = 0;
+    printf("ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½\n");
 }
 
 
-//³µÁ¾¿ªÈë±ãµÀ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void carDirvingInRoad(Road &r,Car &elem) {
-	if((r.rear +1) % MAXPARKSPORT == r.front) {
-		return;
-	}
-	//ÐÂÔªËØ²åÈë¶ÓÎ²
-	r.base[r.rear] = elem;
-	//¶ÓÎ²Ö¸Õë¼Ó1
-	r.rear = (r.rear + 1) % MAXPARKSPORT;
+    if((r.rear +1) % MAXPARKSPORT == r.front) {
+        return;
+    }
+    //ï¿½ï¿½Ôªï¿½Ø²ï¿½ï¿½ï¿½ï¿½Î²
+    r.base[r.rear] = elem;
+    //ï¿½ï¿½Î²Ö¸ï¿½ï¿½ï¿½1
+    r.rear = (r.rear + 1) % MAXPARKSPORT;
 }
 
-//³µÁ¾Àë¿ª±ãµÀ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªï¿½ï¿½ï¿½
 void carLeaveRoad(Road &r,Car &c) {
-	if(r.front == r.rear) {
-		return ;
-	}
-	c = r.base[r.front];
-	//¶ÓÍ·Ö¸Õë¼Ó1Ïàµ±ÓÚÉ¾³ýÁË¶ÓÍ·
-	r.front = (r.front + 1)  % MAXPARKSPORT ;
+    if(r.front == r.rear) {
+        return ;
+    }
+    c = r.base[r.front];
+    //ï¿½ï¿½Í·Ö¸ï¿½ï¿½ï¿½1ï¿½àµ±ï¿½ï¿½É¾ï¿½ï¿½ï¿½Ë¶ï¿½Í·
+    r.front = (r.front + 1)  % MAXPARKSPORT ;
 }
 
-//ËÑÑ°³µÁ¾ÔÚÍ¨µÀÄÚµÄÎ»ÖÃ
+//ï¿½ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½Úµï¿½Î»ï¿½ï¿½
 int getCarPositon2(Road &r,Car &elem) {
-	for(int i = r.rear ; i>=r.front  ; i--) {
-		if(elem.licensePlate == r.base[i].licensePlate) {
-			return i;
-		}
-	}
-	return -1;
+    for(int i = r.rear ; i>=r.front  ; i--) {
+        if(elem.licensePlate == r.base[i].licensePlate) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 int main() {
-	Car c;
-	Road r;
-	initQuene(r);
-	for(int i = 0 ; i < 3; i++) {
-		cin>>c.flag>>c.licensePlate;
-		carDirvingInRoad(r,c);
-		cout<<"Èë¶Ó³É¹¦"<<endl;
-	}
-	cin>>c.flag>>c.licensePlate;
-	cout<<getCarPositon2(r,c);
+    Car c;
+    Road r;
+    initQuene(r);
+    for(int i = 0 ; i < 3; i++) {
+        cin>>c.flag>>c.licensePlate;
+        carDirvingInRoad(r,c);
+        cout<<"ï¿½ï¿½Ó³É¹ï¿½"<<endl;
+    }
+    cin>>c.flag>>c.licensePlate;
+    cout<<getCarPositon2(r,c);
 }

@@ -1,7 +1,7 @@
 /*
-´ÓÊý×éÖÐÏÂ±êÎª0µÄÔªËØ¿ªÊ¼Ïòºó±È½Ï£¬Óöµ½ÖØ¸´ÔªËØºöÂÔ£¬Óöµ½²»Í¬ÔªËØ£¬
-¾Í°ÑÕâ¸ö²»Í¬ÔªËØ´æÈë t Êý×é£¬Í¬Ê±ÔÙ´Ó¸Õ²ÅÄÇ¸ö²»Í¬ÔªËØÏÂ±ê´¦¿ªÊ¼¼Ì
-ÐøÏòºó±È½Ï£¬ÒÔ´ËÀàÍÆ¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½Îª0ï¿½ï¿½Ôªï¿½Ø¿ï¿½Ê¼ï¿½ï¿½ï¿½È½Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½Ôªï¿½Øºï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ôªï¿½Ø£ï¿½
+ï¿½Í°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ôªï¿½Ø´ï¿½ï¿½ï¿½ t ï¿½ï¿½ï¿½é£¬Í¬Ê±ï¿½Ù´Ó¸Õ²ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½Í¬Ôªï¿½ï¿½ï¿½Â±ê´¦ï¿½ï¿½Ê¼ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½È½Ï£ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½
 */ 
 #include <iostream>
 #include <algorithm>
@@ -9,26 +9,26 @@
 using namespace std;
 
 int main() {
-	int i = 0, j = 0;
-	const int len = 10;  //Êý×éµÄ³¤¶È
-	int p[len] = { 0, 7, 7, 6, 1, 1, 5, 5, 8, 9 };
-	int t[len] = {0};  //´¢´æÅÅÐòºóµÄÊý×é
-	int counter = 1;  //¼ÇÂ¼tÊý×éÖÐ´æÁË¶àÉÙÔªËØ
+    int i = 0, j = 0;
+    const int len = 10;  //ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
+    int p[len] = { 0, 7, 7, 6, 1, 1, 5, 5, 8, 9 };
+    int t[len] = {0};  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    int counter = 1;  //ï¿½ï¿½Â¼tï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½Ôªï¿½ï¿½
 
-	sort(p, p + len);   //ÅÅÐò
+    sort(p, p + len);   //ï¿½ï¿½ï¿½ï¿½
 
-	t[0] = p[0];
-	//È¥ÖØ
-	while (i < len) {
-		if (p[i] != p[++j]) {
-			i = j;
-			t[counter++] = p[i];  //²»ÖØ¸´µÄ´æÈëtÊý×é£¬È»ºócounter¼ÓÒ»
-		}
-	}
+    t[0] = p[0];
+    //È¥ï¿½ï¿½
+    while (i < len) {
+        if (p[i] != p[++j]) {
+            i = j;
+            t[counter++] = p[i];  //ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Ä´ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½é£¬È»ï¿½ï¿½counterï¿½ï¿½Ò»
+        }
+    }
 
-	//Êä³ö
-	for (i = 0; i < (counter-1); i++)  //counter-1¾ÍÊÇtÊý×éÖÐ´æµÄÔªËØ¸öÊý
-		cout << t[i] << " ";  //0 1 5 6 7 8 9
+    //ï¿½ï¿½ï¿½
+    for (i = 0; i < (counter-1); i++)  //counter-1ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ôªï¿½Ø¸ï¿½ï¿½ï¿½
+        cout << t[i] << " ";  //0 1 5 6 7 8 9
 
-	return 0;
+    return 0;
 }

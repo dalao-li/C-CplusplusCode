@@ -2,30 +2,30 @@
 using namespace std;
 class Box
 {
-	public:
-		Box();                                        //声明一个无参数的构造函数Box()
-		//定义一个有默认参数的构造函数用函数的初始化表对数据成员初始化
+    public:
+        Box();                                        //锟斤拷锟斤拷一锟斤拷锟睫诧拷锟斤拷锟侥癸拷锟届函锟斤拷Box()
+        //锟斤拷锟斤拷一锟斤拷锟斤拷默锟较诧拷锟斤拷锟侥癸拷锟届函锟斤拷锟矫猴拷锟斤拷锟侥筹拷始锟斤拷锟斤拷锟斤拷锟斤拷锟捷筹拷员锟斤拷始锟斤拷
         Box(int h=10,int w=12,int len=15):height(h),width(w),length(len){}
-		int volume();                                //声明成员函数volume
-	private:
-		int height;
-		int width;
-		int length;
+        int volume();                                //锟斤拷锟斤拷锟斤拷员锟斤拷锟斤拷volume
+    private:
+        int height;
+        int width;
+        int length;
 };
 
 int Box::volume()
 {
-	return(height*width*length);
+    return(height*width*length);
 }
 
 int main()
 {
-	Box a[3]={
-		Box(10,12,15),
-		Box(15,18,20),
-		Box(16,20,26)
-	};
-	cout<<a[0].volume()<<endl;
-	cout<<a[1].volume()<<endl;
-	cout<<a[2].volume()<<endl;
+    Box a[3]={
+        Box(10,12,15),
+        Box(15,18,20),
+        Box(16,20,26)
+    };
+    cout<<a[0].volume()<<endl;
+    cout<<a[1].volume()<<endl;
+    cout<<a[2].volume()<<endl;
 }

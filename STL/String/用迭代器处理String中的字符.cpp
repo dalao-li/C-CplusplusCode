@@ -1,16 +1,25 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-04-08 21:23:42
+ */
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-	string str="Hello World!";
-	//Ê¹ÓÃconst_iteratorÁ¤±é×Ö·û´®,ÕâÊ±·ÃÎÊÔªËØÊ±ÊÇÄÜ¶Á²»ÄÜĞ´ 
-	for(string::const_iterator it = str.begin();it!=str.end();++it){
-		cout<<*it;
-	}
-	cout<<endl;
-	//ÓÃiteratorÁ¤±é×Ö·û´®£¬²¢½«Ã¿¸ö×Ö·û»»Îªa,²¢Êä³ö 
-	for(string::iterator it = str.begin();it!=str.end();++it){
-		*it='a';
-		cout<<*it;
-	} 
-	return 0;
+    string str="Hello World!";
+    //ä½¿ç”¨const_iteratoræ²¥éå­—ç¬¦ä¸²,è¿™æ—¶è®¿é—®å…ƒç´ æ—¶æ˜¯èƒ½è¯»ä¸èƒ½å†™ 
+    for(string::const_iterator it = str.begin();it!=str.end();++it){
+        cout<<*it;
+    }
+    cout<<endl;
+    //ç”¨iteratoræ²¥éå­—ç¬¦ä¸²ï¼Œå¹¶å°†æ¯ä¸ªå­—ç¬¦æ¢ä¸ºa,å¹¶è¾“å‡º 
+    for(string::iterator it = str.begin();it!=str.end();++it){
+        *it='a';
+        cout<<*it;
+    } 
+    return 0;
 } 

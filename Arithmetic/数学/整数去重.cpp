@@ -1,21 +1,21 @@
 #include<iostream>
 using namespace std;
 int main() {
-	int n,t,a[20000]={0},b[101]={0},i;
-	cin>>n;
-	for(i=0;i<n;i++){
-		cin>>t;
-		b[t]++;
-		//µ±Õâ¸öÊýÊÇµÚÒ»´Î³öÏÖÊ± 
-		if(b[t]==1){
-			a[i]=t;
-		}
-		
-	} 
-	for(i=0;i<n;i++){
-		if(a[i]!=0){
-			cout<<a[i]<<" ";
-		}
-	}
-	return 0;
+    int n,t,a[20000]={0},b[101]={0},i;
+    cin>>n;
+    for(i=0;i<n;i++){
+        cin>>t;
+        b[t]++;
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½Î³ï¿½ï¿½ï¿½Ê± 
+        if(b[t]==1){
+            a[i]=t;
+        }
+        
+    } 
+    for(i=0;i<n;i++){
+        if(a[i]!=0){
+            cout<<a[i]<<" ";
+        }
+    }
+    return 0;
 }

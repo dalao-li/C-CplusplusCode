@@ -1,20 +1,20 @@
-/*ÓÐ1¡¢2¡¢3¡¢4¸öÊý×Ö,×é³É¶àÉÙ¸ö»¥²»ÏàÍ¬ÇÒÎÞÖØ¸´Êý×ÖµÄÈýÎ»Êý*/
-/*Ñ­»·µÄÇ¶Ì×£¬Êä³öËùÓÐ¿ÉÄÜÇé¿ö£¬ÔÚ½øÐÐÉ¸Ñ¡*/
+/*ï¿½ï¿½1ï¿½ï¿½2ï¿½ï¿½3ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½É¶ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Î»ï¿½ï¿½*/
+/*Ñ­ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½×£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½É¸Ñ¡*/
 #include<iostream>
 #include<cstdio>
 using namespace std;
 int main() {
-	int i,j,k,n;
-	for(i=1; i<5; i++) {
-		for(j=1; j<5; j++) {
-			for(k=1; k<5; k++) {
-				if(i!=j&&i!=k&&j!=k) {
-					cout<<i<<j<<k<<endl;
-					n++;
-				}
-			}
-		}
-	}
-	printf("Ò»¹²%dÖÖÇé¿ö\n",n);
-	return 0;
+    int i,j,k,n;
+    for(i=1; i<5; i++) {
+        for(j=1; j<5; j++) {
+            for(k=1; k<5; k++) {
+                if(i!=j&&i!=k&&j!=k) {
+                    cout<<i<<j<<k<<endl;
+                    n++;
+                }
+            }
+        }
+    }
+    printf("Ò»ï¿½ï¿½%dï¿½ï¿½ï¿½ï¿½ï¿½\n",n);
+    return 0;
 }

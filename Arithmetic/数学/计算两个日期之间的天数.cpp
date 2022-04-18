@@ -1,52 +1,52 @@
 #include<iostream>
 using namespace std;
 
-//ÅĞ¶ÏÊÇ·ñÈòÄê
+//ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
 bool isLeapYear(int year) {
-	if(year%4==0&&year%100!=0 || year%400==0) {
-		return true;
-	}
-	return false;
+    if(year%4==0&&year%100!=0 || year%400==0) {
+        return true;
+    }
+    return false;
 
 }
 
-//È·¶¨ÈÕÆÚÔÚ¸ÃÄêÖĞµÄÎ»ÖÃ
+//È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½Ğµï¿½Î»ï¿½ï¿½
 int dayOfYear(int y,int m,int d) {
-	int a[13]= {0,31,28,31,30,31,30,31,31,30,31,30,31},sum=0;
-	if(isLeapYear(y)&&m>2) {
-		sum+=1;
-	}
-	for(int i=1; i<m; i++) {
-		sum+=a[i];
-	}
-	sum+=d;
-	return sum;
+    int a[13]= {0,31,28,31,30,31,30,31,31,30,31,30,31},sum=0;
+    if(isLeapYear(y)&&m>2) {
+        sum+=1;
+    }
+    for(int i=1; i<m; i++) {
+        sum+=a[i];
+    }
+    sum+=d;
+    return sum;
 }
 
 int dateDiffer(int ey,int em,int ed,int sy,int sm,int sd) {
-	int syDay,eyDay;
-	//Í¬Ò»ÄêµÄ»°¾ÍÊÇÈÕÆÚµÄÎ»ÖÃÖ®²î
-	if(ey==sy) {
-		return dayOfYear(ey,em,ed)-dayOfYear(sy,sm,sd);
-	} else {
-		int date=365,i,sumDay=0;
-		for(i=sy+1; i<ey; i++) {
-			if(isLeapYear(i)) {
-				date=366;;
-			}
-			sumDay+=date;
-			date=365;
-		}
-		if(isLeapYear(sy)) {
-			date=366;
-		}
-		syDay=date-dayOfYear(sy,sm,sd);
-		return sumDay+syDay+dayOfYear(ey,em,ed);
-	}
+    int syDay,eyDay;
+    //Í¬Ò»ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Î»ï¿½ï¿½Ö®ï¿½ï¿½
+    if(ey==sy) {
+        return dayOfYear(ey,em,ed)-dayOfYear(sy,sm,sd);
+    } else {
+        int date=365,i,sumDay=0;
+        for(i=sy+1; i<ey; i++) {
+            if(isLeapYear(i)) {
+                date=366;;
+            }
+            sumDay+=date;
+            date=365;
+        }
+        if(isLeapYear(sy)) {
+            date=366;
+        }
+        syDay=date-dayOfYear(sy,sm,sd);
+        return sumDay+syDay+dayOfYear(ey,em,ed);
+    }
 }
 int main() {
-	int syear,smonth,sday,eyear,emonth,eday;
-	cin>>syear>>smonth>>sday>>eyear>>emonth>>eday;
-	cout<<dateDiffer(eyear,emonth,eday,syear,smonth,sday)<<endl;
-	return 0;
+    int syear,smonth,sday,eyear,emonth,eday;
+    cin>>syear>>smonth>>sday>>eyear>>emonth>>eday;
+    cout<<dateDiffer(eyear,emonth,eday,syear,smonth,sday)<<endl;
+    return 0;
 }

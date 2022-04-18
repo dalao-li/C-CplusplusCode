@@ -1,26 +1,26 @@
 #include<stdio.h>
 int averageArray(int array[10]){
-	int sum=0;
-	for(int i=0;i<10;i++){
-		sum+=array[i];
-	}
-	return sum/10;
+    int sum=0;
+    for(int i=0;i<10;i++){
+        sum+=array[i];
+    }
+    return sum/10;
 }
 int averP(int *p,int n){
-	int sum=0;
-	for(int i=0;i<n;i++){
-		sum+=*(p+i);
-	}
-	return sum/n;
+    int sum=0;
+    for(int i=0;i<n;i++){
+        sum+=*(p+i);
+    }
+    return sum/n;
 }
 int main(){
-	int a[10]={1,2,3,4,5,6,7,8,9,10};
-	int aver1=averageArray(a);
-	int n,*p=a;
-	printf("ÇëÊä³öÏàÇóÇ°¼¸Î»µÄÆ½¾ùÊı:");
-	scanf("%d",&n);
-	int aver2=averP(p,n);
-	printf("averA=%d\n",aver1);
-	printf("averP=%d\n",aver2);
-	return 0;
+    int a[10]={1,2,3,4,5,6,7,8,9,10};
+    int aver1=averageArray(a);
+    int n,*p=a;
+    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Î»ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½:");
+    scanf("%d",&n);
+    int aver2=averP(p,n);
+    printf("averA=%d\n",aver1);
+    printf("averP=%d\n",aver2);
+    return 0;
 } 

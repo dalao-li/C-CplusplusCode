@@ -5,80 +5,80 @@
 using namespace std;
 
 typedef struct {
-	char item;
-	int data;
+    char item;
+    int data;
 } Type;
 typedef struct Node {
-	Type t;
-	struct Node * next;
+    Type t;
+    struct Node * next;
 } Node,*NodeList;
 typedef struct {
-	NodeList head;
-	NodeList tail;
+    NodeList head;
+    NodeList tail;
 } Quene,*QueneList;
 
 void initQuene(Quene &q) {
-	q.head = (NodeList) malloc (sizeof(Node));
-	q.tail = q.head;
-	q.head->next = NULL;
-	cout<<"³õÊ¼»¯³É¹¦"<<endl;
+    q.head = (NodeList) malloc (sizeof(Node));
+    q.tail = q.head;
+    q.head->next = NULL;
+    cout<<"ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½"<<endl;
 }
 
 void enterQuene(Quene &q,Type &t) {
-	NodeList p = (NodeList) malloc (sizeof(Node));
-	if(p ==NULL) {
-		return;
-	}
-	p->t = t;
-	p->next = NULL;
-	q.tail->next = p;
-	q.tail = q.tail->next;
+    NodeList p = (NodeList) malloc (sizeof(Node));
+    if(p ==NULL) {
+        return;
+    }
+    p->t = t;
+    p->next = NULL;
+    q.tail->next = p;
+    q.tail = q.tail->next;
 }
 
 void outQuene(Quene &q,Type &t) {
-	NodeList p = (NodeList) malloc (sizeof(Node));
-	p = q.head->next;
-	t= p->t;
-	q.head->next = p->next;
-	if(q.head->next == NULL) {
-		q.tail = q.head;
-	}
-	free(p);
+    NodeList p = (NodeList) malloc (sizeof(Node));
+    p = q.head->next;
+    t= p->t;
+    q.head->next = p->next;
+    if(q.head->next == NULL) {
+        q.tail = q.head;
+    }
+    free(p);
 }
 
 void PrintQueue(Quene *q) {
-	NodeList p;//¶ÓÍ·
-	p = q->head->next;//Í·½áµãµÄÏÂÒ»½Úµã£¬¼´Îª¶ÓÍ·£¡£¡£¡
-	while(p) {
-		//´Ó¶ÓÍ·¿ªÊ¼£¬ÒÀ´ÎÍùºó±éÀú
-		cout<<p->t.item<<" "<<p->t.data<<endl;
-		p = p->next;
-	}
-	cout<<endl;
+    NodeList p;//ï¿½ï¿½Í·
+    p = q->head->next;//Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Úµã£¬ï¿½ï¿½Îªï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    while(p) {
+        //ï¿½Ó¶ï¿½Í·ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        cout<<p->t.item<<" "<<p->t.data<<endl;
+        p = p->next;
+    }
+    cout<<endl;
 }
 
 int getCarPositon2(Quene &q,Type &elem) {
-	int i = 1;
-	for(NodeList p = q.head->next ; p!= NULL ; p = p->next,i++) {
-		if(elem.item == p->t.item && elem.data == p->t.data) {
-			return i;
-		}
-	}
-	return -1;
+    int i = 1;
+    for(NodeList p = q.head->next ; p!= NULL ; p = p->next,i++) {
+        if(elem.item == p->t.item && elem.data == p->t.data) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 int main() {
-	Quene q;
-	Type t;
-	initQuene(q);
-	for(int i = 0 ; i< 3; i++) {
-		cin>>t.item>>t.data;
-		enterQuene(q,t);
-	}
-	/*for(int i = 0 ; i< 3 ; i++) {
-		outQuene(q,t);
-		cout<<t.item<<" "<<t.data<<endl;
-	}*/
-	cin>>t.item>>t.data;
-	cout<<getCarPositon2(q,t)<<endl;
+    Quene q;
+    Type t;
+    initQuene(q);
+    for(int i = 0 ; i< 3; i++) {
+        cin>>t.item>>t.data;
+        enterQuene(q,t);
+    }
+    /*for(int i = 0 ; i< 3 ; i++) {
+        outQuene(q,t);
+        cout<<t.item<<" "<<t.data<<endl;
+    }*/
+    cin>>t.item>>t.data;
+    cout<<getCarPositon2(q,t)<<endl;
 }

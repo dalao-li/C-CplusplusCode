@@ -1,14 +1,14 @@
 #include<bits\stdc++.h>
 using namespace std;
 int main() {
-	string str("heoolo sdaa ss");
-	/*返回的是子串位置。第二个参数是查找的起始位置，
-	如果找不到，就返回string::npos*/
-	
-	if (str.find("as", 0) == string::npos) {
-		cout << "找不到该子串！" << endl;
-	}
-	else{
-		cout << str.find("as", 0) << endl;
-	}
+    string str("heoolo sdaa ss");
+    /*锟斤拷锟截碉拷锟斤拷锟接达拷位锟矫★拷锟节讹拷锟斤拷锟斤拷锟斤拷锟角诧拷锟揭碉拷锟斤拷始位锟矫ｏ拷
+    锟斤拷锟斤拷也锟斤拷锟斤拷锟斤拷头锟斤拷锟絪tring::npos*/
+    
+    if (str.find("as", 0) == string::npos) {
+        cout << "锟揭诧拷锟斤拷锟斤拷锟接达拷锟斤拷" << endl;
+    }
+    else{
+        cout << str.find("as", 0) << endl;
+    }
 }

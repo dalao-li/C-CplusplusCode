@@ -2,13 +2,13 @@
 using namespace std;
 class rect
 {
-	public:
-		rect();
-		rect(int l,int w):len(l),wid(w){}
-		int area();
-	private:
-		int len;
-		int wid,j;
+    public:
+        rect();
+        rect(int l,int w):len(l),wid(w){}
+        int area();
+    private:
+        int len;
+        int wid,j;
 };
 rect::rect()
 {
@@ -18,13 +18,13 @@ rect::rect()
 
 int rect::area()
 {
-	return len*wid;
+    return len*wid;
 }
 
 int main()
 {
-	rect r1;
-	cout<<r1.area()<<endl;
-	rect r2(1,2);
-	cout<<r2.area()<<endl;
+    rect r1;
+    cout<<r1.area()<<endl;
+    rect r2(1,2);
+    cout<<r2.area()<<endl;
 }

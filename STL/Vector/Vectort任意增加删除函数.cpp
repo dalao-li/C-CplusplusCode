@@ -1,60 +1,69 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:36:53
+ */
 
 #include<bits/stdc++.h>
 using namespace std;
-//ÊäÈë
+//è¾“å…¥
 void inputArray(vector<int> &v) {
-	int len,i,t;
-	cout<<"ÇëÊäÈëÐèÒªÔö¼ÓµÄ³¤¶È"<<endl;
-	cin>>len;
-	cout<<"ÇëÊäÈë"<<len<<"¸öÊý¾Ý"<<endl;
-	for(i=0; i<len; i++) {
-		cin>>t;
-		v.push_back(t);
-	}
+    int len,i,t;
+    cout<<"è¯·è¾“å…¥éœ€è¦å¢žåŠ çš„é•¿åº¦"<<endl;
+    cin>>len;
+    cout<<"è¯·è¾“å…¥"<<len<<"ä¸ªæ•°æ®"<<endl;
+    for(i=0; i<len; i++) {
+        cin>>t;
+        v.push_back(t);
+    }
 }
 
-//Êä³ö
+//è¾“å‡º
 void ouputArray(vector<int> v) {
-	cout<<"¸ÃÊý×éÎª£º";
-	for(vector<int>::iterator it=v.begin(); it!=v.end(); it++) {
-		cout<<*it<<" ";
-	}
-	cout<<"Êý×é³¤¶ÈÎª:"<<v.size()<<endl;
-	cout<<endl;
+    cout<<"è¯¥æ•°ç»„ä¸ºï¼š";
+    for(vector<int>::iterator it=v.begin(); it!=v.end(); it++) {
+        cout<<*it<<" ";
+    }
+    cout<<"æ•°ç»„é•¿åº¦ä¸º:"<<v.size()<<endl;
+    cout<<endl;
 }
 
-//²éÕÒ
+//æŸ¥æ‰¾
 void findArray(vector<int> v,int n) {
-	vector<int>::iterator it=find(v.begin(),v.end(),n);
-	if(it!=v.end()) {
-		cout<<"YES"<<endl;
-	} else {
-		cout<<"NO"<<endl;
-	}
+    vector<int>::iterator it=find(v.begin(),v.end(),n);
+    if(it!=v.end()) {
+        cout<<"YES"<<endl;
+    } else {
+        cout<<"NO"<<endl;
+    }
 }
 
 int main(int argc,char *args[]) {
-	vector<int> v1;
-	int botton,n;
-	while(1) {
-		cout<<"1----ÊäÈë   2----Êä³ö     3---²éÕÒ"<<endl;
-		cin>>botton;
-		switch(botton) {
-			case 1:
-				inputArray(v1);
-				break;
-			case 2:
-				ouputArray(v1);
-				break;
-			case 3:
-				cout<<"ÇëÊäÈëÒª²éÕÒµÄÊý:";
-				cin>>n;
-				findArray(v1,n);
-				break; 
-			default:
-				cout<<"ÎÞÐ§"<<endl;
-		}
-	}
-	ouputArray(v1);
-	return 0;
+    vector<int> v1;
+    int botton,n;
+    while(1) {
+        cout<<"1----è¾“å…¥   2----è¾“å‡º     3---æŸ¥æ‰¾"<<endl;
+        cin>>botton;
+        switch(botton) {
+            case 1:
+                inputArray(v1);
+                break;
+            case 2:
+                ouputArray(v1);
+                break;
+            case 3:
+                cout<<"è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„æ•°:";
+                cin>>n;
+                findArray(v1,n);
+                break; 
+            default:
+                cout<<"æ— æ•ˆ"<<endl;
+        }
+    }
+    ouputArray(v1);
+    return 0;
 }

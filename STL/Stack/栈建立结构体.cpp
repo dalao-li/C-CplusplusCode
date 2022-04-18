@@ -3,28 +3,28 @@
 typedef int ElemType;
 
 typedef struct {
-	ElemType data;
-	char alphat;
+    ElemType data;
+    char alphat;
 } Slem;
 
 using namespace std;
 int main() {
-	stack<Slem> S;
-	int n;
-	cin>>n;
+    stack<Slem> S;
+    int n;
+    cin>>n;
 
-	for(int i=0; i<n; i++) {
-		Slem e;
-		cin>>e.data>>e.alphat;
-		//ÈëÕ»
-		S.push(e);
-	}
-	while(!S.empty()) {
-		//·ÃÎÊÕ»¶¥ÔªËØ
-		cout<<S.top().data<<" "<<S.top().alphat<<endl;
-		//É¾³ýÕ»¶¥ÔªËØ
-		S.pop();
-	}
-	cout<<endl;
-	return 0;
+    for(int i=0; i<n; i++) {
+        Slem e;
+        cin>>e.data>>e.alphat;
+        //ï¿½ï¿½Õ»
+        S.push(e);
+    }
+    while(!S.empty()) {
+        //ï¿½ï¿½ï¿½ï¿½Õ»ï¿½ï¿½Ôªï¿½ï¿½
+        cout<<S.top().data<<" "<<S.top().alphat<<endl;
+        //É¾ï¿½ï¿½Õ»ï¿½ï¿½Ôªï¿½ï¿½
+        S.pop();
+    }
+    cout<<endl;
+    return 0;
 }

@@ -3,24 +3,24 @@
 using namespace std;
 int main()
 {
-	int n,*p;
-	cout<<"ÇëÊäÈëÏëÒªÊäÈëµÄÊý×éµÄ³¤¶È:";
-	cin>>n;
-	p=new int[n];
-	ofstream outfile("file.txt",ios::out);
-	if(!outfile){
-		cerr<<"open error!"<<endl;
-		exit(1);
-	}
-	cout<<"enter "<<n<<" numbers:"<<endl;
-	for(int i=0;i<n;i++){
-		cin>>*(p+i);
-		outfile<<*(p+i)<<" ";
-	}
-	outfile.close();
-	delete[]p;
-	return 0;
-	
-	
-	
+    int n,*p;
+    cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½:";
+    cin>>n;
+    p=new int[n];
+    ofstream outfile("file.txt",ios::out);
+    if(!outfile){
+        cerr<<"open error!"<<endl;
+        exit(1);
+    }
+    cout<<"enter "<<n<<" numbers:"<<endl;
+    for(int i=0;i<n;i++){
+        cin>>*(p+i);
+        outfile<<*(p+i)<<" ";
+    }
+    outfile.close();
+    delete[]p;
+    return 0;
+    
+    
+    
 } 

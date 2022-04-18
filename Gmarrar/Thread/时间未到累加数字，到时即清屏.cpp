@@ -6,24 +6,24 @@ using namespace std;
 
 void playThread01()
 {
-	for(int i=0;i<100;i++){
-		cout<<i<<" "<<endl;
-	}
+    for(int i=0;i<100;i++){
+        cout<<i<<" "<<endl;
+    }
 }
 void playThread02()
 {
-	//ÉèÖÃÊ±¼ä±äÁ¿ 
+    //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ 
     int hour;  
     int mintue;  
     int second; 
     
-	//ÊäÈëÊ±¼ä 
-    cout<<"ÇëÊäÈëµ¹¼ÆÊ±µÄÊ±¼ä(Ð¡Ê±£º·ÖÖÓ£ºÃë)£º"; 
+    //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ 
+    cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ëµ¹ï¿½ï¿½Ê±ï¿½ï¿½Ê±ï¿½ï¿½(Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½)ï¿½ï¿½"; 
     cin>>hour>>mintue>>second;  
     
-    //Ö»ÒªÊ±¼äÎ´½áÊø¾ÍÒ»Ö±Ö´ÐÐÑ­»·
+    //Ö»ÒªÊ±ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ö±Ö´ï¿½ï¿½Ñ­ï¿½ï¿½
     while(hour!=0||mintue!=0||second!=0){ 
-	    //È¡µÃµ±Ç°Ê±¼ä    
+        //È¡ï¿½Ãµï¿½Ç°Ê±ï¿½ï¿½    
         time_t t=time(NULL);   
         while(time(NULL)==t);  
         if(--second<0){  
@@ -33,33 +33,33 @@ void playThread02()
                 --hour<0;  
             }  
         } 
-		//Êä³öÊ±¼ä  
+        //ï¿½ï¿½ï¿½Ê±ï¿½ï¿½  
         cout<<'\r';  
         if(hour<10){
-            cout<<0;	
-	    }  
+            cout<<0;    
+        }  
         cout<<hour<<':';  
         if(mintue<10){
-    	    cout<<0;
-	    }  
+            cout<<0;
+        }  
         cout<<mintue<<':';  
         if(second<10){
-    	    cout<<0; 
-	    } 
-        cout<<second<<flush;	  
+            cout<<0; 
+        } 
+        cout<<second<<flush;      
     }  
     cout<<endl<<"--------------Time out!-------------"<<endl;
-	cout<<endl<<"--------------Game over!------------"<<endl;  
+    cout<<endl<<"--------------Game over!------------"<<endl;  
     cout<<'\a';  
-	
+    
 } 
  
 
 int main()
 {
-	thread task01(playThread01());
-	thread task02(playThread02());
-	task01.detach();
-	task02.detach();
-	return 0;
+    thread task01(playThread01());
+    thread task02(playThread02());
+    task01.detach();
+    task02.detach();
+    return 0;
 }

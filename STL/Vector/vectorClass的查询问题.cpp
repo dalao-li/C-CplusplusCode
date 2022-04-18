@@ -1,74 +1,83 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: dalao
+ * @Email: dalao_li@163.com
+ * @Date: 2022-03-29 21:57:16
+ * @LastEditors: dalao
+ * @LastEditTime: 2022-03-29 22:39:06
+ */
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include <string>
 using namespace std;
 class student {
-	private:
-		string name;
-		int num;
-	public:
-		student() {};
+    private:
+        string name;
+        int num;
+    public:
+        student() {};
 
-		void assign(string a,int n) {
-			name=a;
-			num=n;
-		}
-		string showname() {
-			return name;
-		}
-		int shownum() {
-			return num;
-		}
-		//ÖØÔØ²Ù×÷·û==
-		bool operator ==(const student &stu)const {
-			return stu.name==name;
-		}
+        void assign(string a,int n) {
+            name=a;
+            num=n;
+        }
+        string showname() {
+            return name;
+        }
+        int shownum() {
+            return num;
+        }
+        //é‡è½½æ“ä½œç¬¦==
+        bool operator ==(const student &stu)const {
+            return stu.name==name;
+        }
 };
 vector<student>stu;
 
 bool cmp1(student a,student b) {
-	return a.showname()<b.showname();
+    return a.showname()<b.showname();
 }
 
 bool cmp2(student a,student b) {
-	return a.shownum()<b.shownum();
+    return a.shownum()<b.shownum();
 }
 
 void print() {
-	vector<student>::iterator it;
-	for(it=stu.begin(); it!=stu.end(); it++) {
-		cout<<it->showname()<<" "<<it->shownum()<<endl;
-	}
+    vector<student>::iterator it;
+    for(it=stu.begin(); it!=stu.end(); it++) {
+        cout<<it->showname()<<" "<<it->shownum()<<endl;
+    }
 }
 int main() {
-	student s;
-	string a;
-	int n;
-	while((cin>>a)&&a!="00") {
-		cin>>n;
-		s.assign(a,n);
-		stu.push_back(s);
-	}
-	//ÊäÈëÖ¸Áî
-	cout<<"ÊäÈëÖ¸Áî£¬1ÊÇ°´ÕÕĞÕÃûÅÅĞò,2ÊÇ°´ÕÕ³É¼¨ÅÅĞò£¬3ÊÇ²éÑ¯Ä³ÈË³É¼¨"<<endl;
-	int ins;
-	cin>>ins;
-	if(ins==1) {
-		sort(stu.begin(),stu.end(),cmp1);
-		print();
-	} else if(ins==2) {
-		sort(stu.begin(),stu.end(),cmp2);
-		print();
-	} else if(ins==3) {
-		string req;
-		cin>>req;
-		s.assign(req,0);
-		vector<student>::iterator it;
+    student s;
+    string a;
+    int n;
+    while((cin>>a)&&a!="00") {
+        cin>>n;
+        s.assign(a,n);
+        stu.push_back(s);
+    }
+    //è¾“å…¥æŒ‡ä»¤
+    cout<<"è¾“å…¥æŒ‡ä»¤ï¼Œ1æ˜¯æŒ‰ç…§å§“åæ’åº,2æ˜¯æŒ‰ç…§æˆç»©æ’åºï¼Œ3æ˜¯æŸ¥è¯¢æŸäººæˆç»©"<<endl;
+    int ins;
+    cin>>ins;
+    if(ins==1) {
+        sort(stu.begin(),stu.end(),cmp1);
+        print();
+    } else if(ins==2) {
+        sort(stu.begin(),stu.end(),cmp2);
+        print();
+    } else if(ins==3) {
+        string req;
+        cin>>req;
+        s.assign(req,0);
+        vector<student>::iterator it;
 
-		it=find(stu.begin(),stu.end(),s);
-		cout<<(*it).showname()<<" "<<(*it).shownum()<<endl;
-	}
-	return 0;
+        it=find(stu.begin(),stu.end(),s);
+        cout<<(*it).showname()<<" "<<(*it).shownum()<<endl;
+    }
+    return 0;
 }
 

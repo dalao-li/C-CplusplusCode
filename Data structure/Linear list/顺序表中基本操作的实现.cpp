@@ -1,93 +1,93 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-//½¨Á¢Ë³Ðò±í
+//ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½
 typedef int ElemType;
 
 typedef struct {
-	ElemType *elem;
-	int length;
+    ElemType *elem;
+    int length;
 } Sqlist;
 
-//Ë³Ðò±íµÄ³õÊ¼»¯
+//Ë³ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ê¼ï¿½ï¿½
 void initialize(Sqlist &L) {
-	//¶¯Ì¬¿ª±Ù½á¹¹ÌåÊý×é
-	//L.elem = (Polynomial *) malloc (MAXSIZE * sizeof(Polynomial)); 
-	L.elem=(ElemType *) malloc (6 * sizeof(Sqlist));
-	if(!L.elem) {
-		return;
-	}
-	L.length=0;
-	printf("³õÊ¼»¯³É¹¦\n",L.length);
-	//Ë³Ðò±íµÄÊäÈë
-	for(int i=0; i<5; i++) {
-		scanf("%d",&L.elem[i]);
-		L.length++;
-	}
+    //ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ù½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //L.elem = (Polynomial *) malloc (MAXSIZE * sizeof(Polynomial)); 
+    L.elem=(ElemType *) malloc (6 * sizeof(Sqlist));
+    if(!L.elem) {
+        return;
+    }
+    L.length=0;
+    printf("ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½\n",L.length);
+    //Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    for(int i=0; i<5; i++) {
+        scanf("%d",&L.elem[i]);
+        L.length++;
+    }
 }
 
-//Ë³Ðò±íµÄÈ¡Öµ,
+//Ë³ï¿½ï¿½ï¿½ï¿½ï¿½È¡Öµ,
 void getElem(Sqlist &L,const int index) {
-	if(index<1||index>L.length) {
-		printf("Ë÷Òý´íÎó!");
-		return;
-	}
-	printf("µÚ%dË÷ÒýµÄÖµÎª:%d\n",index,L.elem[index-1]);
+    if(index<1||index>L.length) {
+        printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
+        return;
+    }
+    printf("ï¿½ï¿½%dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎª:%d\n",index,L.elem[index-1]);
 }
 
-//Ë³Ðò±íµÄ²éÕÒ
+//Ë³ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
 int locateElem(Sqlist &L,const int e) {
-	for(int i=0; i<L.length; i++) {
-		if(L.elem[i]==e) {
-			return i+1;
-		}
-	}
-	return 0;
+    for(int i=0; i<L.length; i++) {
+        if(L.elem[i]==e) {
+            return i+1;
+        }
+    }
+    return 0;
 }
 
-//Ë³Ðò±íµÄ²åÈë£¬Ç°²å 
+//Ë³ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ë£¬Ç°ï¿½ï¿½ 
 void insertElem(Sqlist &L,int index,int e) {
-	if(index<1||index>L.length) {
-		return;
-	}
-	//Èç¹ûÃ»Î»ÖÃ²åÁË 
-	/*if(L.length=MAXSIZE) {
-		return;
-	}*/
-	for(int i=L.length-1; i>=index-1; i--) {
-		L.elem[i+1]=L.elem[i];
-	}
-	L.elem[index-1]=e;
-	L.length++;
+    if(index<1||index>L.length) {
+        return;
+    }
+    //ï¿½ï¿½ï¿½Ã»Î»ï¿½Ã²ï¿½ï¿½ï¿½ 
+    /*if(L.length=MAXSIZE) {
+        return;
+    }*/
+    for(int i=L.length-1; i>=index-1; i--) {
+        L.elem[i+1]=L.elem[i];
+    }
+    L.elem[index-1]=e;
+    L.length++;
 }
 
-//Ë³Ðò±íµÄÊä³ö
+//Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void ouputValue(Sqlist &L) {
-	for(int i=0; i<L.length; i++) {
-		printf("%d\n",L.elem[i]);
-	}
+    for(int i=0; i<L.length; i++) {
+        printf("%d\n",L.elem[i]);
+    }
 }
 
 int main() {
-	Sqlist L;
-	initialize(L);
-	printf("ÊäÈëÄãÏë²éÕÒµÄË÷Òý:");
-	int index;
-	scanf("%d",&index);
-	getElem(L,index);
-	printf("ÊäÈëÄãÏë²éÕÒµÄÖµ:");
-	int e;
-	scanf("%d",&e);
-	printf("%dµÄË÷ÒýÎª%d\n",e,locateElem(L,e));
-	printf("ÊäÈëÄãÏë²åÈëµÄÎ»ÖÃºÍÖµ:");
-	int index,e;
+    Sqlist L;
+    initialize(L);
+    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½:");
+    int index;
+    scanf("%d",&index);
+    getElem(L,index);
+    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½Öµ:");
+    int e;
+    scanf("%d",&e);
+    printf("%dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª%d\n",e,locateElem(L,e));
+    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ãºï¿½Öµ:");
+    int index,e;
 
 
-	scanf("%d%d",&index,&e);
-	insertElem(L,index,e);
-	printf("Êý×é³¤¶ÈÎª%d\n",L.length);
-	ouputValue(L);
-	return 0;
+    scanf("%d%d",&index,&e);
+    insertElem(L,index,e);
+    printf("ï¿½ï¿½ï¿½é³¤ï¿½ï¿½Îª%d\n",L.length);
+    ouputValue(L);
+    return 0;
 
 
 }

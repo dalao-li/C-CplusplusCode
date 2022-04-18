@@ -1,26 +1,26 @@
 #include<stdio.h>
 struct date {
-	int year;
-	int month;
-	int day;
+    int year;
+    int month;
+    int day;
 };
 int main() {
-	struct date num;
-	printf("ÇëÊäÈëÄêÔÂÈÕ:\n");
-	scanf("%d%d%d",&num.year ,&num.month ,&num.day );
-	int a[12]= {31,28,31,30,31,30,31,31,30,31,30,31};
-	if((num.day <=31)&&(num.month<=12)) {
-		for(int i=0; i<num.month-1; i++) {
-			num.day+=a[i];
-		}
-		if((num.year %4==0&&num.year %100!=0)||(num.year %400==0)&&(num.month>2)) {
-			printf("ÕâÊÇ%dÄêµÄµÚ%dÌì\n",num.year ,num.day+1);
-		} else {
-			printf("ÕâÊÇ%dÄêµÄµÚ%dÌì\n",num.year,num.day);
-		}
-	} else {
-		printf("ÔÂ·İ»òÈÕÆÚÊäÈë´íÎó!\n");
-	}
-	return 0;
+    struct date num;
+    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:\n");
+    scanf("%d%d%d",&num.year ,&num.month ,&num.day );
+    int a[12]= {31,28,31,30,31,30,31,31,30,31,30,31};
+    if((num.day <=31)&&(num.month<=12)) {
+        for(int i=0; i<num.month-1; i++) {
+            num.day+=a[i];
+        }
+        if((num.year %4==0&&num.year %100!=0)||(num.year %400==0)&&(num.month>2)) {
+            printf("ï¿½ï¿½ï¿½ï¿½%dï¿½ï¿½Äµï¿½%dï¿½ï¿½\n",num.year ,num.day+1);
+        } else {
+            printf("ï¿½ï¿½ï¿½ï¿½%dï¿½ï¿½Äµï¿½%dï¿½ï¿½\n",num.year,num.day);
+        }
+    } else {
+        printf("ï¿½Â·İ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!\n");
+    }
+    return 0;
 
 }

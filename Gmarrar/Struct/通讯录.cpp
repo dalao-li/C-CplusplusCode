@@ -129,7 +129,7 @@ void ouput(struct Info mes[]) {
                 cin >> number;
                 if (number > N || number < 1) {
                     cout << "查无此人，错误！！！：" << endl;
-					break;
+                    break;
                 }
                 cout << "第" << number << "位成员的学号为：    "
                      << (p + number - 1)->num << endl;

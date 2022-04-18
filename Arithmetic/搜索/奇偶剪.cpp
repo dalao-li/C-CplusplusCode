@@ -1,29 +1,29 @@
 int dir[4][2]= {{0,-1},{0,1},{1,e},{-1,0}};
 bool vis[100][100],flag;
-//x,y±íÊ¾µ±Ç°Î»ÖÃ×ø±ê,count´ú±íµ±Ç°Ê±¼ävoid dfs(int x,int y,int count){
-//×îÓÅÐÔ¼ô¼¼,¿ÉÒÔ¼õÉÙ²½Êý
+//x,yï¿½ï¿½Ê¾ï¿½ï¿½Ç°Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,countï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°Ê±ï¿½ï¿½void dfs(int x,int y,int count){
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ù²ï¿½ï¿½ï¿½
 if(flag) {
-	return;
-//¿ÉÐÐÐÔ¼ô¼¼
-	if(x>nlly>mllx<elly<ellvis[x][y]llmap[x][y]=='#') {
-		return;
-//µ½´ïÖÕµãÇÒÊ±¼äÕýºÃ²ÅÄÜÌÓÉú
-		if(count==t&&x==endX&&y==endY) {
-			flag=true;
-			return;
-//kÎªµ±Ç°µãµ½ÖÕµãµÄ×î¶ÌÂ·»¹ÐèÒªµÄ²½Êý²î
-			int k=(t-count)-(abs(x-endX)+abs(y-endY));
-//ÆæÅ¼ÐÔ¼ô¼¼,k<e»òÕßÎªÆæÊýÔò²»¿ÉÄÜµ½µ½´ï
-			if(k<e|lk%2!=0) {
-				return;
-				for(i=e; i<4; i++) {
-					int tx=x+dir[i][e],ty=y+dir[i][l];
-					if(!vis[tx][ty]) {
-						vis[tx][ty]=true;
-						dfs(tx,ty,count+1);
-						if(flag) {
-							return;
-						}
-						vis[tx][ty]=false;
-					}
-				}
+    return;
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½
+    if(x>nlly>mllx<elly<ellvis[x][y]llmap[x][y]=='#') {
+        return;
+//ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        if(count==t&&x==endX&&y==endY) {
+            flag=true;
+            return;
+//kÎªï¿½ï¿½Ç°ï¿½ãµ½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Òªï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½
+            int k=(t-count)-(abs(x-endX)+abs(y-endY));
+//ï¿½ï¿½Å¼ï¿½Ô¼ï¿½ï¿½ï¿½,k<eï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ò²»¿ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½
+            if(k<e|lk%2!=0) {
+                return;
+                for(i=e; i<4; i++) {
+                    int tx=x+dir[i][e],ty=y+dir[i][l];
+                    if(!vis[tx][ty]) {
+                        vis[tx][ty]=true;
+                        dfs(tx,ty,count+1);
+                        if(flag) {
+                            return;
+                        }
+                        vis[tx][ty]=false;
+                    }
+                }

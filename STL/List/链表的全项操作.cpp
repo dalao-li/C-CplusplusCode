@@ -4,21 +4,21 @@
 #include<list>
 using namespace std;
 int main(){
-	//ofstream outfile("a.txt");
-	list<int> linklist;
-	int item,n;
-	cin>>n;
-	for(int i=0;i<n;i++){
-		cin>>item;
-		linklist.push_back(item);
-		//outfile << item<<endl;
-	}
-	//·Çµü´úÆ÷±éÀú 
-	while(!linklist.empty()){
-		//·µ»ØÊ×ÔªËØÒýÓÃ 
-		cout<<linklist.front()<<endl;
-		//É¾³ýÊ×ÔªËØ 
-		linklist.pop_front();
-	}
-	return 0;
+    //ofstream outfile("a.txt");
+    list<int> linklist;
+    int item,n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>item;
+        linklist.push_back(item);
+        //outfile << item<<endl;
+    }
+    //ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+    while(!linklist.empty()){
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+        cout<<linklist.front()<<endl;
+        //É¾ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ 
+        linklist.pop_front();
+    }
+    return 0;
 } 

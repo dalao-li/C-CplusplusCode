@@ -1,72 +1,72 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-//½¨Á¢Ë³Ðò±í
+//ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½
 typedef struct {
-	int *elem;
-	int length;
+    int *elem;
+    int length;
 } Sqlist;
 
-//Ë³Ðò±íµÄ³õÊ¼»¯
+//Ë³ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ê¼ï¿½ï¿½
 void initialize(Sqlist &L,const int n) {
-	//¶¯Ì¬¿ª±Ù½á¹¹ÌåÊý×é
-	L.elem = (int *) malloc (100 * sizeof(Sqlist));
-	if(!L.elem) {
-		return;
-	}
-	L.length=0;
-	printf("³õÊ¼»¯³É¹¦\n",L.length);
-	//Ë³Ðò±íµÄÊäÈë
-	for(int i=0; i<n; i++) {
-		scanf("%d",&L.elem[i]);
-		L.length++;
-	}
+    //ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ù½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    L.elem = (int *) malloc (100 * sizeof(Sqlist));
+    if(!L.elem) {
+        return;
+    }
+    L.length=0;
+    printf("ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½\n",L.length);
+    //Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    for(int i=0; i<n; i++) {
+        scanf("%d",&L.elem[i]);
+        L.length++;
+    }
 }
 
-//ÊµÏÖ½«s1 s2ÖÐµÄÔªËØ°´Ë³ÐòÕªÈ¡µ½s3ÖÐ
+//Êµï¿½Ö½ï¿½s1 s2ï¿½Ðµï¿½Ôªï¿½Ø°ï¿½Ë³ï¿½ï¿½ÕªÈ¡ï¿½ï¿½s3ï¿½ï¿½
 void mergeList(Sqlist &S1,Sqlist &S2,Sqlist &S3) {
 
-	int e;
-	int start1=0,start2=0,start3=0;
-	int end1=S1.length-1;
-	int end2=S2.length-1;
+    int e;
+    int start1=0,start2=0,start3=0;
+    int end1=S1.length-1;
+    int end2=S2.length-1;
 
-	S3.elem=(int *) malloc (200 * sizeof(Sqlist));
-	S3.length=S1.length+S2.length;
-	//s1 s2¾ùÎ´µ½Ä©Î²Ê±£¬ÒÀ´Î²éÕÒÁ½¸ö±íµÄÖµ£¬°Ñ½ÏÐ¡µÄÖµ²åÈës3ÖÐ
-	while(start1<=end1&&start2<=end2) {
-		if(S1.elem[start1]<=S2.elem[start2]) {
-			S3.elem[start3++]=S1.elem[start1++];
-		} else {
-			S3.elem[start3++]=S2.elem[start2++];
-		}
-	}
-	//Èç¹ûs2ÏÈµ½ÁËÄ©Î²£¬ÄÇÃ´½«s1ÖÐÊ£ÓàÔªËØ²åÈës3ÖÐ
-	while(start1<=end1) {
-		S3.elem[start3++]=S1.elem[start1++];
-	}
-	while(start2<=end2) {
-		S3.elem[start3++]=S2.elem[start2++];
-	}
+    S3.elem=(int *) malloc (200 * sizeof(Sqlist));
+    S3.length=S1.length+S2.length;
+    //s1 s2ï¿½ï¿½Î´ï¿½ï¿½Ä©Î²Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ñ½ï¿½Ð¡ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½s3ï¿½ï¿½
+    while(start1<=end1&&start2<=end2) {
+        if(S1.elem[start1]<=S2.elem[start2]) {
+            S3.elem[start3++]=S1.elem[start1++];
+        } else {
+            S3.elem[start3++]=S2.elem[start2++];
+        }
+    }
+    //ï¿½ï¿½ï¿½s2ï¿½Èµï¿½ï¿½ï¿½Ä©Î²ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½s1ï¿½ï¿½Ê£ï¿½ï¿½Ôªï¿½Ø²ï¿½ï¿½ï¿½s3ï¿½ï¿½
+    while(start1<=end1) {
+        S3.elem[start3++]=S1.elem[start1++];
+    }
+    while(start2<=end2) {
+        S3.elem[start3++]=S2.elem[start2++];
+    }
 }
 
-//Ë³Ðò±íµÄÊä³ö
+//Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void ouputElem(Sqlist &L) {
-	for(int i=0; i<L.length; i++) {
-		printf("%d ",L.elem[i]);
-	}
-	printf("\n");
+    for(int i=0; i<L.length; i++) {
+        printf("%d ",L.elem[i]);
+    }
+    printf("\n");
 }
 
 int main() {
-	Sqlist S1,S2,S3;
-	int size1,size2;
-	scanf("%d",&size1);
-	initialize(S1,size1);
-	scanf("%d",&size2);
-	initialize(S2,size2);
-	mergeList(S1,S2,S3);
+    Sqlist S1,S2,S3;
+    int size1,size2;
+    scanf("%d",&size1);
+    initialize(S1,size1);
+    scanf("%d",&size2);
+    initialize(S2,size2);
+    mergeList(S1,S2,S3);
 
-	ouputElem(S3);
+    ouputElem(S3);
 }
 

@@ -1,79 +1,79 @@
 /*
-	Name: ¹ØÓÚ¸´ÊıÔËËã·ûÖØÔØµÄÀı×Ó
-	Copyright: 
-	Author: ÀîÔªê» 
-	Date: 11/05/18 14:55
-	Description: 
+    Name: ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+    Copyright: 
+    Author: ï¿½ï¿½Ôªï¿½ 
+    Date: 11/05/18 14:55
+    Description: 
 */
 
 #include<iostream>
 using namespace std;
 class Complex
 {
-	public:
-		Complex(){real=0;imag=0;}
-		Complex(float r,float i){real=r;imag=i;}
-		/*ÖØÔØÊäÈëÊä³öÔËËã·û£¬²¢½«ÆäÉùÃ÷ÎªÓÑÔªº¯Êı*/ 
-		friend istream& operator >> (istream&,Complex&);
-		friend ostream& operator << (ostream&,Complex&);
-		/*ÖØÔØËÄÔòÔËËãÔËËã·û£¬²¢½«ÆäÉùÃ÷ÎªÓÑÔªº¯Êı*/
-		friend Complex operator + (Complex &c1,Complex &c2);
-		friend Complex operator - (Complex &c1,Complex &c2);
-		friend Complex operator * (Complex &c1,Complex &c2);
-		friend Complex operator / (Complex &c1,Complex &c2);
-	private:
-	    float real;
-		float imag; 	
+    public:
+        Complex(){real=0;imag=0;}
+        Complex(float r,float i){real=r;imag=i;}
+        /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½*/ 
+        friend istream& operator >> (istream&,Complex&);
+        friend ostream& operator << (ostream&,Complex&);
+        /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½*/
+        friend Complex operator + (Complex &c1,Complex &c2);
+        friend Complex operator - (Complex &c1,Complex &c2);
+        friend Complex operator * (Complex &c1,Complex &c2);
+        friend Complex operator / (Complex &c1,Complex &c2);
+    private:
+        float real;
+        float imag;     
 };
-/*ÖØÔØ >>ÔËËã·û*/
+/*ï¿½ï¿½ï¿½ï¿½ >>ï¿½ï¿½ï¿½ï¿½ï¿½*/
 istream& operator >> (istream& input,Complex &c)
 {
-	cout<<"ÇëÊäÈëÊµ²¿ºÍĞé²¿£º";
-	input>>c.real>>c.imag;
-	return input; 
+    cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½é²¿ï¿½ï¿½";
+    input>>c.real>>c.imag;
+    return input; 
 }
-/*ÖØÔØ <<ÔËËã·û*/
+/*ï¿½ï¿½ï¿½ï¿½ <<ï¿½ï¿½ï¿½ï¿½ï¿½*/
 ostream& operator << (ostream& ouput,Complex &c)
 {
-	ouput<<"("<<c.real<<"+"<<c.imag<<"i)";
-	return ouput;
+    ouput<<"("<<c.real<<"+"<<c.imag<<"i)";
+    return ouput;
 }
-/*ÖØÔØ +ÔËËã·û*/
+/*ï¿½ï¿½ï¿½ï¿½ +ï¿½ï¿½ï¿½ï¿½ï¿½*/
 Complex operator + (Complex &c1,Complex &c2)
 {
-	return Complex(c1.real+c2.real,c1.imag+c2.imag);
+    return Complex(c1.real+c2.real,c1.imag+c2.imag);
 }
-/*ÖØÔØ-ÔËËã·û*/
+/*ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½*/
 Complex operator - (Complex &c1,Complex &c2)
 {
 
-	return Complex(c1.real-c2.real,c1.imag-c2.imag);
+    return Complex(c1.real-c2.real,c1.imag-c2.imag);
 }
-/*ÖØÔØ *ÔËËã·û*/
+/*ï¿½ï¿½ï¿½ï¿½ *ï¿½ï¿½ï¿½ï¿½ï¿½*/
 Complex operator * (Complex &c1,Complex &c2)
-{	
-	return Complex(c1.real*c2.real-c1.imag*c2.imag,c1.imag*c2.real+c1.real*c2.imag);
+{    
+    return Complex(c1.real*c2.real-c1.imag*c2.imag,c1.imag*c2.real+c1.real*c2.imag);
 }
-/*ÖØÔØ /ÔËËã·û*/
+/*ï¿½ï¿½ï¿½ï¿½ /ï¿½ï¿½ï¿½ï¿½ï¿½*/
 Complex operator / (Complex &c1,Complex &c2)
 {
-	return Complex((c1.real*c2.real+c1.imag*c2.imag)/(c2.real*c2.real+c2.imag*c2.imag),(c1.imag*c2.real-c1.real*c2.imag)/(c2.real*c2.real+c2.imag*c2.imag));
+    return Complex((c1.real*c2.real+c1.imag*c2.imag)/(c2.real*c2.real+c2.imag*c2.imag),(c1.imag*c2.real-c1.real*c2.imag)/(c2.real*c2.real+c2.imag*c2.imag));
 }
 
 int main()
 {
-	Complex c1,c2,c[4];
+    Complex c1,c2,c[4];
     while(1){
-	    cin>>c1>>c2;
-	    c[0]=c1+c2;
-	    c[1]=c1-c2;
-	    c[2]=c1*c2;
-	    c[3]=c1/c2;
-	    cout<<"Á½¸´ÊıÏà¼ÓÎª½á¹ûÎª£º"<<c[0]<<endl;
-		cout<<"Á½¸´ÊıÏà¼õÎª½á¹ûÎª£º"<<c[1]<<endl;
-		cout<<"Á½¸´ÊıÏà³ËÎª½á¹ûÎª£º"<<c[2]<<endl;
-		cout<<"Á½¸´ÊıÏà³ıÎª½á¹ûÎª£º"<<c[3]<<endl; 
-		cout<<"                             "<<endl;		  	   	   
+        cin>>c1>>c2;
+        c[0]=c1+c2;
+        c[1]=c1-c2;
+        c[2]=c1*c2;
+        c[3]=c1/c2;
+        cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Îªï¿½ï¿½"<<c[0]<<endl;
+        cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Îªï¿½ï¿½"<<c[1]<<endl;
+        cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Îªï¿½ï¿½"<<c[2]<<endl;
+        cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Îªï¿½ï¿½"<<c[3]<<endl; 
+        cout<<"                             "<<endl;                        
     }
 
 

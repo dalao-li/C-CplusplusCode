@@ -1,5 +1,5 @@
-//t.detach()¿ÉÒÔÔÚ³ÌÐòÒ»ÔËÐÐ¿ªÊ¼¾ÍÊäÈë×Ö·û
-//t.join()»áµÈ´ýÆô¶¯µÄÏß³Ì½áÊø£¬²Å¼ÌÐøÏòÏÂÖ´ÐÐ
+//t.detach()ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ð¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
+//t.join()ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
 #include <iostream>
 #include <thread>
 #include<windows.h>
@@ -7,25 +7,25 @@
 using namespace std;
 
 void output1() {
-	for (int i = 0; i < 4; i++) {
-		cout <<"Ïß³Ì1:" <<i << endl;
-	}
+    for (int i = 0; i < 4; i++) {
+        cout <<"ï¿½ß³ï¿½1:" <<i << endl;
+    }
 }
 
 void output2() {
-	for (int i = 0; i < 4; i++) {
-		cout <<"Ïß³Ì2:"<<i*i<<endl;
-	}
+    for (int i = 0; i < 4; i++) {
+        cout <<"ï¿½ß³ï¿½2:"<<i*i<<endl;
+    }
 }
 
 int main() {
-	//´´½¨Ò»¸öÏß³Ìt
-	thread t1(output1);
-	thread t2(output2);
-	//¸ÃÏß³ÌÔÚºóÌ¨ÔÊÐí£¬ÎÞÐòµÈ´ý¸ÃÏß³ÌµÄÍê³É
-	t1.detach();
-	Sleep(1000);
-	t2.detach();
-	Sleep(1000);
-	return 0;
+    //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß³ï¿½t
+    thread t1(output1);
+    thread t2(output2);
+    //ï¿½ï¿½ï¿½ß³ï¿½ï¿½Úºï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ß³Ìµï¿½ï¿½ï¿½ï¿½
+    t1.detach();
+    Sleep(1000);
+    t2.detach();
+    Sleep(1000);
+    return 0;
 }

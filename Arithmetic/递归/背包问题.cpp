@@ -18,20 +18,20 @@ int w[MAX],v[MAX];
 
 // 从第i个物品中找出总重小于j的部分 
 int rec(int i,int j) {
-	int res;
-	//如果已经选完了 
-	if(i==n) {
-		res = 0;
-	} else if(j<w[i]) {
-		res = rec(i+1,j);
-	} else {
-		res = max(rec(i+1,j),rec(i+1,j-w[i])+v[i]);
-	}
-	return res;
+    int res;
+    //如果已经选完了 
+    if(i==n) {
+        res = 0;
+    } else if(j<w[i]) {
+        res = rec(i+1,j);
+    } else {
+        res = max(rec(i+1,j),rec(i+1,j-w[i])+v[i]);
+    }
+    return res;
 }
 
 int main() {
-	cin>>W>>n;
-	//for(int i=0;)
-	printf("%d\n",rec(0,W));
+    cin>>W>>n;
+    //for(int i=0;)
+    printf("%d\n",rec(0,W));
 }

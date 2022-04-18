@@ -4,90 +4,90 @@
 #include<iostream>
 using namespace std;
 typedef struct {
-	int data;
-	char alpht;
+    int data;
+    char alpht;
 } SlemType;
 
 typedef struct {
-	SlemType *top;   //Õ»¶¥Ö¸Õë
-	SlemType *base;  //Õ»µ×Ö¸Õë
-	int size;
+    SlemType *top;   //Õ»ï¿½ï¿½Ö¸ï¿½ï¿½
+    SlemType *base;  //Õ»ï¿½ï¿½Ö¸ï¿½ï¿½
+    int size;
 } Stack ;
 
-//Õ»µÄ³õÊ¼»¯
+//Õ»ï¿½Ä³ï¿½Ê¼ï¿½ï¿½
 void initStack(Stack &S) {
-	S.base = (SlemType *) malloc (MAXSIZE*sizeof(Stack));
-	if(!S.base) {
-		exit(0);
-	}
-	S.top = S.base;
-	S.size = MAXSIZE;
-	printf("³õÊ¼»¯³É¹¦\n");
+    S.base = (SlemType *) malloc (MAXSIZE*sizeof(Stack));
+    if(!S.base) {
+        exit(0);
+    }
+    S.top = S.base;
+    S.size = MAXSIZE;
+    printf("ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½\n");
 }
 
-//ÈëÕ»
+//ï¿½ï¿½Õ»
 void pushStack(Stack &S,SlemType &e) {
-	//Èç¹ûÂúÕ»
-	if(S.top - S.base == S.size) {
-		exit(0);
-	}
-	*S.top = e;
-	S.top++;
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Õ»
+    if(S.top - S.base == S.size) {
+        exit(0);
+    }
+    *S.top = e;
+    S.top++;
 }
 
 
-//³öÕ»
+//ï¿½ï¿½Õ»
 void popStack(Stack &S) {
-	if(S.top == S.base) {
-		exit(0);
-	}
-	--S.top;
+    if(S.top == S.base) {
+        exit(0);
+    }
+    --S.top;
 }
 
 void
 
 int find(Stack &S,SlemType &e) {
-	int i = 1;
-	for(SlemType *p = S.top-1; p != S.base-1; p--,i++) {
-		if(e.data == p->data) {
-			return i;
-		}
-	}
-	return -1;
+    int i = 1;
+    for(SlemType *p = S.top-1; p != S.base-1; p--,i++) {
+        if(e.data == p->data) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 void somePop(Stack &S,Stack &S2,SlemType &e) {
-	int position = find(S,e);
-	SlemType e1;
-	for(int i =S.size ; i>position ; i--) {
-		e1 = *(S.top-1);
-		popStack(S);
-		cout<<e1.data<<" "<<e1.alpht<<"Àë¿ªS"<<endl;
-		pushStack(S2,e1);
-		e1 = *(S2.top-1);
-		cout<<e1.data<<" "<<e1.alpht<<"½øÈëS2"<<endl;
-	}
-	popStack(S);
-	cout<<e.data<<" "<<e.alpht<<"Àë¿ªS"<<endl;
-	for(int i =S2.size ; i>position ; i--) {
-		e1 = *(S2.top-1);
-		popStack(S2);
+    int position = find(S,e);
+    SlemType e1;
+    for(int i =S.size ; i>position ; i--) {
+        e1 = *(S.top-1);
+        popStack(S);
+        cout<<e1.data<<" "<<e1.alpht<<"ï¿½ë¿ªS"<<endl;
+        pushStack(S2,e1);
+        e1 = *(S2.top-1);
+        cout<<e1.data<<" "<<e1.alpht<<"ï¿½ï¿½ï¿½ï¿½S2"<<endl;
+    }
+    popStack(S);
+    cout<<e.data<<" "<<e.alpht<<"ï¿½ë¿ªS"<<endl;
+    for(int i =S2.size ; i>position ; i--) {
+        e1 = *(S2.top-1);
+        popStack(S2);
 
-		cout<<e1.data<<" "<<e1.alpht<<"Àë¿ªS2"<<endl;
-		pushStack(S,e1);
-		e1 = *(S.top-1);
-		cout<<e1.data<<" "<<e1.alpht<<"½øÈëS"<<endl;
-	}
+        cout<<e1.data<<" "<<e1.alpht<<"ï¿½ë¿ªS2"<<endl;
+        pushStack(S,e1);
+        e1 = *(S.top-1);
+        cout<<e1.data<<" "<<e1.alpht<<"ï¿½ï¿½ï¿½ï¿½S"<<endl;
+    }
 
 
 }
 
 void print(Stack &S) {
-	cout<<"-----------"<<endl;
-	for(SlemType *e = S.top-1; e != S.base-1; e--) {
-		printf("%d %c\n",e->data,e->alpht);
-	}
-	cout<<"-----------"<<endl;
+    cout<<"-----------"<<endl;
+    for(SlemType *e = S.top-1; e != S.base-1; e--) {
+        printf("%d %c\n",e->data,e->alpht);
+    }
+    cout<<"-----------"<<endl;
 }
 
 
@@ -97,29 +97,29 @@ void print(Stack &S) {
 
 
 void judge(Stack &S) {
-	if(S.top - S.base == S.size ) {
-		cout<<"ÂúÕ»"<<endl;
-	}
+    if(S.top - S.base == S.size ) {
+        cout<<"ï¿½ï¿½Õ»"<<endl;
+    }
 }
 int main() {
-	Stack S,S2;
-	initStack(S);
-	initStack(S2);
-	int n = 5;
-	SlemType e;
-	for(int i = 0 ; i < 5; i++) {
-		cin>>e.data>>e.alpht;
-		pushStack(S,e);
-		judge(S);
+    Stack S,S2;
+    initStack(S);
+    initStack(S2);
+    int n = 5;
+    SlemType e;
+    for(int i = 0 ; i < 5; i++) {
+        cin>>e.data>>e.alpht;
+        pushStack(S,e);
+        judge(S);
 
-	}
-	print(S);
-	cin>>e.data>>e.alpht;
-	cout<<find(S,e);
-	/*cin>>e.data>>e.alpht;
-	somePop(S,S2,e);*/
-	print(S);
-	return 0;
+    }
+    print(S);
+    cin>>e.data>>e.alpht;
+    cout<<find(S,e);
+    /*cin>>e.data>>e.alpht;
+    somePop(S,S2,e);*/
+    print(S);
+    return 0;
 }
 
 

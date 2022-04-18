@@ -2,16 +2,16 @@
 #include<set>
 using namespace std;
 int main() {
-	set<int> s1;
-	int n,temp;
-	cin>>n;
-	for(int i=0; i<n; i++) {
-		cin>>temp;
-		//ÊäÈëÒ»¸öÊı²¢²åÈës1ÖĞ,×Ô¶¯Ö´ĞĞÅÅĞòºÍÈ¥ÖØ 
-		s1.insert(temp);
-	}
-	for(set<int>::iterator it = s1.begin(); it!=s1.end(); it++) {
-		cout<<*it<<" ";
-	}
-	return 0;
+    set<int> s1;
+    int n,temp;
+    cin>>n;
+    for(int i=0; i<n; i++) {
+        cin>>temp;
+        //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s1ï¿½ï¿½,ï¿½Ô¶ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ 
+        s1.insert(temp);
+    }
+    for(set<int>::iterator it = s1.begin(); it!=s1.end(); it++) {
+        cout<<*it<<" ";
+    }
+    return 0;
 }
